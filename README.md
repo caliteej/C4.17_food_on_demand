@@ -5,7 +5,7 @@
 - Steven F
 - John K
 - Paul V
-- Jammy T
+- Jammy Y
 - TJ K
 - Adam L
 
