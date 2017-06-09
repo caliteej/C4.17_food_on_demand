@@ -1,5 +1,4 @@
 //Using Stripe as example Payment Processor through comments for ease of reference
-
 //take in credit card number and customer token and send those to back-end
 var customer_info = {
     id: 'x8x7xhx7df9',
@@ -17,29 +16,22 @@ var chef_info = {
     balance: 4000
 };
 
-//may not need conversion function since Stripe takes in dollar amount in cents ($1 = 100)
-//If we keep same conversion no math needed
-// function convertToDollars(tokens){
-//     return tokens/100;
-// }
-//
-// function convertToTokens(dollars){
-//     return dollars*100;
-// }
+console.log(order_info.total);
 
 function ajaxCall(customer_info, order_info) {
+    console.log('call initiated');
     $.ajax({
         method: 'get',
         dataType: 'json',
         data: {
-            'amount': order_info.order_total,
-            'term': term
+            'amount': order_info.total,
         },
-        url: 'stripe.php',
+        url: 'tsconfig.json',
         success: function (response) {
+            console.log(response);
             stripe_response = response;
-            updateChefBalance(chef_info.chef_id, response.amount);
-            updateCustomerBalance(customer_info.id, response.amount);
+            // updateChefBalance(chef_info.id, response.amount);
+            // updateCustomerBalance(customer_info.id, response.amount);
             updateCheckoutPage('success');
         },
         error: function (response) {
@@ -58,17 +50,28 @@ function updateCustomerBalance(customer_id, order_total){
 
 
 function updateCheckoutPage(message){
+    console.log(message);
     switch(message){
-        case success:
+        case 'success':
             console.log('Order Complete');
             break;
-        case fail:
+        case 'fail':
             console.log('Order Failed');
             break;
         default:
             console.log('Order failed to process please try again')
     }
 }
+
+//may not need conversion function since Stripe takes in dollar amount in cents ($1 = 100)
+//If we keep same conversion no math needed
+// function convertToDollars(tokens){
+//     return tokens/100;
+// }
+//
+// function convertToTokens(dollars){
+//     return dollars*100;
+// }
 
 
 
