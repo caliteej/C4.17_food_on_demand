@@ -2,16 +2,27 @@
   {
     "id": "1",
     "name": "Ronald Reagan",
+    "style": "Russian and American Cuisine",
     "bio": "40th President of the United States from 1981 to 1989. A fan of italian food and my wife Nancy. Check out my killer fudge brownies.",
     "portrait": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Ronald_Reagan_with_cowboy_hat_12-0071M_edit.jpg",
     "address": "Bonita Canyon Sports Park, Ford Rd, Newport Beach, CA 92660",
+    "location": {
+      "lat": "33.6274507",
+      "lng": "-117.8527552"
+    },
     "menu": [
       {
         "name": "Ronnies Stroganoff",
         "type": "Russian",
         "photo": "http://assets.epicurious.com/photos/5761cb888accf290434553a4/2:1/w_1260%2Ch_630/beef-stroganoff.jpg",
         "description": "Classic Beef stroganoff with braised tritip, crimini mushrooms, with a decadent cream sauce over home made egg noodles.",
-        "credits": "3"
+        "credits": "3",
+        "reviews": [
+        {
+          "reviewer": "John Hinkley Jr.",
+          "compliments": 0
+        }
+      ]
       },
       {
         "name": "The Best Mac and Cheese in America",
@@ -46,9 +57,14 @@
   {
     "id": "2",
     "name": "Immogene Von Svesterkrank",
+    "style": "Eclectic",
     "bio": "Federal Special Agent in the FBI's BAU pursuing the world's most dangerous serial killers. I write romance novels and DBZ fan fic in my spare time.  My Larb Salad is to die for. ",
     "portrait": "https://s-media-cache-ak0.pinimg.com/736x/21/a2/a8/21a2a855d1b6d185f2e08ced722f9017.jpg",
     "address": "2302 Martin, Irvine, CA 92612",
+    "location": {
+      "lat" : 33.6718958,
+      "lng" : -117.8588827
+    },
     "menu": [
       {
         "name": "Ultimate Spam Sandwich",
@@ -90,16 +106,27 @@
   {
     "id": "3",
     "name": "Arthur Pendragon",
+    "Style": "Classic British",
     "bio": "Legendary British King, One of the Nine Worthies, wielder of Excalibur, and destroyer of Saxons. Big fan of Bradley James' work. I specialize in cooking wild game.",
     "portrait": "http://images6.fanpop.com/image/photos/34600000/Arthur-Pendragon-mergana-and-arwen-34602045-446-500.png",
     "address": "3405 Michelson Dr, Irvine, CA 92612",
+    "location": {
+      "lat" : 33.6719999,
+      "lng" : -117.8347037
+    },
     "menu": [
       {
         "name": "Whole Roast Boar",
         "type": "Classic British",
         "photo": "http://d4nations.com/webpubl/images/1whole-roast-pig_1771165c.jpg",
         "description": "Whole Roast BoarFreshly pulled from my hunting forest, I have my man servant baste it in butter for a half day over and open flame. Best paired with a rich red wine.",
-        "credits": "5"
+        "credits": "5",
+        "reviews": [
+          {
+            "reviewer": "Merlin",
+            "compliments": 4
+          }
+        ]
       },
       {
         "name": "Stargazy Pie",
@@ -120,7 +147,13 @@
         "type": "Classic British",
         "photo": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--15261_12.jpg?itok=7D3ttrt9",
         "description": "Boiled Beef shoulder in beef bullion broth, mashed turnips, spring onion and carrots. ",
-        "credits": "5"
+        "credits": "5",
+        "reviews": [
+          {
+            "reviewer": "Mordred",
+            "compliments": 1
+          }
+        ]
       },
       {
         "name": "Beans on Toast",
@@ -134,9 +167,14 @@
   {
     "id": "4",
     "name": "Liam Neeson",
+    "style": "French and Irish",
     "bio": "Northern Irish Actor from Belfast. I love wrinkling my forehead and wielding lightsabers. I will find you and I will feed you. ",
     "portrait": "http://esq.h-cdn.co/assets/cm/15/05/54cb854fab7b8_-_esq-liam-neeson-flower-0311-lg.jpg",
     "address": "1530 Concordia, Irvine, CA 92612",
+    "location": {
+      "lat" : 33.6547213,
+      "lng" : -117.8121476
+    },
     "menu": [
       {
         "name": "Croak Kim",
@@ -178,9 +216,14 @@
   {
     "id": "5",
     "name": "Amanda Bynes",
+    "style": "Healthy",
     "bio": "Former child actress and recently recovered addict. I love Hawaiian sunsets, my family, and my therapist. Give my Cauliflower Shwarma a try, it's tre chic.",
     "portrait": "http://cdn.inquisitr.com/wp-content/uploads/2015/03/Amanda-Bynes-660-2000-AP-graphics-bank.jpg",
     "address": "17590 Gillette Ave, Irvine, CA 92614",
+    "location": {
+      "lat" : 33.6919365,
+      "lng" : -117.8524869
+    },
     "menu": [
       {
         "name": "Healthy Orange Chicken",
