@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maps Prototype</title>
+    <style>
+        #map{
+            width: 50vw;
+            height: 50vh;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="geocoding_places.js"></script>
+</head>
+<body>
+<input class="input" type="text" placeholder="Enter Address Here">
+<button class="submit" type="submit">Submit</button>
+<div id="map"></div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB3u9yEVvIK_f8vbOrh9G2cSWVcfmMgzWo">
+</script>
+</body>
+</html>
