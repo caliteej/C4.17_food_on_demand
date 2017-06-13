@@ -1,7 +1,15 @@
 $(document).ready(function(){
     $('.submit').click(makeCall);
 });
-
+var data = null;
+var markers = [];
+var locations = [
+    // {title: 'Irvine Spectrum', location: {lat: 33.6509, lng: -117.7441}},
+    // {title: 'Burnt Crumbs', location: {lat: 33.6461, lng: -117.7436}},
+    // {title: 'Sabrosada', location: {lat: 33.6177, lng: -117.7058}},
+    // {title: 'Halal Guys', location: {lat: 33.6812, lng: -117.8865}},
+    // {title: 'Puzzle Workshop Escape Room', location: {lat: 33.6880, lng: -117.8582}}
+];
 
 function makeCall(){
     var encodedAddress = $('.input').val();
@@ -10,26 +18,19 @@ function makeCall(){
         url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
         method: 'get',
         success: function(response){
-            console.log(response);
+            data = response;
+            locations.push({title: data.results[0].formatted_address, location: {lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng}});
             initMap();
         }
     });
 
     $('.input').val('');
 }
-//**********************************************//
-var markers = [];
-var locations = [
-    {title: 'Irvine Spectrum', location: {lat: 33.6509, lng: -117.7441}},
-    {title: 'Burnt Crumbs', location: {lat: 33.6461, lng: -117.7436}},
-    {title: 'Sabrosada', location: {lat: 33.6177, lng: -117.7058}},
-    {title: 'Halal Guys', location: {lat: 33.6812, lng: -117.8865}},
-    {title: 'Puzzle Workshop Escape Room', location: {lat: 33.6880, lng: -117.8582}}
-];
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 34.052235, lng: -118.243683},
-        zoom: 13
+        maxZoom: 13
     });
     google.maps.event.trigger(map,'resize');
 
