@@ -1,0 +1,57 @@
+body {
+    padding: 40px;
+}
+
+.checkout_frame {
+    padding: 0;
+    border: solid 1px #000000;
+}
+
+#orderOf_container {
+    padding: 25px;
+    background-color: #ffffff;
+}
+
+#cookedBy_container {
+    padding: 25px;
+    background-color: #fffed6;
+}
+
+hr {
+    height: 1px;
+    border-width: 0;
+    color:black;
+    background-color:black;
+}
+
+.userName, .chefName {
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.orderof_table div {
+    display: inline-block;
+    vertical-align: text-top;
+    border: 0;
+    width: 25%;
+    padding: 5px;
+    margin: 0;
+}
+
+.tableTitle {
+    font-size: 12px;
+    text-align: right;
+}
+
+.orderof_table > :first-child {
+    text-align: left;
+}
+
+.item, .quantity, .unitPrice, .subTotal{
+    font-size: 18px;
+    line-height: 100%;
+}
+
+.quantity, .unitPrice, .subTotal{
+    text-align: right;
+}
