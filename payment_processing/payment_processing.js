@@ -26,7 +26,7 @@ function ajaxCall(customer_info, order_info) {
         data: {
             'amount': order_info.total,
         },
-        url: 'tsconfig.json',
+        url: 'static_API_return.json',
         success: function (response) {
             console.log(response);
             stripe_response = response;
