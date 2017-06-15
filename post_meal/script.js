@@ -30,13 +30,24 @@ function clearPostMealForm() {
  */
 function postMealData(){
     $.ajax({
-        url: "",
-        method: "POST",
+        url: "localhost:3000/register/menu",
+        method: 'post',
         dataType: 'json',
-        success: function() {
-            console.log('success');
+        data: {
+            "menu_item_number":
+            "item_name": $('#dish').val(),
+            "description": $('#description').val(),
+            "price": $('#cost').val(),
+            "chef_id":
         },
-        error: function() {
+
+        success: function(results) {
+            console.log('success');
+        }
+
+        error: function(results) {
             console.log('failure');
         }
-    })
+    }
+    clearPostMealForm();
+}
