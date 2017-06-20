@@ -1,7 +1,7 @@
 
 function getChefFoodOptions (){
     var chefFoodOptions = {
-        url:'',
+        url: src = '/C4.17_food_on_demand/chef_profile/package.json',
         success: handleMealSuccess,
         error: handleError,
         dataType: 'json',

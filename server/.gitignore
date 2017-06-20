@@ -1,1 +1,4 @@
-config/config.json
+config/
+node_modules/
+.idea/
+
