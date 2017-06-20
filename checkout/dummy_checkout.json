@@ -1,0 +1,77 @@
+{
+  "chef": [
+    {
+      "id": 25,
+      "name": "Mystic Mac",
+      "bio": "Legendary British King, One of the Nine Worthies, wielder of Excalibur, and destroyer of Saxons. Big fan of Bradley James' work. I specialize in cooking wild game."
+    }
+  ],
+  "menu": [
+    {
+      "id": 2,
+      "menu_item_number": 1,
+      "item_name": "Ultimate Spam Sandwich",
+      "description": "",
+      "credits": 5,
+      "chef_id": 25
+    },
+    {
+      "id": 3,
+      "menu_item_number": 2,
+      "item_name": "Not you Dad's Tuna Melt",
+      "description": "",
+      "credits": 7,
+      "chef_id": 25
+    },
+    {
+      "id": 4,
+      "menu_item_number": 3,
+      "item_name": "Whole Pan-O-Nachos",
+      "description": "",
+      "credits": 5,
+      "chef_id": 25
+    }
+  ]
+}
+
+//{
+//  "chef": [
+//    {
+//      "id": 25,
+//      "firstName": "Mystic",
+//      "lastName": "Mac",
+//      "city": "Dublin",
+//      "address": "8484 Mcgregor blvd",
+//      "lat": 33.4563,
+//      "lng": 117.345,
+//      "foodType": "Irish",
+//      "bio": "Natural born fighter destroying everything in the way"
+//    }
+//  ],
+//  "menu": [
+//    {
+//      "id": 2,
+//      "menu_item_number": 1,
+//      "item_name": "Ultimate Spam Sandwich",
+//      "description": "",
+//      "price": 0,
+//      "chef_id": 2
+//    },
+//    {
+//      "id": 3,
+//      "menu_item_number": 2,
+//      "item_name": "Not you Dad's Tuna Melt",
+//      "description": "",
+//      "price": 0,
+//      "chef_id": 2
+//    },
+//    {
+//      "id": 4,
+//      "menu_item_number": 3,
+//      "item_name": "Whole Pan-O-Nachos",
+//      "description": "",
+//      "price": 0,
+//      "chef_id": 2
+//    }
+//  ]
+//}
