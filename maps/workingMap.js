@@ -62,7 +62,6 @@ function getChefsFromDataBase(){
         method: 'get',
         success: function(response){
             data = response;
-            console.log(data);
             getMenu();
             populateChefs();
         }
@@ -80,9 +79,7 @@ function getMenu(){
             method: 'get',
             success: function(response){
                 menu = response;
-                console.log(data);
                 chefs.push({chef: item, menu: menu});
-                console.log(chefs);
             }
         });
     });
