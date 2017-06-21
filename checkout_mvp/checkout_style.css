@@ -20,3 +20,10 @@ body {
 #mealName {
     text-transform: capitalize;
 }
+
+img {
+    vertical-align: middle;
+    width: 100%;
+    margin-top:10px;
+    margin-bottom:10px;
+}
