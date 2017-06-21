@@ -6,7 +6,7 @@ $(document).ready(function displayMealInfo() {
         console.log('function works');
 
         $.ajax({
-            url: './chefData_checkout.json',
+            url: "../dummy_data/chefData_paul.json",
             method: 'GET',
             dataType: "JSON",
             success: function (response) {

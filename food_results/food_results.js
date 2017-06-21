@@ -2,7 +2,7 @@ $(document).ready(function getFoodData() {
     $.ajax({
         method: 'get',
         dataType: 'json',
-        url: "./chefData_paul.json",
+        url: "../dummy_data/chefData_paul.json",
         success: function displayFood(response) {
             for (var i = 0; i < response.menu.data.length; i++) {
 
