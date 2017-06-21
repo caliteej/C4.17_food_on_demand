@@ -1,10 +1,17 @@
 $(document).ready(function(){
     initMap();
+<<<<<<< HEAD
+    // $('.submit').click(initMap);
+});
+
+var map, infoWindow, chefs = [];
+=======
     $('.submit').click(doSearch);
     // $('.submit').click(initMap);
 });
 
 var map, infoWindow, chefs = [], currentLocation;
+>>>>>>> d7a699383112180f73b47b6757db632ed5a9ca79
 
 /**
  * Creates a map using the users current location.
@@ -48,7 +55,10 @@ function reverseGeocoding(position){
         method: 'get',
         success: function(response){
             data = response;
+<<<<<<< HEAD
+=======
             currentLocation = data.results[0].address_components[3].long_name;
+>>>>>>> d7a699383112180f73b47b6757db632ed5a9ca79
             getChefsFromDataBase();
         }
     });
@@ -126,6 +136,8 @@ function populateChefs(){
         }
     }
 }
+<<<<<<< HEAD
+=======
 
 /**
  * This function makes a call to our database requesting chefs based on location by city.
@@ -195,3 +207,4 @@ function doSearch(){
         return;
     }
 }
+>>>>>>> d7a699383112180f73b47b6757db632ed5a9ca79
