@@ -1,9 +1,11 @@
 $(document).ready(function(){
     initMap();
+
     $('.submit').click(doSearch);
 });
 
 var map, infoWindow, chefs = [], currentLocation;
+
 
 /**
  * Creates a map using the users current location.
@@ -47,6 +49,7 @@ function reverseGeocoding(position){
         method: 'get',
         success: function(response){
             data = response;
+
             currentLocation = data.results[0].address_components[3].long_name;
             getChefsFromDataBase();
         }
@@ -200,3 +203,4 @@ function doSearch(){
         return;
     }
 }
+

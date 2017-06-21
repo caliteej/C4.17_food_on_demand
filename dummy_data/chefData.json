@@ -23,6 +23,7 @@
         "description": "The sandwich you never expected...",
         "price": 11,
         "chef_id": 2,
+        "photo": "http://del.h-cdn.co/assets/15/37/plated-mac-and-cheese.jpg",
         "createdAt": null,
         "updatedAt": null
       },
@@ -34,6 +35,7 @@
         "description": "The best tuna melt you'll ever have!!!",
         "price": 10,
         "chef_id": 2,
+        "photo": "http://www.partyexcuses.com/images/uploads/holidayimages/bigstock-Small-Jelly-Beans-55958012.jpg",
         "createdAt": null,
         "updatedAt": null
       },
@@ -45,6 +47,7 @@
         "description": "Some Serious Nachos!!!",
         "price": 9,
         "chef_id": 2,
+        "photo": "http://cdn2.tmbi.com/TOH/Images/Photos/37/1200x1200/All-American-Bacon-Cheeseburgers_exps48107_TH2379798C03_29_1b_RMS.jpg",
         "createdAt": null,
         "updatedAt": null
       }

@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Maps Prototype</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Monofett|Timmana" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../food_results/food_results.css">
     <style>
         #map{
             width: 50vw;
@@ -12,7 +16,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--<script src="geocoding_places.js"></script>-->
     <!--<script src="geolocation.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="workingMap.js"></script>
+    <script src="menu_modal.js"></script>
+    <script src="../food_results/food_results.js"></script>
 </head>
 <body>
 <div>
@@ -23,8 +30,35 @@
 </div>
 <div id="map"></div>
 <div id="mapTwo"></div>
+
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB3u9yEVvIK_f8vbOrh9G2cSWVcfmMgzWo">
 </script>
+
+<div class="col-xs-2" id="food_listing">
+
+</div>
+
+
+<div>
+    <button onclick=ajaxCall()>Open Modal</button>
+</div>
+
+<div id="single_menu_item_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="menu-modal">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick=placeOrder()>Order</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
