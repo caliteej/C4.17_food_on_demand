@@ -5,6 +5,8 @@
     <title>Maps Prototype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Monofett|Timmana" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../food_results/food_results.css">
     <style>
         #map{
             width: 50vw;
@@ -17,6 +19,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="workingMap.js"></script>
     <script src="menu_modal.js"></script>
+    <script src="../food_results/food_results.js"></script>
 </head>
 <body>
 <div>
@@ -31,6 +34,11 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB3u9yEVvIK_f8vbOrh9G2cSWVcfmMgzWo">
 </script>
+
+<div class="col-xs-2" id="food_listing">
+
+</div>
+
 
 <div>
     <button onclick=ajaxCall()>Open Modal</button>
