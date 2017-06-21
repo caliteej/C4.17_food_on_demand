@@ -1,9 +1,10 @@
 $(document).ready(function(){
     initMap();
+    $('.submit').click(doSearch);
     // $('.submit').click(initMap);
 });
 
-var map, infoWindow, chefs = [];
+var map, infoWindow, chefs = [], currentLocation;
 
 /**
  * Creates a map using the users current location.
@@ -47,6 +48,7 @@ function reverseGeocoding(position){
         method: 'get',
         success: function(response){
             data = response;
+            currentLocation = data.results[0].address_components[3].long_name;
             getChefsFromDataBase();
         }
     });
@@ -122,5 +124,74 @@ function populateChefs(){
                 infowindow.setMarker(null);
             });
         }
+    }
+}
+
+/**
+ * This function makes a call to our database requesting chefs based on location by city.
+ * Same as getChefsFromDataBase but it uses the input value rather than users current location.
+ * @param location
+ */
+function getChefByCityInput(location){
+    $.ajax({
+        dataType: "json",
+        url: `http://localhost:3000/api/chef/city/${location}`,
+        method: 'get',
+        success: function(response){
+            data = response;
+            getMenu();
+            populateChefs();
+        }
+    });
+}
+
+/**
+ * This function makes a call to our database requesting chefs based on location by city and food type.
+ * @param location
+ * @param foodtype
+ */
+function getChefByCityAndFood(location, foodtype){
+    $.ajax({
+        dataType: "json",
+        url: `http://localhost:3000/api/chef/city-foodtype/${location}/${foodtype}`,
+        method: 'get',
+        success: function(response){
+            data = response;
+            getMenu();
+            populateChefs();
+        }
+    });
+}
+
+function createNewBlankMap(){
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13
+    });
+}
+
+/**
+ * Queries the database based on the input fields.
+ */
+function doSearch(){
+    var food = $('.foodInput').val();
+    var city = $('.locationInput').val();
+    var chef = $('.chefInput').val();
+    if(chef !== ""){
+        console.log('maybe make a user page');
+    }else if(chef === "" &&  city === "" && food !== ""){
+        createNewBlankMap();
+        getChefByCityAndFood(currentLocation, food);
+        $('.foodInput').val('');
+    }else if(chef === "" && food === "" && city !== ""){
+        createNewBlankMap();
+        getChefByCityInput(city);
+        $('.locationInput').val('');
+    }else if(chef === "" && food !== "" && city !== ""){
+        createNewBlankMap();
+        getChefByCityAndFood(city, food);
+        $('.locationInput').val('');
+        $('.foodInput').val('');
+    }else{
+        return;
     }
 }
