@@ -1,7 +1,6 @@
 $(document).ready(function(){
     initMap();
     $('.submit').click(doSearch);
-    // $('.submit').click(initMap);
 });
 
 var map, infoWindow, chefs = [], currentLocation;
@@ -115,6 +114,12 @@ function populateChefs(){
         });
     }
     map.fitBounds(bounds);
+    var listener = google.maps.event.addListener(map, "idle", function() {
+        if (map.getZoom() > 13){
+            map.setZoom(13);
+            google.maps.event.removeListener(listener);
+        }
+    });
     function populateInfoWindow(marker, infowindow){
         if(infowindow.marker != marker){
             infowindow.marker = marker;
