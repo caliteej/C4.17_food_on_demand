@@ -3,7 +3,7 @@ var current_meal = null;
 function menuModal(meal){
     current_meal = meal;
     console.log(meal);
-    $('.modal-title').text(meal.name);
+    $('.modal-title').text(meal.item_name);
     var meal_div = $('<div>',{
         class: 'meal-modal col-xs-10'
     });
@@ -24,7 +24,7 @@ function menuModal(meal){
         text: 'Cost'
     });
     var meal_cost_info = $('<p>',{
-        text: meal.credits
+        text: '$ ' + meal.price
     });
 
     $(meal_div).append(meal_img, meal_description, meal_description_info, meal_cost, meal_cost_info);
@@ -40,9 +40,9 @@ function ajaxCall() {
             "id": 1,
             "name": "Ronald Reagan",
         },
-        url : '../dummy_data/dummy_chef_data.json',
+        url : '../dummy_data/chefData.json',
         success: function (response){
-            menu_item = response[0].menu[0];
+            menu_item = response.menu.data[0];
             console.log(response);
             menuModal(menu_item);
         },
