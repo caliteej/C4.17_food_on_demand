@@ -40,7 +40,7 @@ function ajaxCall() {
             "id": 1,
             "name": "Ronald Reagan",
         },
-        url : '../dummy_data/chefData.json',
+        url : "../dummy_data/chefData_paul.json",
         success: function (response){
             menu_item = response.menu.data[0];
             console.log(response);
