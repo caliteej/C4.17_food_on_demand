@@ -1,15 +1,24 @@
 var current_meal = null;
 
+var available_meals = [];
+
 function menuModal(meal){
-    current_meal = meal;
-    console.log(meal);
-    $('.modal-title').text(meal.item_name);
+    var img_id = meal.id;
+
+    for(var i = 0; i < available_meals.length; i++){
+        if(available_meals[i].id == img_id){
+            current_meal = available_meals[i];
+        }
+    }
+    console.log(current_meal);
+
+    $('.modal-title').text(current_meal.item_name);
     var meal_div = $('<div>',{
         class: 'meal-modal col-xs-10'
     });
 
     var meal_img = $('<img>',{
-        src: meal.photo,
+        src: current_meal.photo,
         height: '250px',
         width: '250px',
         class: 'col-xs-8'
@@ -18,13 +27,13 @@ function menuModal(meal){
         text: 'Description'
     });
     var meal_description_info = $('<p>',{
-        text: meal.description
+        text: current_meal.description
     });
     var meal_cost = $('<h4>',{
         text: 'Cost'
     });
     var meal_cost_info = $('<p>',{
-        text: '$ ' + meal.price
+        text: '$ ' + current_meal.price
     });
 
     $(meal_div).append(meal_img, meal_description, meal_description_info, meal_cost, meal_cost_info);
@@ -32,25 +41,6 @@ function menuModal(meal){
     $('#single_menu_item_modal').modal('show');
 }
 
-function ajaxCall() {
-    $.ajax({
-        method : 'get',
-        dataType : 'json',
-        data : {
-            "id": 1,
-            "name": "Ronald Reagan",
-        },
-        url : "../dummy_data/chefData_paul.json",
-        success: function (response){
-            menu_item = response.menu.data[0];
-            console.log(response);
-            menuModal(menu_item);
-        },
-        error: function (response){
-            console.log(response);
-        }
-    })
-}
 
 function placeOrder(){
     console.log('Order Placed', current_meal);
