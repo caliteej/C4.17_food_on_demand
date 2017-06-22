@@ -13,7 +13,6 @@ const PORT = 3000;
 // in the main express application
 const routes = require('./routes');
 
-
 //Consuming middleware
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
