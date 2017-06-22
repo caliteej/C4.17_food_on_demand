@@ -41,3 +41,8 @@ function sendEmailConfirmation(userName, userEmail) {
 
 
 }
+
+// function checkoutConfirm(final_meal){
+//     checkoutConfirm(final_meal);
+//         console.log(final_meal)
+// }
