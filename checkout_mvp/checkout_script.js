@@ -18,7 +18,7 @@ $(document).ready(function displayMealInfo() {
             }
         });
     }
-)
+);
 
 //Confirmation modal and calls sendEmail function
 $(document).ready(function() {
@@ -34,12 +34,22 @@ $(document).ready(function() {
 
 //send email function
 function sendEmailConfirmation(userName, userEmail) {
+    $("#userName").val('');
+    $("#userEmail").val('');
     console.log('user email is: ' + userEmail);
     console.log('user name is: ' + userName);
-    userName = $("#userName").val('');
-    userEmail = $("#userEmail").val('');
-
-
+    $.ajax({
+        dataType:'JSON',
+        data: {
+            email: userEmail,
+            user: userName
+        },
+        method: 'POST',
+        url: "localhost:63342/LFZ/C4.17_food_on_demand/server/routes/email/confirmation",
+        success: function(response){
+            console.log(JSON.stringify.response);
+        }
+    });
 }
 
 // function checkoutConfirm(final_meal){
