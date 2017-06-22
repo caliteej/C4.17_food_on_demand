@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer');
-const xoauth2 = require('xoauth2');
 const express = require('express');
 const router = express.Router();
 
@@ -39,3 +38,4 @@ function sendConfirmationEmail(req, res){
     });
 }
 
+module.exports = router;
