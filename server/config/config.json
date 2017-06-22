@@ -1,23 +1,23 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "DATABASE HERE",
+    "password": "]j5n3(\\Q-pMkfNx=",
+    "database": "chef_next_door",
     "host": "localhost",
     "port": "3306",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "root",
-    "database": "DATABASE HERE",
+    "password": "]j5n3(\\Q-pMkfNx=",
+    "database": "chef_next_door",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "root",
-    "database": "DATABASE HERE",
+    "password": "]j5n3(\\Q-pMkfNx=",
+    "database": "chef_next_door",
     "host": "localhost",
     "dialect": "mysql"
   }
