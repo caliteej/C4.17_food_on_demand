@@ -1,10 +1,17 @@
-$(document).ready(function getFoodData() {
+$(document).ready(function(){
+    $('#food_listing').on('load', getFoodData());
+    $('div').on('click', '.food_item', function(){
+        menuModal(this)
+    });
+});
+    function getFoodData() {
     $.ajax({
         method: 'get',
         dataType: 'json',
-        url: "./chefData_paul.json",
+        url: "../dummy_data/chefData_paul.json",
         success: function displayFood(response) {
             for (var i = 0; i < response.menu.data.length; i++) {
+                available_meals = response.menu.data;
 
                 var dish_card = $('<div>').addClass('food_item');
                 var dish_caption = $('<div>').addClass('food_caption');
@@ -14,6 +21,7 @@ $(document).ready(function getFoodData() {
 
                 dish_caption.append(dish_name, cost);
                 dish_card.append(dish_photo, dish_caption);
+                dish_card.attr('id', response.menu.data[i].id);
                 $('#food_listing').append(dish_card);
             }
         },
@@ -22,5 +30,8 @@ $(document).ready(function getFoodData() {
             console.log(response);
         }
     })
-});
+};
+
+
+
 

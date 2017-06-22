@@ -1,18 +1,8 @@
 $(document).ready(function(){
     initMap();
-<<<<<<< HEAD
-    // $('.submit').click(initMap);
-});
-
-var map, infoWindow, chefs = [];
-=======
     $('.submit').click(doSearch);
-    // $('.submit').click(initMap);
 });
-
 var map, infoWindow, chefs = [], currentLocation;
->>>>>>> d7a699383112180f73b47b6757db632ed5a9ca79
-
 /**
  * Creates a map using the users current location.
  */
@@ -23,13 +13,11 @@ function initMap(){
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: pos.lat, lng: pos.lng},
                 zoom: 13
             });
             infoWindow = new google.maps.InfoWindow;
-
             infoWindow.setPosition(pos);
             infoWindow.setContent('Your Location.');
             infoWindow.open(map);
@@ -44,33 +32,28 @@ function initMap(){
         console.log('Allow location access');
     }
 }
-
 /**
  * This function gets the name of a city given the latitude and longitude.
  */
 function reverseGeocoding(position){
     $.ajax({
         dataType: "json",
-        url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}`,
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
         method: 'get',
         success: function(response){
             data = response;
-<<<<<<< HEAD
-=======
             currentLocation = data.results[0].address_components[3].long_name;
->>>>>>> d7a699383112180f73b47b6757db632ed5a9ca79
             getChefsFromDataBase();
         }
     });
 }
-
 /**
  * This function makes a call to our database requesting chefs based on location by city.
  */
 function getChefsFromDataBase(){
     $.ajax({
         dataType: "json",
-        url: `http://localhost:3000/api/chef/city/${data.results[0].address_components[3].long_name}`,
+        url: 'http://api.nxtdoorchef.com/api/chef/city/' + data.results[0].address_components[3].long_name,
         method: 'get',
         success: function(response){
             data = response;
@@ -79,7 +62,6 @@ function getChefsFromDataBase(){
         }
     });
 }
-
 /**
  * This function will use the chef profile id and use it to retrieve their menu from the database.
  */
@@ -87,7 +69,7 @@ function getMenu(){
     data.data.forEach(function(item){
         $.ajax({
             dataType: "json",
-            url: `http://localhost:3000/api/menu/id/${item.id}`,
+            url: 'http://api.nxtdoorchef.com/api/menu/id/' + item.id,
             method: 'get',
             success: function(response){
                 menu = response;
@@ -96,7 +78,6 @@ function getMenu(){
         });
     });
 }
-
 /**
  * This function will populate the map with chefs in the users current city.
  * It takes usese data returned from out database api call.
@@ -125,6 +106,12 @@ function populateChefs(){
         });
     }
     map.fitBounds(bounds);
+    var listener = google.maps.event.addListener(map, "idle", function() {
+        if (map.getZoom() > 13){
+            map.setZoom(13);
+            google.maps.event.removeListener(listener);
+        }
+    });
     function populateInfoWindow(marker, infowindow){
         if(infowindow.marker != marker){
             infowindow.marker = marker;
@@ -136,9 +123,6 @@ function populateChefs(){
         }
     }
 }
-<<<<<<< HEAD
-=======
-
 /**
  * This function makes a call to our database requesting chefs based on location by city.
  * Same as getChefsFromDataBase but it uses the input value rather than users current location.
@@ -147,7 +131,7 @@ function populateChefs(){
 function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
-        url: `http://localhost:3000/api/chef/city/${location}`,
+        url: 'http://api.nxtdoorchef.com/api/chef/city/' + location,
         method: 'get',
         success: function(response){
             data = response;
@@ -156,7 +140,6 @@ function getChefByCityInput(location){
         }
     });
 }
-
 /**
  * This function makes a call to our database requesting chefs based on location by city and food type.
  * @param location
@@ -165,7 +148,7 @@ function getChefByCityInput(location){
 function getChefByCityAndFood(location, foodtype){
     $.ajax({
         dataType: "json",
-        url: `http://localhost:3000/api/chef/city-foodtype/${location}/${foodtype}`,
+        url: 'http://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
         method: 'get',
         success: function(response){
             data = response;
@@ -174,13 +157,11 @@ function getChefByCityAndFood(location, foodtype){
         }
     });
 }
-
 function createNewBlankMap(){
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13
     });
 }
-
 /**
  * Queries the database based on the input fields.
  */
@@ -207,4 +188,3 @@ function doSearch(){
         return;
     }
 }
->>>>>>> d7a699383112180f73b47b6757db632ed5a9ca79

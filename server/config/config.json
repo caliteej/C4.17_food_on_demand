@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "DATABASE HERE",
+    "database": "c4.17db",
     "host": "localhost",
     "port": "3306",
     "dialect": "mysql"
@@ -10,14 +10,14 @@
   "test": {
     "username": "root",
     "password": "root",
-    "database": "DATABASE HERE",
+    "database": "c4.17db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "root",
-    "database": "DATABASE HERE",
+    "database": "c4.17db",
     "host": "localhost",
     "dialect": "mysql"
   }
