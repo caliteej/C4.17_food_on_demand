@@ -1,6 +1,9 @@
 $(document).ready(function(){
     initMap();
     $('.submit').click(doSearch);
+    $('div').on('click', '.food_item', function(){
+        menuModal(this)
+    });
 });
 var map, infoWindow, chefs = [], currentLocation;
 /**
@@ -112,6 +115,8 @@ function populateChefs(){
             google.maps.event.removeListener(listener);
         }
     });
+    setTimeout(displayFood, 5000);
+
     function populateInfoWindow(marker, infowindow){
         if(infowindow.marker != marker){
             infowindow.marker = marker;

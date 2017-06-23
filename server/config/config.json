@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "c4.17db",
+    "username": "the_chef",
+    "password": "dQGWJg9A8LZ39x3u",
+    "database": "chef_next_door",
     "host": "localhost",
     "port": "3306",
     "dialect": "mysql"

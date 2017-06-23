@@ -45,9 +45,9 @@ function sendEmailConfirmation(userName, userEmail) {
             user: userName
         },
         method: 'POST',
-        url: "localhost:63342/LFZ/C4.17_food_on_demand/server/routes/email/confirmation",
+        url: "http://api.nxtdoorchef.com/api/email/confirmation",
         success: function(response){
-            console.log(JSON.stringify.response);
+            console.log(response);
         }
     });
 }
