@@ -14,12 +14,21 @@ body{
 
 }
 #food_listing {
+
     width: 90vw;
     margin-top: 5px;
     padding: 5px;
     /*border: 2px solid black;*/
     overflow: auto;
     white-space: nowrap;
+
+    /*width: 600px;*/
+    height: 55vh;
+    margin-top: 5%;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    float: right;
+
 }
 .food_item {
     border: 1px solid #ECECEC;
@@ -74,6 +83,7 @@ img{
     text-transform: capitalize;
 }
 
+
 .modal-title {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 125%;
@@ -81,5 +91,9 @@ img{
 
 }
 
-/*#a3e754*/
-#878989
+
+//#878989
+
+
+
+
