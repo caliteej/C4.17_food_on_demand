@@ -6,29 +6,36 @@ body{
     width: 50vw;
     height: 50vh;
 }
+
+.chef_card {
+    width: 200vw;
+    height: 200vh;
+    border: 1px solid black;
+
+}
 #food_listing {
-    /*width: 600px;*/
-    /*height: 1000px;*/
-    margin-top: 5%;
-    overflow-y: scroll;
-    overflow-x:hidden;
-    float: right;
+    width: 90vw;
+    margin-top: 5px;
+    padding: 5px;
+    /*border: 2px solid black;*/
+    overflow: auto;
+    white-space: nowrap;
 }
 .food_item {
     border: 1px solid #ECECEC;
-    display: block;
+    display: inline-block;
     padding: 5px;
     margin: 5px;
     font-size: large;
     border-radius: 3px;
-    float: right;
-    clear: both;
+    /*float: right;*/
+    /*clear: both;*/
 }
 .food_caption {
     text-align: right;
 }
 .food_name {
-    font-family: 'Love Ya Like A Sister', cursive;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 125%;
     font-weight: 900;
     text-align: center;
@@ -37,6 +44,7 @@ body{
     color: #6F7279;
     font-size: small;
 }
+
 img{
     height: 200px;
     width: 300px;
@@ -66,4 +74,12 @@ img{
     text-transform: capitalize;
 }
 
+.modal-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 125%;
+    font-weight: 900;
+
+}
+
 /*#a3e754*/
+#878989
