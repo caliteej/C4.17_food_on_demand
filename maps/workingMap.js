@@ -1,8 +1,9 @@
 $(document).ready(function(){
+    $('#checkout').hide(200);
     initMap();
     $('.submit').click(doSearch);
     $('div').on('click', '.food_item', function(){
-        menuModal(this)
+        menuModal(this);
     });
 });
 var map, infoWindow, chefs = [], currentLocation;
@@ -115,7 +116,7 @@ function populateChefs(){
             google.maps.event.removeListener(listener);
         }
     });
-    setTimeout(displayFood, 5000);
+    setTimeout(displayFood, 500);
 
     function populateInfoWindow(marker, infowindow){
         if(infowindow.marker != marker){
@@ -162,11 +163,14 @@ function getChefByCityAndFood(location, foodtype){
         }
     });
 }
-function createNewBlankMap(){
+
+function resetMapAndData(){
+    chefs = [];
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13
     });
 }
+
 /**
  * Queries the database based on the input fields.
  */
@@ -177,15 +181,15 @@ function doSearch(){
     if(chef !== ""){
         console.log('maybe make a user page');
     }else if(chef === "" &&  city === "" && food !== ""){
-        createNewBlankMap();
+        resetMapAndData();
         getChefByCityAndFood(currentLocation, food);
         $('.foodInput').val('');
     }else if(chef === "" && food === "" && city !== ""){
-        createNewBlankMap();
+        resetMapAndData();
         getChefByCityInput(city);
         $('.locationInput').val('');
     }else if(chef === "" && food !== "" && city !== ""){
-        createNewBlankMap();
+        resetMapAndData();
         getChefByCityAndFood(city, food);
         $('.locationInput').val('');
         $('.foodInput').val('');

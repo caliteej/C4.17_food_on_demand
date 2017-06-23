@@ -6,11 +6,10 @@ function menuModal(meal){
     var img_id = meal.id;
 
     for(var i = 0; i < available_meals.length; i++){
-        if(available_meals[i].id == img_id){
-            current_meal = available_meals[i];
+        if(available_meals[i].menu.data[0].id == img_id){
+            current_meal = available_meals[i].menu.data[0];
         }
     }
-    console.log(current_meal);
 
     $('.modal-title').text(current_meal.item_name);
     var meal_div = $('<div>',{
@@ -44,4 +43,16 @@ function menuModal(meal){
 
 function placeOrder(){
     console.log('Order Placed', current_meal);
+    $('#landingPage').hide(200);
+    $('#checkout').show(200);
+    var mealName = $('<h4>',{
+        text: current_meal.item_name
+    });
+    var mealPhoto = $('<img>', {
+        src: current_meal.photo
+    });
+    var mealCost = $('<h4>',{
+        text: "$ " + current_meal.price
+    });
+    $('#orderOf_container').append(mealName, mealPhoto, mealCost);
 }
