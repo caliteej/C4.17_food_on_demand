@@ -1,11 +1,9 @@
 const nodemailer = require('nodemailer');
 const express = require('express');
 const router = express.Router();
-
 //possible incoming routes
 router.post('/confirmation', sendConfirmationEmail);
 function sendConfirmationEmail(req, res){
-    
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         service: "gmail",
@@ -49,14 +47,14 @@ function sendConfirmationEmail(req, res){
           ${req.body.user}'s order:<br>
           ${req.body.purchase_name}<br>
           <img src='http://www.cartoon-clipart.co/amp/images/shaggy-scooby-doo.png' style="width: 20vw;height:20vh"><br>
-          ${req.body.purchase_price} 
+          Item Price: ${req.body.purchase_price} Credits
       </div
     </main>
     <footer>
-      Total = $ ${req.body.purchase_price + req.body.purchase_price}
+      Total =  ${req.body.purchase_price} Credits
       <br>
       <br>
-      You can pick up your meal at <a href="https://www.google.com/maps/place/${address}">${chefsname}</a>
+      You can pick up your meal at a link that contains the address and chef name</a>
     </footer>
     </body>
     </html>` // html body
