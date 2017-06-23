@@ -108,6 +108,7 @@ function populateChefs(){
         bounds.extend(marker.position);
         marker.addListener("click", function(){
             populateInfoWindow(this, largeInfowindow);
+            $('.theChefBox').empty();
             displayChef(this);
         });
     }
@@ -138,7 +139,7 @@ function populateChefs(){
                 theChef = chefs[i];
             }
         }
-        var theChefName = $('<div>',{
+        var theChefKitchen = $('<div>',{
             text: theChef.chef.alias
         });
         var theChefBio = $('<div>', {
@@ -147,7 +148,19 @@ function populateChefs(){
         var theChefPhoto = $('<img>', {
             src: 'http://www.stevengfrankenfield.com/stevenfrankenfield/UltraPhotoGallery/6334/69/Steven03sharifleming.jpg'
         });
-        $('#theChefBox').append(theChefName, theChefPhoto, theChefBio);
+        var theChefName = $('<div>',{
+            text: theChef.chef.firstName + ' ' + theChef.chef.lastName
+        });
+        var featuredChef = $('<h2>', {
+            text: 'Chef'
+        });
+        var chefKitchen = $('<h2>', {
+            text: 'Chef\'s Kitchen'
+        });
+        var chefBio = $('<h2>', {
+            text: 'Chef\'s Bio'
+        });
+        $('.theChefBox').append(featuredChef, theChefName, chefKitchen, theChefKitchen, theChefPhoto, chefBio, theChefBio);
     }
 
 }

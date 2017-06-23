@@ -14,21 +14,10 @@ body{
 
 }
 #food_listing {
-
     width: 90vw;
-    margin-top: 5px;
-    padding: 5px;
-    /*border: 2px solid black;*/
     overflow: auto;
     white-space: nowrap;
-
-    /*width: 600px;*/
-    height: 55vh;
-    margin-top: 5%;
-    overflow-y: scroll;
-    overflow-x:hidden;
-    float: right;
-
+    padding: 5px;
 }
 .food_item {
     border: 1px solid #ECECEC;
@@ -60,9 +49,9 @@ img{
     margin: 20px 0 5px 0;
     padding: 5px;
 }
-.mapAndSearch{
-    margin-top: 5%;
-}
+/*.mapAndSearch, .theChefBox{*/
+    /*margin-top: 5%;*/
+/*}*/
 /*Added from checkout css*/
 .row {
     padding: 0;
@@ -92,7 +81,7 @@ img{
 }
 
 
-//#878989
+/*#878989*/
 
 
 

@@ -41,36 +41,38 @@
 <!--***************************************-->
 
 <section id="landingPage">
-<div class="mapAndSearch col-md-8">
-    <div class="input-group">
-        <input class="input locationInput" type="text" placeholder="Location - Irvine, CA">
-        <input class="input foodInput" type="text" placeholder="Food - Italian">
-        <input class="input chefInput" type="text" placeholder="Chef - Franklin's BBQ">
-        <button class="submit btn btn-outline-primary" type="submit">Submit</button>
+    <div class="mapAndSearch col-md-8">
+        <div class="input-group">
+            <input class="input locationInput" type="text" placeholder="Location - Irvine, CA">
+            <input class="input foodInput" type="text" placeholder="Food - Italian">
+            <input class="input chefInput" type="text" placeholder="Chef - Franklin's BBQ">
+            <button class="submit btn btn-outline-primary" type="submit">Submit</button>
+        </div>
+        <div id="map"></div>
     </div>
-    <div id="map"></div>
-</div>
 
-<div class="col-md-4" id="food_listing"></div>
+    <div class="theChefBox col-md-4">
+    </div>
 
-<div id="single_menu_item_modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"></h4>
-            </div>
-            <div class="menu-modal">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" onclick=placeOrder()>Order</button>
+    <div class="col-md-4" id="food_listing"></div>
+
+    <div id="single_menu_item_modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="menu-modal">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick=placeOrder()>Order</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </section>
-<div id="theChefBox"></div>
 
 <!--***************************************-->
 <!--************Checkout Page**************-->
