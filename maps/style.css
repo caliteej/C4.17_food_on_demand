@@ -1,0 +1,69 @@
+body{
+    width: 90vw;
+    margin: 0 auto;
+}
+#map{
+    width: 50vw;
+    height: 50vh;
+}
+#food_listing {
+    /*width: 600px;*/
+    /*height: 1000px;*/
+    margin-top: 5%;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    float: right;
+}
+.food_item {
+    border: 1px solid #ECECEC;
+    display: block;
+    padding: 5px;
+    margin: 5px;
+    font-size: large;
+    border-radius: 3px;
+    float: right;
+    clear: both;
+}
+.food_caption {
+    text-align: right;
+}
+.food_name {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 125%;
+    font-weight: 900;
+    text-align: center;
+}
+.food_cost {
+    color: #6F7279;
+    font-size: small;
+}
+img{
+    height: 200px;
+    width: 300px;
+    margin: 20px 0 5px 0;
+    padding: 5px;
+}
+.mapAndSearch{
+    margin-top: 5%;
+}
+/*Added from checkout css*/
+.row {
+    padding: 0;
+    border: solid 1px #000000;
+}
+
+#orderBy_container {
+    padding: 25px;
+    background-color: #ffffff;
+}
+
+#orderOf_container {
+    padding: 25px;
+    background-color: #fffed6;
+}
+
+#mealName {
+    text-transform: capitalize;
+}
+
+/*#a3e754*/
