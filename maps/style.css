@@ -2,6 +2,23 @@ body{
     width: 90vw;
     margin: 0 auto;
 }
+
+.navbar-brand {
+    /*border: 1px solid black;*/
+    /*margin-left: 100px;*/
+    margin-bottom: 20px;
+    height: auto;
+    width: 200px;
+    padding: 0;
+}
+
+.input-group {
+    margin-left: 200px;
+    margin-top: 20px;
+    font-style: italic;
+    /*border: 1px solid black;*/
+}
+
 #map{
     width: 50vw;
     height: 50vh;
@@ -11,24 +28,13 @@ body{
     width: 200vw;
     height: 200vh;
     border: 1px solid black;
-
 }
-#food_listing {
 
+#food_listing {
     width: 90vw;
-    margin-top: 5px;
     padding: 5px;
-    /*border: 2px solid black;*/
     overflow: auto;
     white-space: nowrap;
-
-    /*width: 600px;*/
-    height: 55vh;
-    margin-top: 5%;
-    overflow-y: scroll;
-    overflow-x:hidden;
-    float: right;
-
 }
 .food_item {
     border: 1px solid #ECECEC;
@@ -37,8 +43,6 @@ body{
     margin: 5px;
     font-size: large;
     border-radius: 3px;
-    /*float: right;*/
-    /*clear: both;*/
 }
 .food_caption {
     text-align: right;
@@ -60,9 +64,7 @@ img{
     margin: 20px 0 5px 0;
     padding: 5px;
 }
-.mapAndSearch{
-    margin-top: 5%;
-}
+
 /*Added from checkout css*/
 .row {
     padding: 0;
@@ -88,11 +90,10 @@ img{
     font-family: 'Josefin Sans', sans-serif;
     font-size: 125%;
     font-weight: 900;
-
 }
 
 
-//#878989
+/*#878989*/
 
 
 
