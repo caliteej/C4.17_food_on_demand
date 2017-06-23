@@ -45,7 +45,7 @@ function sendEmailConfirmation(userName, userEmail) {
             user: userName
         },
         method: 'POST',
-        url: "api.nxtdoorchef.com/api/email/confirmation",
+        url: "http://api.nxtdoorchef.com/api/email/confirmation",
         success: function(response){
             console.log(response);
         }
