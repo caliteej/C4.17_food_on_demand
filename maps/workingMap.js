@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('#checkout').hide(200);
+    $('#chefProfile').hide(200);
     initMap();
     $('.submit').click(doSearch);
     $('div').on('click', '.food_item', function(){
@@ -107,6 +108,7 @@ function populateChefs(){
         bounds.extend(marker.position);
         marker.addListener("click", function(){
             populateInfoWindow(this, largeInfowindow);
+            displayChef(this);
         });
     }
     map.fitBounds(bounds);
@@ -128,6 +130,26 @@ function populateChefs(){
             });
         }
     }
+
+    function displayChef(marker){
+        var theChef = null;
+        for(var i = 0; i < chefs.length; i++){
+            if(chefs[i].chef.alias === marker.title){
+                theChef = chefs[i];
+            }
+        }
+        var theChefName = $('<div>',{
+            text: theChef.chef.alias
+        });
+        var theChefBio = $('<div>', {
+            text: theChef.chef.bio
+        });
+        var theChefPhoto = $('<img>', {
+            src: 'http://www.stevengfrankenfield.com/stevenfrankenfield/UltraPhotoGallery/6334/69/Steven03sharifleming.jpg'
+        });
+        $('#theChefBox').append(theChefName, theChefPhoto, theChefBio);
+    }
+
 }
 /**
  * This function makes a call to our database requesting chefs based on location by city.
