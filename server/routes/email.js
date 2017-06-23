@@ -4,7 +4,6 @@ const router = express.Router();
 
 //possible incoming routes
 router.post('/confirmation', sendConfirmationEmail);
-debugger
 function sendConfirmationEmail(req, res){
     
     // create reusable transporter object using the default SMTP transport
@@ -25,8 +24,42 @@ function sendConfirmationEmail(req, res){
     let mailOptions = {
         from: '"nxtDoorChef" <nxtDoorChef@gmail.com>', // sender address
         to: req.body.email, // list of receivers
-        subject: 'Hello ✔', // Subject line
-        html: `<h3>Thanks ${req.body.user} for ordering from one of your local nxtDoorChefs!<h3><img src="https://munchies-images.vice.com/wp_upload/eggslut-breakfast-sandwich3.jpg?crop=1xw:0.84375xh;center,center&resize=1050:*" height="42" width="42">` // html body
+        subject: 'Your nxtDoorChef has your order!', // Subject line
+        html:
+   `<!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="nxtDoorChef confirmation email" content="customer order and promotions">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+    <header>
+      <h1>
+        Thank you for ordering from one of your nxtDoorChefs.
+      </h1>
+      <h3>
+        Your order has been recieved and will be ready for you soon, so get ready for something delicious!
+      </h3>
+    </header>
+    <main>
+      <div>
+          ${req.body.user}'s order:<br>
+          ${req.body.purchase_name}<br>
+          <img src='http://www.cartoon-clipart.co/amp/images/shaggy-scooby-doo.png' style="width: 20vw;height:20vh"><br>
+          ${req.body.purchase_price} 
+      </div
+    </main>
+    <footer>
+      Total = $ ${req.body.purchase_price + req.body.purchase_price}
+      <br>
+      <br>
+      You can pick up your meal at <a href="https://www.google.com/maps/place/${address}">${chefsname}</a>
+    </footer>
+    </body>
+    </html>` // html body
     };
 
 // send mail with defined transport object
