@@ -17,6 +17,9 @@
 </head>
 <body>
 
+<!--***************************************-->
+<!--*************Landing Page**************-->
+<!--***************************************-->
 <section id="landingPage">
 <div class="mapAndSearch col-md-8">
     <div class="input-group">
@@ -47,7 +50,11 @@
     </div>
 </div>
 </section>
+<div id="theChefBox"></div>
 
+<!--***************************************-->
+<!--************Checkout Page**************-->
+<!--***************************************-->
 <section id="checkout">
 <h1>Checkout</h1>
 <div class="container-fluid">
@@ -95,6 +102,108 @@
     </div>
     <button id='confirmButton' class="btn btn-outline-success">Checkout</button>
 </div>
+</section>
+
+<!--***************************************-->
+<!--***********Chef Profile Page***********-->
+<!--***************************************-->
+<section id="chefProfile">
+<!--This is the picture section. Carousel of all the pictures associated with the chef profile. Portrait, food, etc..-->
+<section>
+    <div id="pics">
+        <img src="https://cdn.dribbble.com/users/105567/screenshots/1952232/logo-dribbble.jpg">
+    </div>
+</section>
+<!--Navigation to each section of the page.-->
+<section class="navigation">
+    <ul class="nav nav-tabs navbar-fixed-top">
+        <li class="nav-item">
+            <a class="nav-link" href="#menu">Menu</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#chef">The Chef</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#location">Location</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#review">Reviews</a>
+        </li>
+    </ul>
+</section>
+<main>
+    <!--Menu section with all of Chefs' items-->
+    <section id="menu">
+        <h1>Menu</h1>
+        <div class="jumbotron">
+            <p><b>Halibut Fish & Chips</b> - Beer battered fish and chips cooked to perfection | $15</p>
+            <p><b>Chicken Alfredo Grilled Cheese</b> - Grilled cheese done the Italian way | $12</p>
+            <p><b>Bacon, Eggs, and Cheese scrambled toast</b> - The tastiest toast you'll ever have | $10</p>
+            <p><b>Super Fries</b> - Carne Asada, sour cream, guacamole, cheese, beans, and much more | $10</p>
+            <p><b>Duck Fat Fries</b> - These best fries you'll ever have | $10</p>
+        </div>
+    </section>
+    <!--Information about the chef. His/her story and hours-->
+    <section id="chef">
+        <h1>The Chef</h1>
+        <div>
+            <h4>Story</h4>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet, architecto autem consequuntur, cumque deleniti, dicta doloremque exercitationem in nulla reiciendis sed sunt veritatis vitae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet, architecto autem consequuntur, cumque deleniti, dicta doloremque exercitationem in nulla reiciendis sed sunt veritatis vitae?
+            </div>
+        </div>
+        <div>
+            <h4>Hours</h4>
+            <div>
+                <ul class="hours">
+                    <li>Monday - Friday: 3-7pm</li>
+                    <li>Saturday: 12-7pm</li>
+                    <li>Sunday: Closed</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--Location of the chef with a map-->
+    <section id="location">
+        <h1>Location</h1>
+        <div>9200 Irvine Center Dr, Irvine, CA 92618</div>
+        <div id="map"></div>
+    </section>
+    <!--Pages of user reviews about chef or items-->
+    <section id="review">
+        <h1>Reviews</h1>
+        <div></div>
+        <div>
+            <h4>Jolly | </h4>
+            <h6>February 3, 2017</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
+        </div>
+        <div>
+            <h4>Taylor | </h4>
+            <h6>February 3, 2017</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
+        </div>
+        <div>
+            <h4>Sally | </h4>
+            <h6>February 3, 2017</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
+        </div>
+        <div>
+            <h4>Joy | </h4>
+            <h6>February 3, 2017</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </section>
+</main>
 </section>
 
 <script async defer

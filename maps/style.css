@@ -8,7 +8,7 @@ body{
 }
 #food_listing {
     /*width: 600px;*/
-    /*height: 1000px;*/
+    height: 55vh;
     margin-top: 5%;
     overflow-y: scroll;
     overflow-x:hidden;
@@ -65,5 +65,6 @@ img{
 #mealName {
     text-transform: capitalize;
 }
+
 
 /*#a3e754*/
