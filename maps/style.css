@@ -91,6 +91,14 @@ img{
     font-size: 125%;
     font-weight: 900;
 }
+.theChefBox{
+    height: 50vh;
+    /*border: 1px solid #ECECEC;*/
+}
+.jumbotron h1, .jumbotron h3{
+    color: #878989;
+    text-align: center;
+}
 
 
 /*#878989*/
