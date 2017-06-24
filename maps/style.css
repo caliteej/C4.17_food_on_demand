@@ -14,9 +14,17 @@ body{
 
 .input-group {
     margin-left: 200px;
-    margin-top: 20px;
+    margin-top: 15px;
     font-style: italic;
+    /*margin-right: 10px;*/
     /*border: 1px solid black;*/
+}
+
+.chefInput, .locationInput, .foodInput {
+    margin-left: 20px;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
 }
 
 #map{
@@ -28,6 +36,10 @@ body{
     width: 200vw;
     height: 200vh;
     border: 1px solid black;
+}
+
+.results_heading {
+    padding: 0;
 }
 
 
