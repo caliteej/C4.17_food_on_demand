@@ -119,7 +119,7 @@ function populateChefs(){
             google.maps.event.removeListener(listener);
         }
     });
-    setTimeout(displayFood, 500);
+    setTimeout(displayFood, 700);
 
     function populateInfoWindow(marker, infowindow){
         if(infowindow.marker != marker){
@@ -137,6 +137,7 @@ function populateChefs(){
         for(var i = 0; i < chefs.length; i++){
             if(chefs[i].chef.alias === marker.title){
                 theChef = chefs[i];
+                break;
             }
         }
         var theChefKitchen = $('<div>',{
@@ -199,6 +200,19 @@ function getChefByCityAndFood(location, foodtype){
     });
 }
 
+// function getChefByKitchen(kitchen){
+//     $.ajax({
+//         dataType: "json",
+//         url: 'http://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
+//         method: 'get',
+//         success: function(response){
+//             data = response;
+//             getMenu();
+//             populateChefs();
+//         }
+//     });
+// }
+
 function resetMapAndData(){
     chefs = [];
     map = new google.maps.Map(document.getElementById('map'), {
@@ -215,6 +229,7 @@ function doSearch(){
     var chef = $('.chefInput').val();
     if(chef !== ""){
         console.log('maybe make a user page');
+        // resetMapAndData();
     }else if(chef === "" &&  city === "" && food !== ""){
         resetMapAndData();
         getChefByCityAndFood(currentLocation, food);

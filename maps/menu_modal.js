@@ -8,6 +8,7 @@ function menuModal(meal){
     for(var i = 0; i < available_meals.length; i++){
         if(available_meals[i].menu.data[0].id == img_id){
             current_meal = available_meals[i].menu.data[0];
+            break;
         }
     }
 
