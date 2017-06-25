@@ -32,6 +32,11 @@ body{
     height: 50vh;
 }
 
+#mapTwo{
+    width: 50vw;
+    height: 50vh;
+}
+
 .chef_card {
     width: 200vw;
     height: 200vh;
@@ -40,12 +45,13 @@ body{
 
 .results_heading {
     padding: 0;
+    margin: 4vmin;
 }
 
 
 #food_listing {
     width: 90vw;
-    padding: 5px;
+    padding: 0 5px;
     overflow: auto;
     white-space: nowrap;
 }
@@ -105,13 +111,39 @@ img{
 }
 .theChefBox{
     height: 50vh;
-    /*border: 1px solid #ECECEC;*/
 }
 .jumbotron h1, .jumbotron h3{
     color: #878989;
     text-align: center;
 }
-
+.nav-tabs {
+    width: 100%;
+}
+.nav-tabs li{
+    width: 15%;
+}
+#chefProfilePics{
+    height: 300px;
+    width: 100%;
+    background-size: contain;
+}
+#chefCarousel{
+    height: 300px;
+    width: 100%;
+    background-size: contain;
+}
+.carousel-inner div{
+    height: 300px;
+    width: 100%;
+    background-size: contain;
+}
+.carousel-inner img{
+    height: 300px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: contain;
+}
 
 /*#878989*/
 
