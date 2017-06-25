@@ -3,13 +3,20 @@ body{
     margin: 0 auto;
 }
 
+.container-fluid {
+    /*background-color: #3c3c3c;*/
+
+}
+
 .navbar-brand {
+    position: relative;
     /*border: 1px solid black;*/
-    /*margin-left: 100px;*/
-    margin-bottom: 20px;
+    margin-left: 100px;
+    /*margin-bottom: 20px;*/
     height: auto;
     width: 200px;
-    padding: 0;
+    padding: 0px 0px 0px 20px;
+
 }
 
 .input-group {
@@ -27,19 +34,48 @@ body{
     padding: 5px;
 }
 
-#map{
-    width: 50vw;
-    height: 50vh;
+.jumbotron {
+    /*background-image: url("images/home_cooking.png");*/
+    background-color: white;
+    margin: auto;
+    padding: 0;
 }
 
-.chef_card {
-    width: 200vw;
-    height: 200vh;
+.jumbotron h2 {
+    color: #c8d842;
+    /*color: #df4e10;*/
+
+}
+.jumbotron img {
+    opacity: 0.5;
+
+}
+
+#map {
+    width: 30vw;
+    height: 25vh;
+    /*margin-left: 100px;*/
+    /*margin-top: 60px;*/
+    float: right;
     border: 1px solid black;
 }
 
 .results_heading {
-    padding: 0;
+    display: inline-block;
+    /*border: 1px solid red;*/
+}
+
+.results_heading h5 {
+    float: right;
+    display: inline;
+    clear: both;
+}
+
+.results_heading h4 {
+    float: left;
+    display: inline;
+    clear: both;
+
 }
 
 
@@ -48,32 +84,32 @@ body{
     padding: 5px;
     overflow: auto;
     white-space: nowrap;
+    /*border: 1px solid black;*/
+
 }
+
 .food_item {
-    border: 1px solid #ECECEC;
+    /*border: 1px solid #ECECEC;*/
     display: inline-block;
-    padding: 5px;
-    margin: 5px;
-    font-size: large;
-    border-radius: 3px;
 }
+
 .food_caption {
-    text-align: right;
-}
-.food_name {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 125%;
-    font-weight: 900;
     text-align: center;
 }
+
+.food_name {
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+}
+
 .food_cost {
     color: #6F7279;
     font-size: small;
 }
 
-img{
-    height: 200px;
-    width: 300px;
+img {
+    height: 175px;
+    width: 275px;
     margin: 20px 0 5px 0;
     padding: 5px;
 }
@@ -95,14 +131,15 @@ img{
 
 #mealName {
     text-transform: capitalize;
-}
 
+}
 
 .modal-title {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 125%;
     font-weight: 900;
 }
+
 .theChefBox{
     height: 50vh;
     /*border: 1px solid #ECECEC;*/
@@ -112,9 +149,19 @@ img{
     text-align: center;
 }
 
+.modal-content {
+    border-radius: 0;
+}
 
-/*#878989*/
+.modal-header {
+    border-bottom-color: #c8d842;
+}
 
+.results_heading {
+    text-align: justify;
+}
+
+c8d842
 
 
 
