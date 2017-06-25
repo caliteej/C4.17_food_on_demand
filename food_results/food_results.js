@@ -24,3 +24,4 @@ function displayFood() {
         $('#food_listing').append(dish_card);
     }
 }
+
