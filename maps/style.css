@@ -144,6 +144,10 @@ img {
     height: 50vh;
     /*border: 1px solid #ECECEC;*/
 }
+
+.jumbotron {}
+
+
 .jumbotron h1, .jumbotron h3{
     color: #878989;
     text-align: center;
