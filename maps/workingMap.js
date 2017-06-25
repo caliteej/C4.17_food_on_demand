@@ -7,7 +7,7 @@ $(document).ready(function(){
         menuModal(this);
     });
 });
-var map, infoWindow, chefs = [], currentLocation;
+var map, infoWindow, chefs = [], currentLocation, theChef;
 /**
  * Creates a map using the users current location.
  */
@@ -131,37 +131,35 @@ function populateChefs(){
             });
         }
     }
-
     function displayChef(marker){
-        var theChef = null;
         for(var i = 0; i < chefs.length; i++){
             if(chefs[i].chef.alias === marker.title){
                 theChef = chefs[i];
                 break;
             }
         }
-        var theChefKitchen = $('<div>',{
+        var theChefKitchen = $('<h1>',{
             text: theChef.chef.alias
         });
         var theChefBio = $('<div>', {
             text: theChef.chef.bio
         });
-        var theChefPhoto = $('<img>', {
-            src: 'http://www.stevengfrankenfield.com/stevenfrankenfield/UltraPhotoGallery/6334/69/Steven03sharifleming.jpg'
-        });
         var theChefName = $('<div>',{
             text: theChef.chef.firstName + ' ' + theChef.chef.lastName
         });
-        var featuredChef = $('<h2>', {
+        var featuredChef = $('<h4>', {
             text: 'Chef'
         });
-        var chefKitchen = $('<h2>', {
-            text: 'Chef\'s Kitchen'
-        });
-        var chefBio = $('<h2>', {
+        var chefBio = $('<h4>', {
             text: 'Chef\'s Bio'
         });
-        $('.theChefBox').append(featuredChef, theChefName, chefKitchen, theChefKitchen, theChefPhoto, chefBio, theChefBio);
+        var link = $('<h4>', {
+            text: 'Click below to see everything I\'m cooking.'
+        });
+        var icon = $('<div>', {
+            class: 'glyphicon glyphicon-cutlery'
+        }).click(showChef);
+        $('.theChefBox').append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, link, icon);
     }
 
 }
@@ -213,6 +211,11 @@ function getChefByCityAndFood(location, foodtype){
 //     });
 // }
 
+function showChef(){
+    $('#landingPage').hide(200);
+    $('#chefProfile').show(200);
+}
+
 function resetMapAndData(){
     chefs = [];
     map = new google.maps.Map(document.getElementById('map'), {
@@ -247,3 +250,14 @@ function doSearch(){
         return;
     }
 }
+
+$(window).scroll(function(){
+    var nav = $('.nav-tabs');
+    var isPositionFixed = (nav.css('position') === 'fixed');
+    if ($(this).scrollTop() > 388 && !isPositionFixed){
+        $('.nav-tabs').css({'position': 'fixed', 'top': '0px'});
+    }
+    if ($(this).scrollTop() < 388 && isPositionFixed){
+        $('.nav-tabs').css({'position': 'static', 'top': '0px'});
+    }
+});
