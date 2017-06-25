@@ -118,6 +118,7 @@ img{
 }
 .nav-tabs {
     width: 100%;
+    z-index: 99999;
 }
 .nav-tabs li{
     width: 15%;
@@ -143,6 +144,9 @@ img{
     margin: 0;
     padding: 0;
     background-size: contain;
+}
+#chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{
+    width: 55vw;
 }
 
 /*#878989*/
