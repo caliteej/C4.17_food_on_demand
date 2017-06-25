@@ -8,21 +8,20 @@ function showChef(){
 }
 
 function createMenu(){
-    $('#chefProfileMenu').append($('<h1>', {
-        text: 'Menu'
-    }));
+    $('#chefProfileMenu').append($('<h1 style="padding-top: 40px;">Menu</h1>'));
+    var container = $('<div class="list-group">');
     theChef.menu.data.forEach(function(item){
-        var menuItem = $('<p>', {
-            html: '<strong>' + item.item_name + '</strong>' + " - " + item.description + " | $" + item.price + " " + '<span class="glyphicon glyphicon-plus-sign"></span>'
-        });
-        $('#chefProfileMenu').append(menuItem);
+        var groupContainer = $(`<a class="list-group-item"></a>`);
+        var heading = $(`<h4 class="list-group-item-heading">${item.item_name}</h4>`);
+        var description = $(`<p class="list-group-item-text">${item.description} - $${item.price}</p>`);
+        groupContainer.append(heading, description);
+        container.append(groupContainer);
+        $('#chefProfileMenu').append(container);
     });
 }
 
 function createChefStory(){
-    var chef = $('<h1>', {
-        text: 'The Chef'
-    });
+    var chef = $('<h1 style="padding-top: 40px;">The Chef</h1>');
     var chefStory = $('<h4>', {
         text: 'Story'
     });
@@ -35,10 +34,11 @@ function createChefStory(){
     $('#chefProfileChef').append(chef, chefStory, chefBio, chefHours);
 }
 
+/**
+ * Dynamically creates the location section of the chef profile page which includes a map.
+ */
 function createLocation(){
-    var location = $('<h1>', {
-        text: 'Location'
-    });
+    var location = $('<h1 style="padding-top: 40px;">Location</h1>');
     var chefAddress = $('<p>', {
         text: theChef.chef.address
     });
@@ -76,10 +76,20 @@ function createLocation(){
             google.maps.event.removeListener(listener);
         }
     });
+    function populateInfoWindow(marker, infowindow){
+        if(infowindow.marker != marker){
+            infowindow.marker = marker;
+            infowindow.setContent('<div>' + marker.title + '</div>');
+            infowindow.open(map, marker);
+            infowindow.addListener('closeclick', function(){
+                infowindow.setMarker(null);
+            });
+        }
+    }
 }
-
-{/*<div class="carousel-inner" role="listbox">*/}
-
+/**
+ * Dynamically creates a bootstrap carousel for the pictures on the chef profile page.
+ */
 function createPics(){
     var food = theChef.menu.data;
     $('#chefProfilePics').append($('<div id="chefCarousel" class="carousel slide" data-ride="carousel"></div>'));

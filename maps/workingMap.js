@@ -251,14 +251,13 @@ function doSearch(){
     }
 }
 
-$(window).scroll(function(e){
+$(window).scroll(function(){
     var nav = $('.nav-tabs');
     var isPositionFixed = (nav.css('position') === 'fixed');
-    if ($(this).scrollTop() > 200 && !isPositionFixed){
+    if ($(this).scrollTop() > 388 && !isPositionFixed){
         $('.nav-tabs').css({'position': 'fixed', 'top': '0px'});
     }
-    if ($(this).scrollTop() < 200 && isPositionFixed)
-    {
+    if ($(this).scrollTop() < 388 && isPositionFixed){
         $('.nav-tabs').css({'position': 'static', 'top': '0px'});
     }
 });
