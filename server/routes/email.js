@@ -46,7 +46,7 @@ function sendConfirmationEmail(req, res){
       <div>
           ${req.body.user}'s order:<br>
           ${req.body.purchase_name}<br>
-          <img src='http://www.cartoon-clipart.co/amp/images/shaggy-scooby-doo.png' style="width: 20vw;height:20vh"><br>
+          <img src='${req.body.purchase_photo}' style="width: 20vw;height:20vh"><br>
           Item Price: ${req.body.purchase_price} Credits
       </div
     </main>
