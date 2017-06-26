@@ -1,4 +1,4 @@
-// Loading in our modules
+    // Loading in our modules
 const fs = require("fs"); // filesystem module
 const path = require("path"); // path module
 const Sequelize = require("sequelize"); // sequelize module to establish our connection
