@@ -93,14 +93,8 @@ function createLocation(){
 function createPics(){
     var food = theChef.menu.data;
     $('#chefProfilePics').append($('<div id="chefCarousel" class="carousel slide" data-ride="carousel"></div>'));
-
-    $('<ol>', {
-        class: 'carousel-indicators'
-    }).appendTo('#chefCarousel');
-    $('<div>', {
-        class: 'carousel-inner',
-        role: 'listbox'
-    }).appendTo('#chefCarousel');
+    $('#chefCarousel').append($('<ol class="carousel-indicators"></ol>'));
+    $('#chefCarousel').append($('<div class="carousel-inner" role="listbox"></div>'));
 
     var leftControl = $('<a class="left carousel-control" href="#chefCarousel" role="button" data-slide="prev"></a>');
     var leftArrow = $('<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>');

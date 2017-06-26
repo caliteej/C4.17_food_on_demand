@@ -53,14 +53,8 @@ body{
 }
 
 #mapTwo{
-    width: 50vw;
-    height: 50vh;
-}
-
-.chef_card {
-    width: 200vw;
-    height: 200vh;
-    border: 1px solid black;
+    width: 40vw;
+    height: 40vh;
 }
 
 .results_heading {
@@ -160,43 +154,45 @@ img {
 }
 
 .nav-tabs {
-    width: 100%;
+    width: 50%;
     z-index: 99999;
 }
 .nav-tabs li{
-    width: 15%;
+    width: 25%;
 }
 #chefProfilePics{
-    height: 300px;
+    height: 50vh;
     width: 100%;
     background-size: contain;
 }
 #chefCarousel{
-    height: 300px;
+    height: 50vh;
     width: 100%;
     background-size: contain;
 }
 .carousel-inner div{
-    height: 300px;
+    height: 50vh;
     width: 100%;
     background-size: contain;
 }
 .carousel-inner img{
-    height: 300px;
+    height: 50vh;
     width: 100%;
     margin: 0;
     padding: 0;
     background-size: contain;
 }
 #chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{
-    width: 55vw;
+    width: 60vw;
+    /*margin: 0 auto;*/
 }
 
 .results_heading {
     text-align: justify;
 }
 
+.previous a, .next a{
+    color: black;
+}
+
 c8d842
-
-
-
