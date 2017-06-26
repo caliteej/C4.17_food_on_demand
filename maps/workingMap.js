@@ -138,6 +138,9 @@ function populateChefs(){
                 break;
             }
         }
+        var jumbotron = $('<div>', {
+            class: 'jumbotron'
+        });
         var theChefKitchen = $('<h1>',{
             text: theChef.chef.alias
         });
@@ -159,7 +162,8 @@ function populateChefs(){
         var icon = $('<div>', {
             class: 'glyphicon glyphicon-cutlery'
         }).click(showChef);
-        $('.theChefBox').append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, link, icon);
+        jumbotron.append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, link, icon);
+        $('.theChefBox').append(jumbotron);
     }
 
 }
@@ -254,10 +258,10 @@ function doSearch(){
 $(window).scroll(function(){
     var nav = $('.nav-tabs');
     var isPositionFixed = (nav.css('position') === 'fixed');
-    if ($(this).scrollTop() > 388 && !isPositionFixed){
+    if ($(this).scrollTop() > 430 && !isPositionFixed){
         $('.nav-tabs').css({'position': 'fixed', 'top': '0px'});
     }
-    if ($(this).scrollTop() < 388 && isPositionFixed){
+    if ($(this).scrollTop() < 430 && isPositionFixed){
         $('.nav-tabs').css({'position': 'static', 'top': '0px'});
     }
 });
