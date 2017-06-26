@@ -58,7 +58,7 @@ function reverseGeocoding(position){
 function getChefsFromDataBase(){
     $.ajax({
         dataType: "json",
-        url: 'http://api.nxtdoorchef.com/api/chef/city/' + data.results[0].address_components[3].long_name,
+        url: 'https://api.nxtdoorchef.com/api/chef/city/' + data.results[0].address_components[3].long_name,
         method: 'get',
         success: function(response){
             data = response;
@@ -74,7 +74,7 @@ function getMenu(){
     data.data.forEach(function(item){
         $.ajax({
             dataType: "json",
-            url: 'http://api.nxtdoorchef.com/api/menu/id/' + item.id,
+            url: 'https://api.nxtdoorchef.com/api/menu/id/' + item.id,
             method: 'get',
             success: function(response){
                 menu = response;
@@ -175,7 +175,7 @@ function populateChefs(){
 function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
-        url: 'http://api.nxtdoorchef.com/api/chef/city/' + location,
+        url: 'https://api.nxtdoorchef.com/api/chef/city/' + location,
         method: 'get',
         success: function(response){
             data = response;
@@ -192,7 +192,7 @@ function getChefByCityInput(location){
 function getChefByCityAndFood(location, foodtype){
     $.ajax({
         dataType: "json",
-        url: 'http://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
+        url: 'https://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
         method: 'get',
         success: function(response){
             data = response;
