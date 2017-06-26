@@ -10,13 +10,10 @@ body{
 
 .navbar-brand {
     position: relative;
-    /*border: 1px solid black;*/
     margin-left: 100px;
-    /*margin-bottom: 20px;*/
     height: auto;
     width: 200px;
     padding: 0px 0px 0px 20px;
-
 }
 
 .input-group {
@@ -35,28 +32,26 @@ body{
 }
 
 .jumbotron {
-    /*background-image: url("images/home_cooking.png");*/
     background-color: white;
-    margin: auto;
+    margin-top: 10%;
+    margin-left: 10%;
     padding: 0;
+    display: inline-block;
 }
 
 .jumbotron h2 {
     color: #c8d842;
-    /*color: #df4e10;*/
-
-}
-.jumbotron img {
-    opacity: 0.5;
-
 }
 
 #map {
-    width: 30vw;
-    height: 25vh;
-    /*margin-left: 100px;*/
-    /*margin-top: 60px;*/
+    width: 40vw;
+    height: 40vh;
+    margin-right: 10%;
+    margin-top: 10%;
     float: right;
+    display: inline-block;
+}
+
 #mapTwo{
     width: 50vw;
     height: 50vh;
@@ -70,20 +65,17 @@ body{
 
 .results_heading {
     display: inline-block;
-    /*border: 1px solid red;*/
 }
 
 .results_heading h5 {
     float: right;
-    display: inline;
     clear: both;
 }
 
 .results_heading h4 {
-    float: left;
-    display: inline;
+    /*float: left;*/
+    display: inline-block;
     clear: both;
-
     padding: 0;
     margin: 4vmin;
 }
@@ -118,8 +110,8 @@ body{
 }
 
 img {
-    height: 175px;
-    width: 275px;
+    height: 20vh;
+    width: 19vw;
     margin: 20px 0 5px 0;
     padding: 5px;
 }
@@ -154,9 +146,6 @@ img {
     height: 50vh;
 }
 
-.jumbotron {}
-
-
 .jumbotron h1, .jumbotron h3{
     color: #878989;
     text-align: center;
@@ -168,6 +157,8 @@ img {
 
 .modal-header {
     border-bottom-color: #c8d842;
+}
+
 .nav-tabs {
     width: 100%;
     z-index: 99999;
