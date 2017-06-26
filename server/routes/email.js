@@ -10,8 +10,8 @@ function sendConfirmationEmail(req, res){
         port: 25,
         secure: false,
         auth: {
-            user: "nxtDoorChef@gmail.com",
-            pass: "V0ltronLegendaryDefender"
+            user: "user",
+            pass: "password"
         },
         tls: {
             rejectUnauthorized: false
