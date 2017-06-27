@@ -4,7 +4,7 @@ body{
 }
 
 .container-fluid {
-    /*background-color: #3c3c3c;*/
+    background-color: white;
 
 }
 
@@ -33,7 +33,7 @@ body{
 
 .jumbotron {
     background-color: white;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 10%;
     padding: 0;
     display: inline-block;
@@ -47,7 +47,7 @@ body{
     width: 40vw;
     height: 40vh;
     margin-right: 10%;
-    margin-top: 10%;
+    margin-top: 5%;
     float: right;
     display: inline-block;
 }
@@ -110,8 +110,8 @@ body{
 }
 
 img {
-    height: 20vh;
-    width: 19vw;
+    height: 175px;
+    width: 275px;
     margin: 20px 0 5px 0;
     padding: 5px;
 }
