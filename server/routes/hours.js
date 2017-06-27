@@ -16,7 +16,7 @@ function getHours(req, res){
     }).then(function(hours){
         res.status(200).send({"success": true, "data": hours});
     }).catch(function(error){
-        res.status(404).send({"success": false, hours});
+        res.status(404).send({"success": false, error});
     });
 }
 
