@@ -46,7 +46,7 @@ function sendEmailConfirmation(userName, userEmail) {
             purchase_name: current_meal.item_name
         },
         method: 'POST',
-        url: "http://api.nxtdoorchef.com/api/email/confirmation",
+        url: "https://api.nxtdoorchef.com/api/email/confirmation",
         success: function(response){
             console.log(response);
         }
