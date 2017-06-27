@@ -33,7 +33,7 @@ body{
 
 .jumbotron {
     background-color: white;
-    margin-top: 10%;
+    /*margin-top: 10%;*/
     margin-left: 10%;
     padding: 0;
     display: inline-block;
@@ -47,7 +47,7 @@ body{
     width: 40vw;
     height: 40vh;
     margin-right: 10%;
-    margin-top: 10%;
+    /*margin-top: 10%;*/
     float: right;
     display: inline-block;
 }
@@ -154,7 +154,7 @@ img {
 }
 
 .nav-tabs {
-    width: 50%;
+    width: 60vw;
     z-index: 99999;
 }
 .nav-tabs li{
@@ -193,6 +193,28 @@ img {
 
 .previous a, .next a{
     color: black;
+}
+
+span.glyphicon-circle-arrow-left{
+    font-size: 3.5em;
+}
+
+.buyButton{
+    background-color: black;
+    color: white;
+}
+
+th{
+    width: 25%;
+    text-align: center;
+}
+
+td{
+    text-align: center;
+}
+
+th .glyphicon{
+    font-size: 2em;
 }
 
 c8d842

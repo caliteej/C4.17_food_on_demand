@@ -11,9 +11,10 @@ function createMenu(){
     $('#chefProfileMenu').append($('<h1 style="padding-top: 40px;">Menu</h1>'));
     var container = $('<div class="list-group">');
     theChef.menu.data.forEach(function(item){
+        var icon = $(`<button class="buyButton btn pull-right" data-name="${item.item_name}">BUY</button>`).click(orderItem);
         var groupContainer = $(`<a class="list-group-item"></a>`);
-        var heading = $(`<h4 class="list-group-item-heading">${item.item_name}</h4>`);
-        var description = $(`<p class="list-group-item-text">${item.description} - $${item.price}</p>`);
+        var heading = $(`<h4 class="list-group-item-heading">${item.item_name} | $${item.price}</h4>`).append(icon);
+        var description = $(`<p class="list-group-item-text">${item.description}</p>`);
         groupContainer.append(heading, description);
         container.append(groupContainer);
         $('#chefProfileMenu').append(container);
@@ -22,16 +23,23 @@ function createMenu(){
 
 function createChefStory(){
     var chef = $('<h1 style="padding-top: 40px;">The Chef</h1>');
+
+    var table = $('<table class="table table-bordered table-striped"><tr><th><span class="glyphicon glyphicon-home"></span></th><th><span class="glyphicon glyphicon-user"></span></th><th><span class="glyphicon glyphicon-time"></span></th><th><span class="glyphicon glyphicon-cutlery"></span></th></tr></table>');
+    var tableData = $(`<tr></tr>`);
+    var tableRestaurant = $(`<td>${theChef.chef.alias}</td>`);
+    var tableName = $(`<td>${theChef.chef.firstName} ${theChef.chef.lastName}</td>`);
+    var tableHours = $(`<td></td>`);
+    var tableFoodType = $(`<td>${theChef.chef.foodType}</td>`);
+    tableData.append(tableRestaurant, tableName, tableHours, tableFoodType);
+    table.append(tableData);
+
     var chefStory = $('<h4>', {
         text: 'Story'
     });
     var chefBio = $('<p>', {
         text: theChef.chef.bio
     });
-    var chefHours = $('<h4>', {
-        text: 'Hours'
-    });
-    $('#chefProfileChef').append(chef, chefStory, chefBio, chefHours);
+    $('#chefProfileChef').append(chef, table, chefStory, chefBio);
 }
 
 /**
@@ -49,43 +57,10 @@ function createLocation(){
     map = new google.maps.Map(document.getElementById('mapTwo'), {
         zoom: 13
     });
-    var locations = [];
-    var markers = [];
-    locations.push({title: theChef.chef.alias, location: {lat: theChef.chef.lat, lng: theChef.chef.lng}});
-    var largeInfowindow = new google.maps.InfoWindow();
-    var bounds = new google.maps.LatLngBounds();
-    for(var i = 0; i < locations.length; i++){
-        var position = locations[i].location;
-        var title = locations[i].title;
-        var marker = new google.maps.Marker({
-            map: map,
-            position: position,
-            title: title,
-            id: i
-        });
-        markers.push(marker);
-        bounds.extend(marker.position);
-        marker.addListener("click", function(){
-            populateInfoWindow(this, largeInfowindow);
-        });
-    }
-    map.fitBounds(bounds);
-    var listener = google.maps.event.addListener(map, "idle", function() {
-        if (map.getZoom() > 13){
-            map.setZoom(13);
-            google.maps.event.removeListener(listener);
-        }
-    });
-    function populateInfoWindow(marker, infowindow){
-        if(infowindow.marker != marker){
-            infowindow.marker = marker;
-            infowindow.setContent('<div>' + marker.title + '</div>');
-            infowindow.open(map, marker);
-            infowindow.addListener('closeclick', function(){
-                infowindow.setMarker(null);
-            });
-        }
-    }
+    data = {
+        data: [theChef.chef]
+    };
+    populateChefs();
 }
 /**
  * Dynamically creates a bootstrap carousel for the pictures on the chef profile page.
@@ -118,3 +93,15 @@ function createPics(){
     }
 }
 
+function orderItem(){
+    var element = $(this).attr('data-name');
+    var menu = theChef.menu.data;
+    lastPage = 'profilePage';
+    $('#chefProfile').hide();
+    for(var i = 0; i < menu.length; i++){
+        if(menu[i].item_name === element){
+            current_meal = menu[i];
+            placeOrder();
+        }
+    }
+}

@@ -27,7 +27,6 @@
         <div class="input-group navbar-right">
             <input class="input locationInput" type="text" placeholder="City">
             <input class="input foodInput" type="text" placeholder="Cuisine">
-            <input class="input chefInput" type="text" placeholder="Chef">
             <button class="submit btn glyphicon glyphicon-search" type="submit"></button>
         </div>
     </div>
@@ -42,9 +41,7 @@
     <div class="theChefBox col-md-5">
         <div class="jumbotron">
             <h2>Bringing home, a taste of home.</h2>
-            <p>Just as Uber is connecting us with drivers on demand and Airbnb allows us to rent space in homes around the world, nxtDoorChef enables us to buy home cooking from those around us.
-                 nxtDoorChef is bringing communities together by seamlessly connecting hungry neighbours with local cooks via a platform, mobile and web. Just as Uber is connecting us with drivers on demand and Airbnb allows us to rent space in homes around the world, nxtDoorChef enables us to buy home cooking from those around us.
-                nxtDoorChef is bringing communities together by seamlessly connecting hungry neighbours with local cooks via a platform, mobile and web.</p>
+            <p>Just as Uber is connecting us with drivers on demand and Airbnb allows us to rent space in homes around the world, nxtDoorChef enables us to buy home cooking from those around us.</p>
         </div>
     </div>
     <div class="mapAndSearch col-md-7">
@@ -124,6 +121,7 @@
         </div>
     </div>
     <button id='confirmButton' class="btn btn-outline-success">Checkout</button>
+    <button id='backButtonCheckout' class="btn btn-warning">Back</button>
 </div>
 </section>
 
@@ -150,6 +148,7 @@
             <a class="nav-link" href="#chefProfileReview">Reviews</a>
         </li>
     </ul>
+    <span class="backButton glyphicon glyphicon-circle-arrow-left"></span>
 </section>
 <main>
     <!--Information about the chef. His/her story and hours-->
@@ -184,8 +183,8 @@
         </div>
         <nav aria-label="...">
             <ul class="pager">
-                <li class="previous"><a href="#chefProfileReview"><span aria-hidden="true">&larr;</span> Newer</a></li>
-                <li class="next"><a href="#chefProfileReview">Older <span aria-hidden="true">&rarr;</span></a></li>
+                <li class="previous"><a href="#chefProfileReview"><span aria-hidden="true">&larr;</span> Back</a></li>
+                <li class="next"><a href="#chefProfileReview">Next <span aria-hidden="true">&rarr;</span></a></li>
             </ul>
         </nav>
     </section>
