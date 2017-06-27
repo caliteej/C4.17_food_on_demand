@@ -1,23 +1,6 @@
 var userName = '';
 var userEmail = '';
 var lastPage = 'landingPage';
-// $(document).ready(function displayMealInfo() {
-//         console.log('function works');
-//
-//         $.ajax({
-//             url: "../dummy_data/chefData_paul.json",
-//             method: 'GET',
-//             dataType: "JSON",
-//             success: function (response) {
-//                 console.log(response);
-//                 let meal_name = $('<div>').text('Meal name: ' + response.menu.data[0].item_name);
-//                 let meal_photo = $('<img>').attr("src", response.menu.data[0].photo);
-//                 let meal_price = $('<div>').text('Meal price: ' + response.menu.data[0].price);
-//                 $('#orderOf_container').append(meal_name, meal_photo, meal_price);
-//             }
-//         });
-//     }
-// );
 
 //Confirmation modal and calls sendEmail function
 $(document).ready(function() {
@@ -30,6 +13,7 @@ $(document).ready(function() {
         sendEmailConfirmation(userName, userEmail)
     });
     $('#backButtonCheckout').click(previousPageFromCheckout);
+    $('.backButton').click(backToLandingPage);
 });
 
 //Gather order data from order object and send it via ajax network call to the backend, specifically to nodemailer module.
@@ -64,25 +48,16 @@ function previousPageFromCheckout(){
     }
 }
 
-// function checkoutConfirm(final_meal){
-//     checkoutConfirm(final_meal);
-//         console.log(final_meal)
-// }
+function backToLandingPage(){
+    lastPage = 'landingPage';
+    $('#chefProfile').hide();
+    $('#landingPage').show();
+    clearChefProfile();
+}
 
-// $(document).ready(function displayMealInfo() {
-//         console.log('function works');
-//
-//         $.ajax({
-//             url: "../dummy_data/chefData_paul.json",
-//             method: 'GET',
-//             dataType: "JSON",
-//             success: function (response) {
-//                 console.log(response);
-//                 var meal_name = $('<div>').text('Meal name: ' + response.menu.data[0].item_name);
-//                 var meal_photo = $('<img>').attr("src", response.menu.data[0].photo);
-//                 var meal_price = $('<div>').text('Meal price: ' + response.menu.data[0].price);
-//                 $('#orderOf_container').append(meal_name, meal_photo, meal_price);
-//             }
-//         });
-//     }
-// );
+function clearChefProfile(){
+    $('#chefProfilePics').empty();
+    $('#chefProfileChef').empty();
+    $('#chefProfileMenu').empty();
+    $('#chefProfileLocation').empty();
+}

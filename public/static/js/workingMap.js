@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    $('#checkout').hide(200);
-    $('#chefProfile').hide(200);
+    $('#checkout').hide();
+    $('#chefProfile').hide();
     initMap();
     $('.submit').click(doSearch);
     $('div').on('click', '.food_item', function(){
@@ -141,7 +141,7 @@ function populateChefs(){
         var jumbotron = $('<div>', {
             class: 'jumbotron'
         });
-        var theChefKitchen = $('<h1>',{
+        var theChefKitchen = $('<h2>',{
             text: theChef.chef.alias
         });
         var theChefBio = $('<div>', {
@@ -156,13 +156,11 @@ function populateChefs(){
         var chefBio = $('<h4>', {
             text: 'Chef\'s Bio'
         });
-        var link = $('<h4>', {
-            text: 'Click below to see everything I\'m cooking.'
-        });
-        var icon = $('<div>', {
-            class: 'glyphicon glyphicon-cutlery'
+        var icon = $('<button>', {
+            class: 'buyButton btn',
+            text: 'Full Menu'
         }).click(showChef);
-        jumbotron.append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, link, icon);
+        jumbotron.append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, icon);
         $('.theChefBox').append(jumbotron);
     }
 
@@ -176,6 +174,23 @@ function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
         url: 'https://api.nxtdoorchef.com/api/chef/city/' + location,
+        method: 'get',
+        success: function(response){
+            data = response;
+            getMenu();
+            populateChefs();
+        }
+    });
+}
+/**
+ * This function makes a call to our database requesting chefs based on location by city.
+ * Same as getChefsFromDataBase but it uses the input value rather than users current location.
+ * @param location
+ */
+function getAllChefs(){
+    $.ajax({
+        dataType: "json",
+        url: 'https://api.nxtdoorchef.com/api/chef',
         method: 'get',
         success: function(response){
             data = response;
@@ -216,8 +231,8 @@ function getChefByCityAndFood(location, foodtype){
 // }
 
 function showChef(){
-    $('#landingPage').hide(200);
-    $('#chefProfile').show(200);
+    $('#landingPage').hide();
+    $('#chefProfile').show();
 }
 
 function resetMapAndData(){
@@ -233,19 +248,19 @@ function resetMapAndData(){
 function doSearch(){
     var food = $('.foodInput').val();
     var city = $('.locationInput').val();
-    var chef = $('.chefInput').val();
-    if(chef !== ""){
+    if(city === "" && food === ""){
         console.log('maybe make a user page');
-        // resetMapAndData();
-    }else if(chef === "" &&  city === "" && food !== ""){
+        resetMapAndData();
+        getAllChefs();
+    }else if(city === "" && food !== ""){
         resetMapAndData();
         getChefByCityAndFood(currentLocation, food);
         $('.foodInput').val('');
-    }else if(chef === "" && food === "" && city !== ""){
+    }else if(food === "" && city !== ""){
         resetMapAndData();
         getChefByCityInput(city);
         $('.locationInput').val('');
-    }else if(chef === "" && food !== "" && city !== ""){
+    }else if(food !== "" && city !== ""){
         resetMapAndData();
         getChefByCityAndFood(city, food);
         $('.locationInput').val('');
