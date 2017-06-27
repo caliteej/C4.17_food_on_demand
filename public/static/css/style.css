@@ -195,9 +195,8 @@ img {
     color: black;
 }
 
-.nav-tabs .active a{
-    background-color: black;
-    color: white;
+span.glyphicon-circle-arrow-left{
+    font-size: 2em;
 }
 
 c8d842
