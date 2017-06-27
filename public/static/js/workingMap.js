@@ -58,7 +58,7 @@ function reverseGeocoding(position){
 function getChefsFromDataBase(){
     $.ajax({
         dataType: "json",
-        url: 'http://api.nxtdoorchef.com/api/chef/city/' + data.results[0].address_components[3].long_name,
+        url: 'https://api.nxtdoorchef.com/api/chef/city/' + data.results[0].address_components[3].long_name,
         method: 'get',
         success: function(response){
             data = response;
@@ -74,7 +74,7 @@ function getMenu(){
     data.data.forEach(function(item){
         $.ajax({
             dataType: "json",
-            url: 'http://api.nxtdoorchef.com/api/menu/id/' + item.id,
+            url: 'https://api.nxtdoorchef.com/api/menu/id/' + item.id,
             method: 'get',
             success: function(response){
                 menu = response;
@@ -138,6 +138,9 @@ function populateChefs(){
                 break;
             }
         }
+        var jumbotron = $('<div>', {
+            class: 'jumbotron'
+        });
         var theChefKitchen = $('<h1>',{
             text: theChef.chef.alias
         });
@@ -159,7 +162,8 @@ function populateChefs(){
         var icon = $('<div>', {
             class: 'glyphicon glyphicon-cutlery'
         }).click(showChef);
-        $('.theChefBox').append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, link, icon);
+        jumbotron.append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, link, icon);
+        $('.theChefBox').append(jumbotron);
     }
 
 }
@@ -171,7 +175,7 @@ function populateChefs(){
 function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
-        url: 'http://api.nxtdoorchef.com/api/chef/city/' + location,
+        url: 'https://api.nxtdoorchef.com/api/chef/city/' + location,
         method: 'get',
         success: function(response){
             data = response;
@@ -188,7 +192,7 @@ function getChefByCityInput(location){
 function getChefByCityAndFood(location, foodtype){
     $.ajax({
         dataType: "json",
-        url: 'http://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
+        url: 'https://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
         method: 'get',
         success: function(response){
             data = response;
@@ -254,10 +258,10 @@ function doSearch(){
 $(window).scroll(function(){
     var nav = $('.nav-tabs');
     var isPositionFixed = (nav.css('position') === 'fixed');
-    if ($(this).scrollTop() > 388 && !isPositionFixed){
+    if ($(this).scrollTop() > 430 && !isPositionFixed){
         $('.nav-tabs').css({'position': 'fixed', 'top': '0px'});
     }
-    if ($(this).scrollTop() < 388 && isPositionFixed){
+    if ($(this).scrollTop() < 430 && isPositionFixed){
         $('.nav-tabs').css({'position': 'static', 'top': '0px'});
     }
 });
