@@ -1,5 +1,6 @@
 var userName = '';
 var userEmail = '';
+var lastPage = 'landingPage';
 // $(document).ready(function displayMealInfo() {
 //         console.log('function works');
 //
@@ -28,6 +29,7 @@ $(document).ready(function() {
         $('#confirmModal').modal("show");
         sendEmailConfirmation(userName, userEmail)
     });
+    $('#backButtonCheckout').click(previousPageFromCheckout);
 });
 
 //Gather order data from order object and send it via ajax network call to the backend, specifically to nodemailer module.
@@ -49,6 +51,17 @@ function sendEmailConfirmation(userName, userEmail) {
             console.log(response);
         }
     });
+}
+
+function previousPageFromCheckout(){
+    $('#orderOf_container').empty();
+    if(lastPage === 'landingPage'){
+        $('#checkout').hide();
+        $('#landingPage').show();
+    }else{
+        $('#checkout').hide();
+        $('#chefProfile').show();
+    }
 }
 
 // function checkoutConfirm(final_meal){

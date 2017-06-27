@@ -158,7 +158,7 @@ img {
     z-index: 99999;
 }
 .nav-tabs li{
-    width: 25%;
+    width: 20%;
 }
 #chefProfilePics{
     height: 50vh;
@@ -193,6 +193,11 @@ img {
 
 .previous a, .next a{
     color: black;
+}
+
+.nav-tabs .active a{
+    background-color: black;
+    color: white;
 }
 
 c8d842

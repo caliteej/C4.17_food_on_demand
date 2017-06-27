@@ -11,8 +11,11 @@ function createMenu(){
     $('#chefProfileMenu').append($('<h1 style="padding-top: 40px;">Menu</h1>'));
     var container = $('<div class="list-group">');
     theChef.menu.data.forEach(function(item){
+        var icon = $('<div>', {
+            class: 'glyphicon glyphicon-plus-sign pull-right'
+        }).click(orderItem);
         var groupContainer = $(`<a class="list-group-item"></a>`);
-        var heading = $(`<h4 class="list-group-item-heading">${item.item_name}</h4>`);
+        var heading = $(`<h4 class="list-group-item-heading">${item.item_name}</h4>`).append(icon);
         var description = $(`<p class="list-group-item-text">${item.description} - $${item.price}</p>`);
         groupContainer.append(heading, description);
         container.append(groupContainer);
@@ -118,3 +121,15 @@ function createPics(){
     }
 }
 
+function orderItem(){
+    var element = $(this).closest('h4').text();
+    var menu = theChef.menu.data;
+    lastPage = 'profilePage';
+    $('#chefProfile').hide();
+    for(var i = 0; i < menu.length; i++){
+        if(menu[i].item_name === element){
+            current_meal = menu[i];
+            placeOrder();
+        }
+    }
+}
