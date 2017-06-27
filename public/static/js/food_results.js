@@ -18,10 +18,13 @@ function displayFood() {
         var dish_name = $('<h4>').addClass('food_name').text(chefs[i].menu.data[0].item_name);
         var cost = $('<div>').addClass('food_cost').text(chefs[i].menu.data[0].price);
 
+
+
         dish_caption.append(dish_name, cost);
         dish_card.append(dish_photo, dish_caption);
         dish_card.attr('id', chefs[i].menu.data[0].id);
         $('#food_listing').append(dish_card);
+
     }
 }
 
