@@ -249,24 +249,24 @@ function resetMapAndData(){
  */
 function doSearch(){
     var food = $('.foodInput').val();
-    var city = $('.locationInput').val();
-    if(city === "" && food === ""){
-        console.log('maybe make a user page');
-        resetMapAndData();
-        getAllChefs();
-    }else if(city === "" && food !== ""){
+    // var city = $('.locationInput').val();
+    // if(city === "" && food === ""){
+    //     console.log('maybe make a user page');
+    //     resetMapAndData();
+    //     getAllChefs();
+    if(food !== ""){
         resetMapAndData();
         getChefByCityAndFood(currentLocation, food);
         $('.foodInput').val('');
-    }else if(food === "" && city !== ""){
-        resetMapAndData();
-        getChefByCityInput(city);
-        $('.locationInput').val('');
-    }else if(food !== "" && city !== ""){
-        resetMapAndData();
-        getChefByCityAndFood(city, food);
-        $('.locationInput').val('');
-        $('.foodInput').val('');
+    // }else if(food === "" && city !== ""){
+    //     resetMapAndData();
+    //     getChefByCityInput(city);
+    //     $('.locationInput').val('');
+    // }else if(food !== "" && city !== ""){
+    //     resetMapAndData();
+    //     getChefByCityAndFood(city, food);
+    //     $('.locationInput').val('');
+    //     $('.foodInput').val('');
     }else{
         return;
     }

@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 function displayFood(selected_chef = null) {
     if(selected_chef==null) {
+
         $('#food_listing').empty();
         for (var i = 0; i < chefs.length; i++) {
             // available_meals = chefs[i].menu.data[0];
@@ -25,7 +26,7 @@ function displayFood(selected_chef = null) {
                 $('#food_listing').append(dish_card);
             }
         }
-    } else {
+    }else{
         $('#food_listing').empty();
         //console.log('this is the chosen one:', selected_chef);
         for (var e = 0; e < selected_chef.menu.data.length; e++) {
@@ -34,27 +35,13 @@ function displayFood(selected_chef = null) {
             var dish_photo = $('<img>').attr("src", selected_chef.menu.data[e].photo);
             var dish_name = $('<h4>').addClass('food_name').text(selected_chef.menu.data[e].item_name);
 
-
             dish_caption.append(dish_name);
             dish_card.append(dish_photo, dish_caption);
             dish_card.attr('id', selected_chef.menu.data[e].id);
             $('#food_listing').append(dish_card);
         }
-
     }
-
-        // var dish_card = $('<div>').addClass('food_item');
-        // var dish_caption = $('<div>').addClass('food_caption');
-        // var dish_photo = $('<img>').attr("src", chefs[i].menu.data[0].photo);
-        // var dish_name = $('<h4>').addClass('food_name').text(chefs[i].menu.data[0].item_name);
-        // var cost = $('<div>').addClass('food_cost').text(chefs[i].menu.data[0].price);
-        //
-        //
-        //
-        // dish_caption.append(dish_name, cost);
-        // dish_card.append(dish_photo, dish_caption);
-        // dish_card.attr('id', chefs[i].menu.data[0].id);
-        // $('#food_listing').append(dish_card);
-
 }
+
+
 
