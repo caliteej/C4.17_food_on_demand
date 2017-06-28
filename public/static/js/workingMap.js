@@ -132,6 +132,7 @@ function populateChefs(){
         }
     }
     function displayChef(marker){
+        console.log(marker);
         for(var i = 0; i < chefs.length; i++){
             if(chefs[i].chef.alias === marker.title){
                 theChef = chefs[i];
@@ -162,6 +163,7 @@ function populateChefs(){
         }).click(showChef);
         jumbotron.append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, icon);
         $('.theChefBox').append(jumbotron);
+        displayFood(theChef);
     }
 
 }
