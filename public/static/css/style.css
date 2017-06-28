@@ -233,9 +233,9 @@ img {
     padding: 0;
     background-size: contain;
 }
-#chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{
-    width: 60vw;
-}
+/*#chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{*/
+    /*width: 60vw;*/
+/*}*/
 
 .results_heading {
     text-align: justify;
@@ -266,6 +266,3 @@ td{
 th .glyphicon{
     font-size: 2em;
 }
-
-
-
