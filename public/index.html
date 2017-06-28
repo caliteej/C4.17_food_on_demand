@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Maps Prototype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,40 +18,43 @@
     <script src="static/js/chefProfile.js"></script>
 </head>
 <body>
-
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div onclick="location.reload()" class="navbar-header">
             <img class="navbar-brand" src="assets/nxtDoorChef.png">
         </div>
-        <div class="input-group navbar-right">
-            <input class="input locationInput" type="text" placeholder="City">
-            <input class="input foodInput" type="text" placeholder="Cuisine">
-            <button class="submit btn glyphicon glyphicon-search" type="submit"></button>
+        <div class="navbar-right col-xs-6 inputFood">
+            <div class="input-group">
+                <input class="form-control inputFood" type="text" placeholder="Cuisine">
+                <span class="input-group-btn">
+                        <button class="submit btn glyphicon glyphicon-search" type="submit"></button>
+                    </span>
+            </div>
         </div>
     </div>
 </nav>
-
-
 <!--***************************************-->
 <!--*************Landing Page**************-->
 <!--***************************************-->
-
-<section id="landingPage">
-    <div class="theChefBox col-md-5">
-        <div class="jumbotron">
-            <h2>Bring home, a taste of home.</h2>
-            <p>Just as Uber is connecting us with drivers on demand and Airbnb allows us to rent space in homes around the world, nxtDoorChef enables us to buy home cooking from those around us.  It's the largest neighborhood kitchen.  And the best part is...it's right next door.</p>
+<section class="container" id="landingPage">
+    <div class="row">
+        <div class="theChefBox col-xs-5">
+            <div>
+                <h2>Bring home, a taste of home.</h2>
+                <p>Just as Uber is connecting us with drivers on demand and Airbnb allows us to rent space in homes around the world, nxtDoorChef enables us to buy home cooking from those around us.</p>
+                <p>Simply enter the type of food you'd like to eat in the search bar, let the map show who's cooking around you, pick the food that's gonna satisfy your craving, and Order!</p>
+                <p>Before you know it, you'll be pulling up to you pickup your food from your friendly neighborhood chef.</p>
+            </div>
+        </div>
+        <div class="mapAndSearch col-xs-7">
+            <div id="map"></div>
         </div>
     </div>
-    <div class="mapAndSearch col-md-7">
-        <div id="map"></div>
-    </div>
-    <div>
-        <div class="results_heading">
+    <div class="row">
+        <div class="results_heading col-xs-12">
             <h3>What's Cookin' Near You:</h3>
             <!--<h5>See all</h5>-->
-            <div class="col-md-4" id="food_listing"></div>
+            <div id="food_listing"></div>
         </div>
     </div>
     <div id="single_menu_item_modal" class="modal fade" role="dialog">
@@ -70,145 +74,141 @@
         </div>
     </div>
 </section>
-
 <!--***************************************-->
 <!--************Checkout Page**************-->
 <!--***************************************-->
 <section id="checkout">
-<h3>Checkout</h3>
-<div class="container-fluid">
-    <div class="row">
-        <!--User info section-->
-        <div class="col-sm-3" id="orderBy_container">
-            <h4>Customer:</h4>
-            <div>
-                <form class="userInfo">
-                    <div class="form-group">
-                        <!--<label>Name:</label>-->
-                        <input type="text" class="form-control" id="userFirstName" placeholder="First Name">
-                    </div>
-                    <div class="form-group">
-                        <!--<label>Name:</label>-->
-                        <input type="text" class="form-control" id="userLastName" placeholder="Last Name">
-                    </div>
-                    <div class="form-group">
-                        <!--<label>Email:</label>-->
-                        <input type="email" class="form-control" id="userEmail" placeholder="Email Address">
-                    </div>
-                </form>
+    <h3>Checkout</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <!--User info section-->
+            <div class="col-sm-3" id="orderBy_container">
+                <h4>Customer:</h4>
+                <div>
+                    <form class="userInfo">
+                        <div class="form-group">
+                            <!--<label>Name:</label>-->
+                            <input type="text" class="form-control" id="userFirstName" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <!--<label>Name:</label>-->
+                            <input type="text" class="form-control" id="userLastName" placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                            <!--<label>Email:</label>-->
+                            <input type="email" class="form-control" id="userEmail" placeholder="Email Address">
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <!--Chef info section-->
-        <div class="col-sm-3" id="orderOf_container">
-            <h4>Item(s):</h4>
-            <br/>
-        </div>
-        <div class="col-sm-3" id="pickupInfo_container">
-            <h4>Chef/Pickup Information:</h4>
-            <br/>
-        </div>
-        <!-- Modal -->
-        <div id="confirmModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-md">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                        <img src="assets/nxtDoorChef.png">
-                    </div>
-                    <div class="modal-body">
-                        <p>Your nxtDoorChef thanks you for your purchase!</p>
-                        <br>
-                        <p>A confirmation has been sent to your email address.</p>
-                    </div>
-                    <!--<div class="modal-footer">-->
+            <!--Chef info section-->
+            <div class="col-sm-3" id="orderOf_container">
+                <h4>Item(s):</h4>
+                <br/>
+            </div>
+            <div class="col-sm-3" id="pickupInfo_container">
+                <h4>Chef/Pickup Information:</h4>
+                <br/>
+            </div>
+            <!-- Modal -->
+            <div id="confirmModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-md">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <img src="assets/nxtDoorChef.png">
+                        </div>
+                        <div class="modal-body">
+                            <p>Your nxtDoorChef thanks you for your purchase!</p>
+                            <br>
+                            <p>A confirmation has been sent to your email address.</p>
+                        </div>
+                        <!--<div class="modal-footer">-->
                         <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-                    <!--</div>-->
+                        <!--</div>-->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="checkout_buttons">
-        <button id='confirmButton' class="btn btn-info">Confirm Order</button>
-        <button id='backButtonCheckout' class="btn btn-basic">Cancel</button>
-    </div>
+        <div class="checkout_buttons">
+            <button id='confirmButton' class="btn btn-info">Confirm Order</button>
+            <button id='backButtonCheckout' class="btn btn-basic">Cancel</button>
+        </div>
 
-</div>
+    </div>
 </section>
-
 <!--***************************************-->
 <!--***********Chef Profile Page***********-->
 <!--***************************************-->
 <section id="chefProfile">
-<!--This is the picture section. Carousel of all the pictures associated with the chef profile. Portrait, food, etc..-->
-<section id="chefProfilePics">
+    <!--Navigation to each section of the page.-->
+    <section class="chefProfileNavigation">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="#chefProfileChef">The Chef</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#chefProfileMenu">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#chefProfileLocation">Location</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#chefProfileReview">Reviews</a>
+            </li>
+        </ul>
+        <span class="backButton glyphicon glyphicon-circle-arrow-left"></span>
+    </section>
+    <main>
+        <!--Menu section with all of Chefs' items-->
+        <section id="chefProfileMenu">
+        </section>
+        <!--Information about the chef. His/her story and hours-->
+        <section id="chefProfileChef">
+        </section>
+        <!--This is the picture section. Carousel of all the pictures associated with the chef profile. Portrait, food, etc..-->
+        <section id="chefProfilePics">
+        </section>
+        <!--Pages of user reviews about chef or items-->
+        <section id="chefProfileReview">
+            <h1 style="padding-top: 40px;">Reviews</h1>
+            <div></div>
+            <div>
+                <h4>Jolly | </h4>
+                <h6>February 3, 2017</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
+            </div>
+            <div>
+                <h4>Taylor | </h4>
+                <h6>February 3, 2017</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
+            </div>
+            <div>
+                <h4>Sally | </h4>
+                <h6>February 3, 2017</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
+            </div>
+            <div>
+                <h4>Joy | </h4>
+                <h6>February 3, 2017</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
+            </div>
+            <nav aria-label="...">
+                <ul class="pager">
+                    <li class="previous"><a href="#chefProfileReview"><span aria-hidden="true">&larr;</span> Back</a></li>
+                    <li class="next"><a href="#chefProfileReview">Next <span aria-hidden="true">&rarr;</span></a></li>
+                </ul>
+            </nav>
+        </section>
+        <!--Location of the chef with a map-->
+        <section id="chefProfileLocation">
+        </section>
+    </main>
 </section>
-<!--Navigation to each section of the page.-->
-<section class="chefProfileNavigation">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="#chefProfileChef">The Chef</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#chefProfileMenu">Menu</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#chefProfileLocation">Location</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#chefProfileReview">Reviews</a>
-        </li>
-    </ul>
-    <span class="backButton glyphicon glyphicon-circle-arrow-left"></span>
-</section>
-<main>
-    <!--Information about the chef. His/her story and hours-->
-    <section id="chefProfileChef">
-    </section>
-    <!--Menu section with all of Chefs' items-->
-    <section id="chefProfileMenu">
-    </section>
-    <!--Pages of user reviews about chef or items-->
-    <section id="chefProfileReview">
-        <h1 style="padding-top: 40px;">Reviews</h1>
-        <div></div>
-        <div>
-            <h4>Jolly | </h4>
-            <h6>February 3, 2017</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
-        </div>
-        <div>
-            <h4>Taylor | </h4>
-            <h6>February 3, 2017</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
-        </div>
-        <div>
-            <h4>Sally | </h4>
-            <h6>February 3, 2017</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
-        </div>
-        <div>
-            <h4>Joy | </h4>
-            <h6>February 3, 2017</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut consectetur ipsum odio quidem rem ut voluptas! Alias dignissimos earum, eius excepturi, ipsam maiores minima molestias nesciunt nulla numquam repudiandae!</p>
-        </div>
-        <nav aria-label="...">
-            <ul class="pager">
-                <li class="previous"><a href="#chefProfileReview"><span aria-hidden="true">&larr;</span> Back</a></li>
-                <li class="next"><a href="#chefProfileReview">Next <span aria-hidden="true">&rarr;</span></a></li>
-            </ul>
-        </nav>
-    </section>
-    <!--Location of the chef with a map-->
-    <section id="chefProfileLocation">
-    </section>
-</main>
-</section>
-
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB3u9yEVvIK_f8vbOrh9G2cSWVcfmMgzWo">
 </script>
-
 </body>
 </html>
