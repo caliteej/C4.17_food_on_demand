@@ -132,6 +132,7 @@ function populateChefs(){
         }
     }
     function displayChef(marker){
+        console.log(marker);
         for(var i = 0; i < chefs.length; i++){
             if(chefs[i].chef.alias === marker.title){
                 theChef = chefs[i];
@@ -144,24 +145,19 @@ function populateChefs(){
         var theChefKitchen = $('<h2>',{
             text: theChef.chef.alias
         });
-        var theChefBio = $('<div>', {
+        var theChefBio = $('<p>', {
             text: theChef.chef.bio
         });
-        var theChefName = $('<div>',{
-            text: theChef.chef.firstName + ' ' + theChef.chef.lastName
-        });
-        var featuredChef = $('<h4>', {
-            text: 'Chef'
-        });
-        var chefBio = $('<h4>', {
-            text: 'Chef\'s Bio'
+        var theChefName = $('<h3>',{
+            text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
         });
         var icon = $('<button>', {
             class: 'buyButton btn',
             text: 'Full Menu'
         }).click(showChef);
-        jumbotron.append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, icon);
+        jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
         $('.theChefBox').append(jumbotron);
+        displayFood(theChef);
     }
 
 }
@@ -247,36 +243,37 @@ function resetMapAndData(){
  */
 function doSearch(){
     var food = $('.foodInput').val();
-    var city = $('.locationInput').val();
-    if(city === "" && food === ""){
-        console.log('maybe make a user page');
-        resetMapAndData();
-        getAllChefs();
-    }else if(city === "" && food !== ""){
+    // var city = $('.locationInput').val();
+    // if(city === "" && food === ""){
+    //     console.log('maybe make a user page');
+    //     resetMapAndData();
+    //     getAllChefs();
+    if(food !== ""){
         resetMapAndData();
         getChefByCityAndFood(currentLocation, food);
         $('.foodInput').val('');
-    }else if(food === "" && city !== ""){
-        resetMapAndData();
-        getChefByCityInput(city);
-        $('.locationInput').val('');
-    }else if(food !== "" && city !== ""){
-        resetMapAndData();
-        getChefByCityAndFood(city, food);
-        $('.locationInput').val('');
-        $('.foodInput').val('');
+    // }else if(food === "" && city !== ""){
+    //     resetMapAndData();
+    //     getChefByCityInput(city);
+    //     $('.locationInput').val('');
+    // }else if(food !== "" && city !== ""){
+    //     resetMapAndData();
+    //     getChefByCityAndFood(city, food);
+    //     $('.locationInput').val('');
+    //     $('.foodInput').val('');
     }else{
         return;
     }
 }
 
 $(window).scroll(function(){
-    var nav = $('.nav-tabs');
+    var nav = $('#chefProfileMenu');
+    var width = $('#chefProfileMenu').parent().width();
     var isPositionFixed = (nav.css('position') === 'fixed');
     if ($(this).scrollTop() > 430 && !isPositionFixed){
-        $('.nav-tabs').css({'position': 'fixed', 'top': '0px'});
+        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': width});
     }
     if ($(this).scrollTop() < 430 && isPositionFixed){
-        $('.nav-tabs').css({'position': 'static', 'top': '0px'});
+        $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
     }
 });
