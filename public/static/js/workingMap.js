@@ -267,12 +267,13 @@ function doSearch(){
 }
 
 $(window).scroll(function(){
-    var nav = $('.nav-tabs');
+    var nav = $('#chefProfileMenu');
+    var width = $('#chefProfileMenu').parent().width();
     var isPositionFixed = (nav.css('position') === 'fixed');
     if ($(this).scrollTop() > 430 && !isPositionFixed){
-        $('.nav-tabs').css({'position': 'fixed', 'top': '0px'});
+        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': width});
     }
     if ($(this).scrollTop() < 430 && isPositionFixed){
-        $('.nav-tabs').css({'position': 'static', 'top': '0px'});
+        $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
     }
 });
