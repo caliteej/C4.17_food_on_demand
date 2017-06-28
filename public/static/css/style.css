@@ -2,12 +2,9 @@ body{
     width: 90vw;
     margin: 0 auto;
 }
-
 .container-fluid {
     background-color: white;
-
 }
-
 .navbar-brand {
     position: relative;
     margin-left: 100px;
@@ -15,7 +12,6 @@ body{
     width: 200px;
     padding: 0px 0px 0px 20px;
 }
-
 .input-group {
     margin-left: 200px;
     margin-top: 15px;
@@ -23,55 +19,45 @@ body{
     /*margin-right: 10px;*/
     /*border: 1px solid black;*/
 }
-
 .chefInput, .locationInput, .foodInput {
     display: inline-block;
     width: 200px;
     height: 40px;
     padding: 5px;
 }
-
 .jumbotron {
     margin: 0;
     padding: 0;
     display: inline-block;
     height: 100%;
 }
-
 .jumbotron p {
     font-size: 2.5vmin;
 }
-
 #app-info {
     margin: 0;
     padding: 0px 15px;
 }
-
 .jumbotron h2 {
     color: #c8d842;
 }
-
 #map {
     width: 100%;
     margin-right: 10%;
     display: inline-block;
     padding-top: 75%;
 }
-
 #mapTwo{
     width: 40vw;
     height: 40vh;
 }
-
 .results_heading {
     display: inline-block;
 }
-
 .results_heading h5 {
     float: right;
     clear: both;
 }
-
 .results_heading h4 {
     /*float: left;*/
     display: inline-block;
@@ -79,8 +65,6 @@ body{
     padding: 0;
     margin: 4vmin;
 }
-
-
 #food_listing {
     padding: 0 5px;
     overflow-x: hidden;
@@ -88,26 +72,21 @@ body{
     height: 30vh;
     /*border: 1px solid black;*/
 }
-
 .food_item {
     /*border: 1px solid #ECECEC;*/
     display: inline-block;
 }
-
 .food_caption {
     text-align: center;
 }
-
 .food_name {
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
 }
-
 .food_cost {
     color: #6F7279;
     font-size: small;
 }
-
 img {
     height: 175px;
     width: 275px;
@@ -119,99 +98,79 @@ img {
     padding: 0;
     /*border: solid 1px #ECECEC;*/
 }
-
 #checkout {
     margin-top: 50px;
     width:75%;
 }
-
 #checkout > h3 {
     border-bottom: 1px solid #c8d842;
     padding-bottom:  10px;
     margin-bottom: 50px;
 }
-
 #orderBy_container, #orderOf_container, #pickupInfo_container {
     margin-right: 50px;
 }
-
 #orderBy_container {
     padding: 25px;
     margin-right: 50px;
     /*background-color: #ECECEC;*/
     border: 1px solid #ECECEC;
 }
-
 #orderBy_container > h4 {
     margin-bottom: 25px;
 }
-
 #orderOf_container {
     padding: 25px;
     margin-right: 50px;
     border: 1px solid #ECECEC;
 }
-
 #orderOf_container > h5 {
     font-family: 'Josefin Sans', sans-serif;
 }
-
 #orderOf_container > img {
     margin: 10px;
     padding: 0;
 }
-
 #pickupInfo_container {
     padding: 25px;
     /*background-color: #ECECEC;*/
     border: 1px solid #ECECEC;
 }
-
 .checkout_buttons {
     float: right;
     margin-right: 18%;
     margin-top: 5%;
     color: black;
 }
-
 #mealName {
     text-transform: capitalize;
-
 }
-
 /*.modal-body {*/
-    /*width: 950px;*/
+/*width: 950px;*/
 /*}*/
-
 .modal-header > img {
     height: auto;
     width: 200px;
     text-align: center;
 }
-
 .modal-title {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 125%;
     font-weight: 900;
 }
-
 .theChefBox{
     height: 100%;
 }
-
 .jumbotron h1 {
     color: #878989;
     text-align: center;
 }
-
 .modal-content {
     border-radius: 0;
 }
-
 .modal-header {
     border-bottom-color: #c8d842;
 }
-
 .nav-tabs {
     width: 60vw;
     z-index: 99999;
@@ -242,40 +201,31 @@ img {
     background-size: contain;
 }
 /*#chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{*/
-    /*width: 60vw;*/
+/*width: 60vw;*/
 /*}*/
-
 .results_heading {
     text-align: justify;
 }
-
 .previous a, .next a{
     color: black;
 }
-
 span.glyphicon-circle-arrow-left{
     font-size: 3.5em;
 }
-
 .buyButton{
     background-color: black;
     color: white;
 }
-
 th{
     width: 25%;
     text-align: center;
 }
-
 td{
     text-align: center;
 }
-
 th .glyphicon{
     font-size: 2em;
 }
-
 .mapAndSearch {
     height: 100%;
 }
-
