@@ -54,7 +54,7 @@ function placeOrder(){
     console.log('Order Placed', current_meal);
     $('#landingPage').hide(200);
     $('#checkout').show(200);
-    var mealName = $('<h5>',{
+    var mealName = $('<h4>',{
         text: current_meal.item_name
     });
     var mealPhoto = $('<img>', {
@@ -72,11 +72,9 @@ function placeOrder(){
         text: "$ " + current_meal.price
     });
 
-
     var chefName = $('<p>',{
         text: current_chef.firstName + " " + current_chef.lastName
     });
-
 
     var chefAddress = $('<p>',{
         text: current_chef.address
@@ -84,6 +82,5 @@ function placeOrder(){
 
     $('#orderOf_container').append(mealName, mealPhoto, mealDescription, mealCost);
     $('#pickupInfo_container').append(chefName, chefAddress);
-
-
 }
+
