@@ -65,11 +65,9 @@ function placeOrder(){
         text: "$ " + current_meal.price
     });
 
-
     var chefName = $('<p>',{
         text: current_chef.firstName + " " + current_chef.lastName
     });
-
 
     var chefAddress = $('<p>',{
         text: current_chef.address
@@ -77,6 +75,5 @@ function placeOrder(){
 
     $('#orderOf_container').append(mealName, mealPhoto, mealDescription, mealCost);
     $('#pickupInfo_container').append(chefName, chefAddress);
-
-
 }
+
