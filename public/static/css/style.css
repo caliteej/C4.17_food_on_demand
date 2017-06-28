@@ -218,7 +218,6 @@ img {
 }
 #chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{
     width: 60vw;
-    /*margin: 0 auto;*/
 }
 
 .results_heading {
@@ -238,7 +237,6 @@ span.glyphicon-circle-arrow-left{
     color: white;
 }
 
-
 th{
     width: 25%;
     text-align: center;
@@ -251,4 +249,6 @@ td{
 th .glyphicon{
     font-size: 2em;
 }
+
+
 
