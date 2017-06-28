@@ -1,25 +1,14 @@
-var userName = '';
-var userEmail = '';
 var lastPage = 'landingPage';
 
 //Confirmation modal and calls sendEmail function
 $(document).ready(function() {
-    $('#confirmButton').click(function (){
-        userName = $("#userName").val();
-        userEmail = $("#userEmail").val();
-        console.log('user name is: ', userName);
-        console.log('user email is: ', userEmail);
-        $('#confirmModal').modal("show");
-        sendEmailConfirmation(userName, userEmail)
-    });
+    $('#confirmButton').click(confirmationButton);
     $('#backButtonCheckout').click(previousPageFromCheckout);
     $('.backButton').click(backToLandingPage);
 });
 
 //Gather order data from order object and send it via ajax network call to the backend, specifically to nodemailer module.
 function sendEmailConfirmation(userName, userEmail) {
-    $("#userName").val('');
-    $("#userEmail").val('');
     $.ajax({
         dataType:'JSON',
         data: {
@@ -32,7 +21,7 @@ function sendEmailConfirmation(userName, userEmail) {
         method: 'POST',
         url: "https://api.nxtdoorchef.com/api/email/confirmation",
         success: function(response){
-            console.log(response);
+            console.log('success');
         }
     });
 }
@@ -60,4 +49,27 @@ function clearChefProfile(){
     $('#chefProfileChef').empty();
     $('#chefProfileMenu').empty();
     $('#chefProfileLocation').empty();
+}
+function confirmationButton(){
+    if (formValidation() === false) {
+        alert("Please fill in all required fields");
+    } else {
+        $('#confirmModal').modal("show");
+        userName = ($("#userFirstName").val() + " " + $("#userLastName").val());
+        userEmail = $("#userEmail").val();
+        sendEmailConfirmation(userName, userEmail)
+    }
+}
+function formValidation(){
+    let input_fields = [$("#userFirstName"),$("#userLastName"),$("#userEmail")];
+    for (i=0;i<input_fields.length;i++){
+        if(input_fields[i].val() === null || input_fields[i].val() === ""){
+            let input_container = input_fields[i].closest("div");
+            input_container.addClass("has-error has-feedback");
+            return false;
+        } else {
+            let input_container = input_fields[i].closest("div");
+            input_container.removeClass("has-error has-feedback");
+        }
+    }
 }
