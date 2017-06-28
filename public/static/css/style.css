@@ -8,9 +8,13 @@ body{
 
 }
 
+.navbar {
+    border-width: 0px;
+}
+
 .navbar-brand {
     position: relative;
-    margin-left: 100px;
+    /*margin-left: 100px;*/
     height: auto;
     width: 200px;
     padding: 0px 0px 0px 20px;
