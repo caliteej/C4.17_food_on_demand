@@ -7,11 +7,18 @@ function menuModal(meal){
     var img_id = meal.id;
 
     for(var i = 0; i < available_meals.length; i++){
-        if(available_meals[i].menu.data[0].id == img_id){
-            current_meal = available_meals[i].menu.data[0];
-            current_chef = available_meals[i].chef;
-            break;
+        for(var e = 0; e < available_meals[i].menu.data.length; e++){
+            if(available_meals[i].menu.data[e].id == img_id){
+                current_meal = available_meals[i].menu.data[e];
+                current_chef = available_meals[i].chef;
+                break;
+            }
         }
+        // if(available_meals[i].menu.data[0].id == img_id){
+        //     current_meal = available_meals[i].menu.data[0];
+        //     current_chef = available_meals[i].chef;
+        //     break;
+        // }
     }
 
     $('.modal-title').text(current_meal.item_name);

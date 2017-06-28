@@ -1,6 +1,7 @@
 function showChef(){
-    $('#landingPage').hide(200);
-    $('#chefProfile').show(200);
+    $('#landingPage').hide();
+    $('#chefProfile').show();
+    $('.navbar-default').hide();
     createMenu();
     createChefStory();
     createLocation();

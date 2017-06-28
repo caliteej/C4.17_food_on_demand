@@ -201,17 +201,17 @@ img {
 }
 #chefCarousel{
     height: 50vh;
-    width: 100%;
+    width: 60vw;
     background-size: contain;
 }
 .carousel-inner div{
     height: 50vh;
-    width: 100%;
+    width: 60vw;
     background-size: contain;
 }
 .carousel-inner img{
     height: 50vh;
-    width: 100%;
+    width: 60vw;
     margin: 0;
     padding: 0;
     background-size: contain;
