@@ -132,6 +132,7 @@ function populateChefs(){
         }
     }
     function displayChef(marker){
+        console.log(marker);
         for(var i = 0; i < chefs.length; i++){
             if(chefs[i].chef.alias === marker.title){
                 theChef = chefs[i];
@@ -144,23 +145,17 @@ function populateChefs(){
         var theChefKitchen = $('<h2>',{
             text: theChef.chef.alias
         });
-        var theChefBio = $('<div>', {
+        var theChefBio = $('<p>', {
             text: theChef.chef.bio
         });
-        var theChefName = $('<div>',{
-            text: theChef.chef.firstName + ' ' + theChef.chef.lastName
-        });
-        var featuredChef = $('<h4>', {
-            text: 'Chef'
-        });
-        var chefBio = $('<h4>', {
-            text: 'Chef\'s Bio'
+        var theChefName = $('<h3>',{
+            text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
         });
         var icon = $('<button>', {
             class: 'buyButton btn',
             text: 'Full Menu'
         }).click(showChef);
-        jumbotron.append(theChefKitchen, featuredChef, theChefName, chefBio, theChefBio, icon);
+        jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
         $('.theChefBox').append(jumbotron);
         displayFood(theChef);
     }
