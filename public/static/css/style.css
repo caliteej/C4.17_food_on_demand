@@ -125,11 +125,19 @@ img {
     margin-bottom: 50px;
 }
 
+#orderBy_container, #orderOf_container, #pickupInfo_container {
+    margin-right: 50px;
+}
+
 #orderBy_container {
     padding: 25px;
     margin-right: 50px;
     /*background-color: #ECECEC;*/
     border: 1px solid #ECECEC;
+}
+
+#orderBy_container > h4 {
+    margin-bottom: 25px;
 }
 
 #orderOf_container {
