@@ -53,6 +53,7 @@ function backToLandingPage(){
     $('#chefProfile').hide();
     $('#landingPage').show();
     clearChefProfile();
+    $('.navbar-default').show();
 }
 
 function clearChefProfile(){
