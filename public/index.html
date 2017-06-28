@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Maps Prototype</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,10 +24,13 @@
         <div onclick="location.reload()" class="navbar-header">
             <img class="navbar-brand" src="assets/nxtDoorChef.png">
         </div>
-        <div class="input-group navbar-right">
-            <input class="input locationInput" type="text" placeholder="City">
-            <input class="input foodInput" type="text" placeholder="Cuisine">
-            <button class="submit btn glyphicon glyphicon-search" type="submit"></button>
+        <div class="navbar-right col-xs-6 inputFood">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Cuisine">
+                    <span class="input-group-btn">
+                        <button class="submit btn glyphicon glyphicon-search" type="submit"></button>
+                    </span>
+            </div>
         </div>
     </div>
 </nav>
@@ -36,39 +40,44 @@
 <!--*************Landing Page**************-->
 <!--***************************************-->
 
-<section id="landingPage">
-    <div class="theChefBox col-md-5">
-        <div class="jumbotron">
-            <h2>Bring home, a taste of home.</h2>
-            <p>Just as Uber is connecting us with drivers on demand and Airbnb allows us to rent space in homes around the world, nxtDoorChef enables us to buy home cooking from those around us.  It's the largest neighborhood kitchen.  And the best part is...it's right next door.</p>
+
+<section class="container" id="landingPage">
+    <div class="row">
+        <div class="theChefBox col-xs-5">
+            <div>
+                <h2>Bringing home, a taste of home.</h2>
+                <p>Just as Uber is connecting us with drivers on demand and Airbnb allows us to rent space in homes around the world, nxtDoorChef enables us to buy home cooking from those around us.</p>
+                <p>Simply enter the type of food you'd like to eat in the search bar, let the map show who's cooking around you, pick the food that's gonna satisfy your craving, and Order!</p>
+                <p>Before you know it, you'll be pulling up to you pickup your food from your friendly neighborhood chef.</p>
+            </div>
+        </div>
+        <div class="mapAndSearch col-xs-7">
+            <div id="map"></div>
         </div>
     </div>
-    <div class="mapAndSearch col-md-7">
-        <div id="map"></div>
-    </div>
-    <div>
-        <div class="results_heading">
-            <h3>What's Cookin' Near You:</h3>
-            <!--<h5>See all</h5>-->
-            <div class="col-md-4" id="food_listing"></div>
+        <div class="row">
+            <div class="results_heading col-xs-12">
+                <h3>What's Cookin' Near You:</h3>
+                <!--<h5>See all</h5>-->
+                <div id="food_listing"></div>
+            </div>
         </div>
-    </div>
-    <div id="single_menu_item_modal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="menu-modal">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal" onclick=placeOrder()>Order</button>
+        <div id="single_menu_item_modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="menu-modal">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal" onclick=placeOrder()>Order</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <!--***************************************-->
@@ -141,9 +150,6 @@
 <!--***********Chef Profile Page***********-->
 <!--***************************************-->
 <section id="chefProfile">
-<!--This is the picture section. Carousel of all the pictures associated with the chef profile. Portrait, food, etc..-->
-<section id="chefProfilePics">
-</section>
 <!--Navigation to each section of the page.-->
 <section class="chefProfileNavigation">
     <ul class="nav nav-tabs">
@@ -163,11 +169,14 @@
     <span class="backButton glyphicon glyphicon-circle-arrow-left"></span>
 </section>
 <main>
+    <!--Menu section with all of Chefs' items-->
+    <section id="chefProfileMenu">
+    </section>
     <!--Information about the chef. His/her story and hours-->
     <section id="chefProfileChef">
     </section>
-    <!--Menu section with all of Chefs' items-->
-    <section id="chefProfileMenu">
+    <!--This is the picture section. Carousel of all the pictures associated with the chef profile. Portrait, food, etc..-->
+    <section id="chefProfilePics">
     </section>
     <!--Pages of user reviews about chef or items-->
     <section id="chefProfileReview">

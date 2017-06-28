@@ -1,10 +1,11 @@
 function showChef(){
-    $('#landingPage').hide(200);
-    $('#chefProfile').show(200);
+    $('#landingPage').hide();
+    $('#chefProfile').show();
     createMenu();
     createChefStory();
     createLocation();
     createPics();
+    console.log(theChef.chef.firstName);
 }
 
 function createMenu(){
@@ -101,6 +102,7 @@ function orderItem(){
     for(var i = 0; i < menu.length; i++){
         if(menu[i].item_name === element){
             current_meal = menu[i];
+            current_chef = theChef.chef;
             placeOrder();
         }
     }
