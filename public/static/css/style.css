@@ -125,6 +125,7 @@ img {
 
 #orderBy_container, #orderOf_container, #pickupInfo_container {
     margin-right: 50px;
+
 }
 
 #orderBy_container {
@@ -148,14 +149,14 @@ img {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-#orderOf_container > img {
-    margin: 10px;
-    padding: 0;
+#orderOf_container img {
+    /*margin: auto;*/
+    display: block;
+    padding: 10px;
 }
 
 #pickupInfo_container {
     padding: 25px;
-    /*background-color: #ECECEC;*/
     border: 1px solid #ECECEC;
 }
 
