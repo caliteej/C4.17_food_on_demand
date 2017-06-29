@@ -237,3 +237,14 @@ th .glyphicon{
 .mapAndSearch {
     height: 100%;
 }
+.backToHome{
+    /*position: fixed;*/
+    /*margin-top: 7vh;*/
+    float: left;
+}
+.hours li{
+    list-style-type: none;
+}
+.hours{
+    padding: 0;
+}

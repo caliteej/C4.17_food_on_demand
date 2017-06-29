@@ -38,7 +38,7 @@
 <!--***************************************-->
 <section class="container" id="landingPage">
     <div class="row">
-        <div class="theChefBox col-xs-5">
+        <div class="theChefBox col-md-5">
             <div class="jumbotron" id="app-info">
                 <h2>Tastes of Home</h2>
                 <p>Looking for a ride, open up Uber. Need a vacation rental, hop on Airbnb. Hungry...there's a nxtDoorChef for that! </p>
@@ -46,7 +46,7 @@
                 <p>Before you know it, you'll be pulling up to pickup your food from your very over nxtDoorChef.</p>
             </div>
         </div>
-        <div class="mapAndSearch col-xs-7">
+        <div class="mapAndSearch col-md-7">
             <div id="map"></div>
         </div>
     </div>
@@ -142,24 +142,7 @@
 <!--***********Chef Profile Page***********-->
 <!--***************************************-->
 <section id="chefProfile">
-    <!--Navigation to each section of the page.-->
-    <!--<section class="chefProfileNavigation">-->
-    <!--<ul class="nav nav-tabs">-->
-    <!--<li class="nav-item">-->
-    <!--<a class="nav-link" href="#chefProfileChef">The Chef</a>-->
-    <!--</li>-->
-    <!--<li class="nav-item">-->
-    <!--<a class="nav-link" href="#chefProfileMenu">Menu</a>-->
-    <!--</li>-->
-    <!--<li class="nav-item">-->
-    <!--<a class="nav-link" href="#chefProfileLocation">Location</a>-->
-    <!--</li>-->
-    <!--<li class="nav-item">-->
-    <!--<a class="nav-link" href="#chefProfileReview">Reviews</a>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--<span class="backButton glyphicon glyphicon-circle-arrow-left"></span>-->
-    <!--</section>-->
+    <span class="backButton backToHome glyphicon glyphicon-circle-arrow-left"></span>
     <main>
         <div class="container">
             <!--This is the picture section. Carousel of all the pictures associated with the chef profile. Portrait, food, etc..-->
@@ -213,6 +196,22 @@
             </div>
         </div>
     </main>
+    <div id="chefModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="menu-modal">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" onclick=chefModalOrder()>Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB3u9yEVvIK_f8vbOrh9G2cSWVcfmMgzWo">
