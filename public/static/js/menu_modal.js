@@ -76,8 +76,11 @@ function placeOrder(){
         text: current_chef.firstName + " " + current_chef.lastName
     });
 
-    var chefAddress = $('<p>',{
-        text: current_chef.address
+    var chefAddress = $('<a>',{
+        text: current_chef.address,
+        href: "https://www.google.com/maps/dir/Current+Location/" + current_chef.address,
+        target: "_blank"
+
     });
 
     $('#orderOf_container').append(mealName, mealPhoto, mealDescription, mealCost);

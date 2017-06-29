@@ -48,8 +48,11 @@ function createChefStory(){
  */
 function createLocation(){
     var location = $('<h1 style="padding-top: 40px;">Location</h1>');
-    var chefAddress = $('<p>', {
-        text: theChef.chef.address
+    var chefAddress = $('<a>', {
+        text: theChef.chef.address,
+        href: "https://www.google.com/maps/dir/Current+Location/" + theChef.chef.address,
+        target: "_blank"
+
     });
     var chefMap = $('<div>', {
         id: 'mapTwo'
