@@ -34,7 +34,7 @@ function initMap(){
         });
     } else {
         // handleLocationError(false, infoWindow, map.getCenter());
-        console.log('Allow location access');
+        alert('Allow location access');
     }
 }
 /**
