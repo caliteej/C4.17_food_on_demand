@@ -154,8 +154,8 @@ function populateChefs(){
             text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
         });
         var icon = $('<button>', {
-            class: 'buyButton btn',
-            text: 'Full Menu'
+            class: 'fullMenuButton btn',
+            text: 'Chef Menu'
         }).click(showChef);
         jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
         $('.theChefBox').append(jumbotron);

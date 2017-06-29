@@ -42,6 +42,7 @@ body{
     padding: 0;
     display: inline-block;
     height: 100%;
+    background-color: white;
 }
 .jumbotron p {
     font-size: 2.5vmin;
@@ -148,6 +149,10 @@ img {
     /*background-color: #ECECEC;*/
     border: 1px solid #ECECEC;
 }
+
+#userFirstName, #userLastName, #userEmail {
+    margin-bottom: 30px;
+}
 .checkout_buttons {
     float: right;
     margin-right: 18%;
@@ -233,9 +238,15 @@ span.glyphicon-circle-arrow-left{
     font-size: 3.5em;
 }
 .buyButton{
-    background-color: black;
     color: white;
 }
+.fullMenuButton {
+    background-color: #FE4427;
+    color: white;
+}
+
+
+
 th{
     width: 25%;
     text-align: center;

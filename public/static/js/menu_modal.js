@@ -72,8 +72,16 @@ function placeOrder(){
         text: "$ " + current_meal.price
     });
 
+    var chefNameLabel = $('<h5>',{
+        text: "Your nxtDoorChef:",
+    });
+
     var chefName = $('<p>',{
         text: current_chef.firstName + " " + current_chef.lastName
+    });
+
+    var chefAddressLabel = $('<h5>',{
+        text: "Pickup Location:"
     });
 
     var chefAddress = $('<a>',{
@@ -84,6 +92,6 @@ function placeOrder(){
     });
 
     $('#orderOf_container').append(mealName, mealPhoto, mealDescription, mealCost);
-    $('#pickupInfo_container').append(chefName, chefAddress);
+    $('#pickupInfo_container').append(chefNameLabel, chefName, chefAddressLabel, chefAddress);
 }
 
