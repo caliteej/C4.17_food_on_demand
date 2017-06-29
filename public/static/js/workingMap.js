@@ -65,6 +65,7 @@ function getChefsFromDataBase(){
             getMenu();
             populateChefs();
         }
+
     });
 }
 /**
@@ -204,7 +205,7 @@ function getAllChefs(){
 function getChefByCityAndFood(location, foodtype){
     $.ajax({
         dataType: "json",
-        url: 'https://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
+        url: 'https://api.nxtdoorchef.com/api/chef/foodtype/' + foodtype,
         method: 'get',
         success: function(response){
             data = response;
@@ -263,6 +264,7 @@ function doSearch(){
     //     $('.locationInput').val('');
     //     $('.foodInput').val('');
     }else{
+        $('.foodInput').attr('placeholder', 'Please enter a type of food');
         return;
     }
 }
