@@ -186,6 +186,7 @@ function getChefByCityInput(location){
  * @param location
  */
 function getAllChefs(){
+    resetMapAndData();
     $.ajax({
         dataType: "json",
         url: 'https://api.nxtdoorchef.com/api/chef',
@@ -253,10 +254,9 @@ function doSearch(){
     //     resetMapAndData();
     //     getAllChefs();
     if(food !== ""){
-        resetMapAndData();
-    }
+    resetMapAndData();
     searchMenuByFood(food);
-        $('.foodInput').val('');
+    $('.foodInput').val('');
     // }else if(food === "" && city !== ""){
     //     resetMapAndData();
     //     getChefByCityInput(city);
