@@ -185,17 +185,17 @@ img {
 }
 #chefCarousel{
     height: 50vh;
-    width: 60vw;
+    width: 100%;
     background-size: contain;
 }
 .carousel-inner div{
     height: 50vh;
-    width: 60vw;
+    width: 100%;
     background-size: contain;
 }
 .carousel-inner img{
     height: 50vh;
-    width: 60vw;
+    width: 100%;
     margin: 0;
     padding: 0;
     background-size: contain;
@@ -228,4 +228,15 @@ th .glyphicon{
 }
 .mapAndSearch {
     height: 100%;
+}
+.backToHome{
+    /*position: fixed;*/
+    /*margin-top: 7vh;*/
+    float: left;
+}
+.hours li{
+    list-style-type: none;
+}
+.hours{
+    padding: 0;
 }

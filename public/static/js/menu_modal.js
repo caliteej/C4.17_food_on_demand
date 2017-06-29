@@ -14,11 +14,6 @@ function menuModal(meal){
                 break;
             }
         }
-        // if(available_meals[i].menu.data[0].id == img_id){
-        //     current_meal = available_meals[i].menu.data[0];
-        //     current_chef = available_meals[i].chef;
-        //     break;
-        // }
     }
 
     $('.modal-title').text(current_meal.item_name);
