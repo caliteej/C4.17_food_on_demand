@@ -68,7 +68,7 @@ function createLocation(){
  */
 function createPics(){
     var food = theChef.menu.data;
-    $('#chefProfilePics').append($('<div id="chefCarousel" class="carousel slide" data-ride="carousel"></div>'));
+    $('#chefProfilePics').append($('<div id="chefCarousel" class="carousel"></div>'));
     $('#chefCarousel').append($('<ol class="carousel-indicators"></ol>'));
     $('#chefCarousel').append($('<div class="carousel-inner" role="listbox"></div>'));
 
@@ -85,7 +85,7 @@ function createPics(){
     $('#chefCarousel').append(rightControl);
 
     for(var i = 0; i < food.length; i++){
-        $('<div class="item"><img src="'+food[i].photo+'"></div>').appendTo('.carousel-inner');
+        $('<div class="item"><img id="menuCarousel" src="'+food[i].photo+'"></div>').appendTo('.carousel-inner');
         $('<li data-target="#chefCarousel" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
         if(i === 0){
             $('.item').addClass('active');
