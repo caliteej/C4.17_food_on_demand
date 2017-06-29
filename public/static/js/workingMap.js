@@ -122,46 +122,45 @@ function populateChefs(){
         }
     });
     setTimeout(displayFood, 700);
+}
 
-    function populateInfoWindow(marker, infowindow){
-        if(infowindow.marker != marker){
-            infowindow.marker = marker;
-            infowindow.setContent('<div>' + marker.title + '</div>');
-            infowindow.open(map, marker);
-            infowindow.addListener('closeclick', function(){
-                infowindow.setMarker(null);
-            });
+function populateInfoWindow(marker, infowindow){
+    if(infowindow.marker != marker){
+        infowindow.marker = marker;
+        infowindow.setContent('<div>' + marker.title + '</div>');
+        infowindow.open(map, marker);
+        infowindow.addListener('closeclick', function(){
+            infowindow.setMarker(null);
+        });
+    }
+}
+function displayChef(marker){
+    console.log(marker);
+    for(var i = 0; i < chefs.length; i++){
+        if(chefs[i].chef.alias === marker.title){
+            theChef = chefs[i];
+            break;
         }
     }
-    function displayChef(marker){
-        console.log(marker);
-        for(var i = 0; i < chefs.length; i++){
-            if(chefs[i].chef.alias === marker.title){
-                theChef = chefs[i];
-                break;
-            }
-        }
-        var jumbotron = $('<div>', {
-            class: 'jumbotron'
-        });
-        var theChefKitchen = $('<h2>',{
-            text: theChef.chef.alias
-        });
-        var theChefBio = $('<p>', {
-            text: theChef.chef.bio
-        });
-        var theChefName = $('<h3>',{
-            text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
-        });
-        var icon = $('<button>', {
-            class: 'buyButton btn',
-            text: 'Full Menu'
-        }).click(showChef);
-        jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
-        $('.theChefBox').append(jumbotron);
-        displayFood(theChef);
-    }
-
+    var jumbotron = $('<div>', {
+        class: 'jumbotron'
+    });
+    var theChefKitchen = $('<h2>',{
+        text: theChef.chef.alias
+    });
+    var theChefBio = $('<p>', {
+        text: theChef.chef.bio
+    });
+    var theChefName = $('<h3>',{
+        text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
+    });
+    var icon = $('<button>', {
+        class: 'buyButton btn',
+        text: 'Full Menu'
+    }).click(showChef);
+    jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
+    $('.theChefBox').append(jumbotron);
+    displayFood(theChef);
 }
 /**
  * This function makes a call to our database requesting chefs based on location by city.
@@ -202,6 +201,7 @@ function getAllChefs(){
  * @param location
  * @param foodtype
  */
+
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
@@ -253,7 +253,8 @@ function doSearch(){
     //     getAllChefs();
     if(food !== ""){
         resetMapAndData();
-        searchMenuByFood(food);
+    }
+    searchMenuByFood(food);
         $('.foodInput').val('');
     // }else if(food === "" && city !== ""){
     //     resetMapAndData();
@@ -279,5 +280,16 @@ $(window).scroll(function(){
     }
     if ($(this).scrollTop() < 430 && isPositionFixed){
         $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
+    }
+});
+
+$(window).scroll(function(){
+    var button = $('.backToHome');
+    var isPositionFixed = (button.css('position') === 'fixed');
+    if ($(this).scrollTop() > 80 && !isPositionFixed){
+        $('.backToHome').css({'position': 'fixed', 'top': '0px'});
+    }
+    if ($(this).scrollTop() < 80 && isPositionFixed){
+        $('.backToHome').css({'position': 'static', 'top': '0px'});
     }
 });
