@@ -103,7 +103,8 @@ function populateChefs(){
             map: map,
             position: position,
             title: title,
-            id: i
+            id: i,
+            icon: "assets/fork_n_knife.png"
         });
         markers.push(marker);
         bounds.extend(marker.position);
