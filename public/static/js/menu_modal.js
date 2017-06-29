@@ -1,11 +1,8 @@
 var current_meal = null;
 var current_chef = null;
-
 var available_meals = [];
-
 function menuModal(meal){
     var img_id = meal.id;
-
     for(var i = 0; i < available_meals.length; i++){
         for(var e = 0; e < available_meals[i].menu.data.length; e++){
             if(available_meals[i].menu.data[e].id == img_id){
@@ -14,18 +11,11 @@ function menuModal(meal){
                 break;
             }
         }
-        // if(available_meals[i].menu.data[0].id == img_id){
-        //     current_meal = available_meals[i].menu.data[0];
-        //     current_chef = available_meals[i].chef;
-        //     break;
-        // }
     }
-
     $('.modal-title').text(current_meal.item_name);
     var meal_div = $('<div>',{
         class: 'meal-modal col-xs-10'
     });
-
     var meal_img = $('<img>',{
         src: current_meal.photo,
         height: '175px',
@@ -44,19 +34,22 @@ function menuModal(meal){
     var meal_cost_info = $('<p>',{
         text: '$ ' + current_meal.price
     });
-
     $(meal_div).append(meal_img, meal_description, meal_description_info, meal_cost, meal_cost_info);
     $('.menu-modal').empty().append(meal_div);
     $('#single_menu_item_modal').modal('show');
 }
-
 function placeOrder(){
     console.log('Order Placed', current_meal);
-    $('#landingPage').hide(200);
-    $('#checkout').show(200);
+    $('#landingPage').hide();
+    $('#checkout').show();
+    var itemsOrdered = $('<h3>', {
+        text: 'Item(s):'
+    });
+
     var mealName = $('<h4>',{
         text: current_meal.item_name
     });
+
     var mealPhoto = $('<img>', {
         src: current_meal.photo,
         height: '100px',
@@ -88,10 +81,9 @@ function placeOrder(){
         text: current_chef.address,
         href: "https://www.google.com/maps/dir/Current+Location/" + current_chef.address,
         target: "_blank"
-
     });
 
-    $('#orderOf_container').append(mealName, mealPhoto, mealDescription, mealCost);
+    $('#orderOf_container').append(itemsOrdered, mealName, mealPhoto, mealDescription, mealCost);
     $('#pickupInfo_container').append(chefNameLabel, chefName, chefAddressLabel, chefAddress);
+    $('.backToHome').hide();
 }
-

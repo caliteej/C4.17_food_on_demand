@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('#confirmButton').click(confirmationButton);
     $('#backButtonCheckout').click(previousPageFromCheckout);
     $('.backButton').click(backToLandingPage);
+    $('.backToHome').hide();
 });
 
 //Gather order data from order object and send it via ajax network call to the backend, specifically to nodemailer module.
@@ -28,12 +29,14 @@ function sendEmailConfirmation(userName, userEmail) {
 
 function previousPageFromCheckout(){
     $('#orderOf_container').empty();
+    $('#pickupInfo_container').empty();
     if(lastPage === 'landingPage'){
         $('#checkout').hide();
         $('#landingPage').show();
     }else{
         $('#checkout').hide();
         $('#chefProfile').show();
+        $('.backToHome').show();
     }
 }
 
