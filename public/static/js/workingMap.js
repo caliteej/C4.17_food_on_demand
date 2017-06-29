@@ -65,6 +65,7 @@ function getChefsFromDataBase(){
             getMenu();
             populateChefs();
         }
+
     });
 }
 /**
@@ -102,7 +103,8 @@ function populateChefs(){
             map: map,
             position: position,
             title: title,
-            id: i
+            id: i,
+            icon: "assets/fork_n_knife.png"
         });
         markers.push(marker);
         bounds.extend(marker.position);
@@ -261,6 +263,7 @@ function doSearch(){
     //     $('.locationInput').val('');
     //     $('.foodInput').val('');
     }else{
+        $('.foodInput').attr('placeholder', 'Please enter a type of food');
         return;
     }
 }

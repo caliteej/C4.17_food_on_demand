@@ -63,7 +63,7 @@ body{
     display: inline-block;
     clear: both;
     padding: 0;
-    margin: 4vmin;
+
 }
 #food_listing {
     padding: 0 5px;
@@ -193,12 +193,20 @@ img {
     width: 100%;
     background-size: contain;
 }
+
+#menuCarousel {
+    height: 60vh;
+}
+
 .carousel-inner img{
     height: 50vh;
     width: 100%;
     margin: 0;
     padding: 0;
     background-size: contain;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
 }
 /*#chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{*/
 /*width: 60vw;*/
