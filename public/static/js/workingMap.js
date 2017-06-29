@@ -34,7 +34,7 @@ function initMap(){
         });
     } else {
         // handleLocationError(false, infoWindow, map.getCenter());
-        console.log('Allow location access');
+        alert('Allow location access');
     }
 }
 /**
@@ -197,17 +197,19 @@ function getAllChefs(){
     });
 }
 /**
- * This function makes a call to our database requesting chefs based on location by city and food type.
+ * This function makes a call to our database requesting menus based on location by food type.
  * @param location
  * @param foodtype
  */
-function getChefByCityAndFood(foodtype){
+
+function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: 'https://api.nxtdoorchef.com/api/chef/foodtype/' + foodtype,
+        url: 'https://api.nxtdoorchef.com/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;
+            console.log(data);
             getMenu();
             populateChefs();
         }
@@ -251,7 +253,8 @@ function doSearch(){
     //     getAllChefs();
     if(food !== ""){
         resetMapAndData();
-        getChefByCityAndFood(food);
+    }
+    searchMenuByFood(food);
         $('.foodInput').val('');
     // }else if(food === "" && city !== ""){
     //     resetMapAndData();

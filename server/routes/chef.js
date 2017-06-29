@@ -24,11 +24,13 @@ function getAllChefs(req, res){
 
 //Get all chefs by food type - will be a search results query
 function getChefByFoodType(req, res){
+    let search_term = req.params.foodType;
     Chef.findAll({
         where: {
-            foodType: req.params.foodType
+           foodType: search_term
         }
     }).then(function(chef){
+        console.log(chef);
         res.status(200).send({"success": true, "data": chef});
     }).catch(function(error){
         res.status(404).send({"success": false, error});

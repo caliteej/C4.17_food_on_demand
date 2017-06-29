@@ -6,13 +6,44 @@ const Menu = models.menus;
 
 //Routes for all menu queries
 router.get('/id/:chef_id', getChefMenu);
+router.get('/search/:food', getMenuByFood);
 router.post('/register', createNewMenu);
+
 
 //Get menu of chef by chef_id
 function getChefMenu(req, res){
     Menu.findAll({
         where: {
             chef_id: req.params.chef_id
+        }
+    }).then(function(menu){
+        res.status(200).send({"success": true, "data": menu});
+    }).catch(function(error){
+        res.status(404).send({"success": false, error});
+    });
+}
+//Get menu by search term
+function getMenuByFood (req, res) {
+    let search_term = req.params.food;
+    Menu.findAll({
+        where: {
+            $or: [
+                {
+                    foodType: {
+                        $like: '%' + search_term + '%'
+                    }
+                },
+                {
+                    item_name: {
+                        $like: '%' + search_term + '%'
+                    }
+                },
+                {
+                    description: {
+                        $like: '%' + search_term + '%'
+                    }
+                }
+            ]
         }
     }).then(function(menu){
         res.status(200).send({"success": true, "data": menu});
