@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
     <script src="static/js/workingMap.js"></script>
     <script src="static/js/menu_modal.js"></script>
@@ -17,28 +19,36 @@
     <script src="static/js/checkout_script.js"></script>
     <script src="static/js/chefProfile.js"></script>
 </head>
+
 <body>
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div onclick="location.reload()" class="navbar-header col-md-5 col-xs-12">
+        <div onclick="location.reload()" class="navbar-header">
             <img class="navbar-brand" src="assets/nxtDoorChef.png">
         </div>
-        <div>
-            <div class="input-group col-md-7">
-                <input class="form-control" type="text" placeholder="Cuisine">
-        <div onclick="location.reload()" class="navbar-header col-md-5">
-            <img class="navbar-brand" src="assets/nxtDoorChef.png">
-        </div>
-        <div class="navbar-right col-md-7">
-            <div class="input-group">
-                <input class="form-control foodInput" type="text" placeholder="Cuisine">
-                <span class="input-group-btn">
-                        <button class="submit btn glyphicon glyphicon-search" type="submit"></button>
-                    </span>
+        <div class="box">
+            <div class="container-4">
+                <input type="search" id="search" placeholder="Cuisine..." />
+                <button class="icon"><i class="fa fa-search"></i></button>
             </div>
         </div>
+
+
+        <!--<div class="navbar-right col-md-7">-->
+            <!--<div class="input-group">-->
+                <!--<input class="form-control foodInput" type="text" placeholder="Cuisine">-->
+                <!--<span class="input-group-btn">-->
+                        <!--<button class="submit btn glyphicon glyphicon-search" type="submit"></button>-->
+                    <!--</span>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </nav>
+
+
+
+
 <!--***************************************-->
 <!--*************Landing Page**************-->
 <!--***************************************-->
