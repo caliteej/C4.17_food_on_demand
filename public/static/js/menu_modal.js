@@ -14,11 +14,6 @@ function menuModal(meal){
                 break;
             }
         }
-        // if(available_meals[i].menu.data[0].id == img_id){
-        //     current_meal = available_meals[i].menu.data[0];
-        //     current_chef = available_meals[i].chef;
-        //     break;
-        // }
     }
 
     $('.modal-title').text(current_meal.item_name);
@@ -52,8 +47,11 @@ function menuModal(meal){
 
 function placeOrder(){
     console.log('Order Placed', current_meal);
-    $('#landingPage').hide(200);
-    $('#checkout').show(200);
+    $('#landingPage').hide();
+    $('#checkout').show();
+    var itemsOrdered = $('<h3>', {
+        text: 'Item(s):'
+    });
     var mealName = $('<h4>',{
         text: current_meal.item_name
     });
@@ -63,24 +61,23 @@ function placeOrder(){
         width: '150px',
         margin: '0'
     });
-
     var mealDescription = $('<p>',{
         text: current_meal.description
     });
-
     var mealCost = $('<h4>',{
         text: "$ " + current_meal.price
     });
-
+    var chefInformation = $('<h3>', {
+        text: 'Chef/Pickup Information:'
+    });
     var chefName = $('<p>',{
         text: current_chef.firstName + " " + current_chef.lastName
     });
-
     var chefAddress = $('<p>',{
         text: current_chef.address
     });
-
-    $('#orderOf_container').append(mealName, mealPhoto, mealDescription, mealCost);
-    $('#pickupInfo_container').append(chefName, chefAddress);
+    $('#orderOf_container').append(itemsOrdered, mealName, mealPhoto, mealDescription, mealCost);
+    $('#pickupInfo_container').append(chefInformation, chefName, chefAddress);
+    $('.backToHome').hide();
 }
 

@@ -1,11 +1,65 @@
+var hours;
+var operationHours;
+
 function showChef(){
+    getHours();
     $('#landingPage').hide();
     $('#chefProfile').show();
     createMenu();
-    createChefStory();
+    setTimeout(createChefStory, 300);
     createLocation();
     createPics();
-    console.log(theChef.chef.firstName);
+    $('.backToHome').show();
+}
+
+function getHours(){
+    $.ajax({
+        dataType: "json",
+        url: 'https://api.nxtdoorchef.com/api/hours/chef/' + theChef.chef.id,
+        method: 'get',
+        success: function(response){
+            hours = response;
+            displayHours();
+        }
+    });
+}
+
+function displayHours(){
+    var sunday = null;
+    var monday = null;
+    var tuesday = null;
+    var wednesday = null;
+    var thursday = null;
+    var friday = null;
+    var saturday = null;
+    hours.data.forEach(function(item){
+        switch (item.day){
+            case 0:
+                sunday = $(`<li>Sunday: ${item.open} - ${item.close - 1200}</li>`);
+                break;
+            case 1:
+                monday = $(`<li>Monday: ${item.open} - ${item.close - 1200}</li>`);
+                break;
+            case 2:
+                tuesday = $(`<li>Tuesday: ${item.open} - ${item.close - 1200}</li>`);
+                break;
+            case 3:
+                wednesday = $(`<li>Wednesday: ${item.open} - ${item.close - 1200}</li>`);
+                break;
+            case 4:
+                thursday = $(`<li>Thursday: ${item.open} - ${item.close - 1200}</li>`);
+                break;
+            case 5:
+                friday = $(`<li>Friday: ${item.open} - ${item.close - 1200}</li>`);
+                break;
+            case 6:
+                saturday = $(`<li>Saturday: ${item.open} - ${item.close - 1200}</li>`);
+                break;
+        }
+    });
+    operationHours = $('<ul>',{
+        class: 'hours'
+    }).append(sunday, monday, tuesday, wednesday, thursday, friday, saturday);
 }
 
 function createMenu(){
@@ -24,14 +78,13 @@ function createMenu(){
 
 function createChefStory(){
     var chef = $('<h1 style="padding-top: 40px;">The Chef</h1>');
-
-    var table = $('<table class="table table-bordered table-striped"><tr><th><span class="glyphicon glyphicon-home"></span></th><th><span class="glyphicon glyphicon-user"></span></th><th><span class="glyphicon glyphicon-time"></span></th><th><span class="glyphicon glyphicon-cutlery"></span></th></tr></table>');
+    // var table = $('<table class="table table-bordered table-striped"><tr><th><span class="glyphicon glyphicon-home"></span></th><th><span class="glyphicon glyphicon-user"></span></th><th><span class="glyphicon glyphicon-cutlery"></span></th></tr></table>');
+    var table = $('<table class="table table-bordered table-striped"><tr><th>Chef Name</th><th>Kitchen Name</th><th>Food Type</th></tr></table>');
     var tableData = $(`<tr></tr>`);
     var tableRestaurant = $(`<td>${theChef.chef.alias}</td>`);
     var tableName = $(`<td>${theChef.chef.firstName} ${theChef.chef.lastName}</td>`);
-    var tableHours = $(`<td></td>`);
     var tableFoodType = $(`<td>${theChef.chef.foodType}</td>`);
-    tableData.append(tableRestaurant, tableName, tableHours, tableFoodType);
+    tableData.append(tableName, tableRestaurant, tableFoodType);
     table.append(tableData);
 
     var chefStory = $('<h4>', {
@@ -40,7 +93,10 @@ function createChefStory(){
     var chefBio = $('<p>', {
         text: theChef.chef.bio
     });
-    $('#chefProfileChef').append(chef, table, chefStory, chefBio);
+    var chefHours = $('<h4>', {
+        text: 'Hours'
+    });
+    $('#chefProfileChef').append(chef, table, chefStory, chefBio, chefHours, operationHours);
 }
 
 /**
@@ -68,7 +124,7 @@ function createLocation(){
  */
 function createPics(){
     var food = theChef.menu.data;
-    $('#chefProfilePics').append($('<div id="chefCarousel" class="carousel slide" data-ride="carousel"></div>'));
+    $('#chefProfilePics').append($('<div id="chefCarousel" class="carousel"></div>'));
     $('#chefCarousel').append($('<ol class="carousel-indicators"></ol>'));
     $('#chefCarousel').append($('<div class="carousel-inner" role="listbox"></div>'));
 
@@ -85,7 +141,8 @@ function createPics(){
     $('#chefCarousel').append(rightControl);
 
     for(var i = 0; i < food.length; i++){
-        $('<div class="item"><img src="'+food[i].photo+'"></div>').appendTo('.carousel-inner');
+        $('<div class="item buyButton" data-name="'+food[i].item_name+'"><img src="'+food[i].photo+'"></div>').click(createModal).appendTo('.carousel-inner');
+        // $('<div class="item"><img id="menuCarousel" src="'+food[i].photo+'"></div>').appendTo('.carousel-inner');
         $('<li data-target="#chefCarousel" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
         if(i === 0){
             $('.item').addClass('active');
@@ -107,3 +164,49 @@ function orderItem(){
         }
     }
 }
+
+function createModal(){
+    var element = $(this).attr('data-name');
+    var menu = theChef.menu.data;
+    for(var i = 0; i < menu.length; i++){
+        if(menu[i].item_name === element){
+            current_meal = menu[i];
+            current_chef = theChef.chef;
+        }
+    }
+    $('.modal-title').text(current_meal.item_name);
+    var meal_div = $('<div>',{
+        class: 'meal-modal col-xs-10'
+    });
+
+    var meal_img = $('<img>',{
+        src: current_meal.photo,
+        height: '175px',
+        width: '275px',
+        class: 'col-xs-8'
+    });
+    var meal_description = $('<h4>',{
+        text: 'Description'
+    });
+    var meal_description_info = $('<p>',{
+        text: current_meal.description
+    });
+    var meal_cost = $('<h4>',{
+        text: 'Cost'
+    });
+    var meal_cost_info = $('<p>',{
+        text: '$ ' + current_meal.price
+    });
+
+    $(meal_div).append(meal_img, meal_description, meal_description_info, meal_cost, meal_cost_info);
+    $('.menu-modal').empty().append(meal_div);
+    $('#chefModal').modal('show');
+}
+
+function chefModalOrder(){
+    lastPage = 'profilePage';
+    $('#chefProfile').hide();
+    placeOrder();
+}
+
+

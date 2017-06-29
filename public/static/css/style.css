@@ -63,7 +63,7 @@ body{
     display: inline-block;
     clear: both;
     padding: 0;
-    margin: 4vmin;
+
 }
 #food_listing {
     padding: 0 5px;
@@ -108,7 +108,7 @@ img {
     margin-bottom: 50px;
 }
 #orderBy_container, #orderOf_container, #pickupInfo_container {
-    margin-right: 50px;
+    margin: 0;
 }
 #orderBy_container {
     padding: 25px;
@@ -171,13 +171,6 @@ img {
 .modal-header {
     border-bottom-color: #c8d842;
 }
-.nav-tabs {
-    width: 60vw;
-    z-index: 99999;
-}
-.nav-tabs li{
-    width: 25%;
-}
 #chefProfilePics{
     height: 50vh;
     width: 100%;
@@ -185,20 +178,28 @@ img {
 }
 #chefCarousel{
     height: 50vh;
-    width: 60vw;
+    width: 100%;
     background-size: contain;
 }
 .carousel-inner div{
     height: 50vh;
-    width: 60vw;
+    width: 100%;
     background-size: contain;
 }
+
+#menuCarousel {
+    height: 60vh;
+}
+
 .carousel-inner img{
     height: 50vh;
-    width: 60vw;
+    width: 100%;
     margin: 0;
     padding: 0;
     background-size: contain;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
 }
 /*#chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{*/
 /*width: 60vw;*/
@@ -209,7 +210,7 @@ img {
 .previous a, .next a{
     color: black;
 }
-span.glyphicon-circle-arrow-left{
+span.glyphicon-menu-left{
     font-size: 3.5em;
 }
 .buyButton{
@@ -228,4 +229,18 @@ th .glyphicon{
 }
 .mapAndSearch {
     height: 100%;
+}
+.backToHome{
+    /*position: fixed;*/
+    /*margin-top: 7vh;*/
+    float: left;
+}
+.hours li{
+    list-style-type: none;
+}
+.hours{
+    padding: 0;
+}
+#checkout, #checkout .container-fluid, #checkout .row{
+    margin: 0 auto;
 }

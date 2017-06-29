@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('#chefProfile').hide();
     initMap();
     $('.submit').click(doSearch);
+    $('.searchAll').click(getAllChefs);
     $('div').on('click', '.food_item', function(){
         menuModal(this);
     });
@@ -34,7 +35,7 @@ function initMap(){
         });
     } else {
         // handleLocationError(false, infoWindow, map.getCenter());
-        console.log('Allow location access');
+        alert('Allow location access');
     }
 }
 /**
@@ -65,6 +66,7 @@ function getChefsFromDataBase(){
             getMenu();
             populateChefs();
         }
+
     });
 }
 /**
@@ -121,46 +123,45 @@ function populateChefs(){
         }
     });
     setTimeout(displayFood, 700);
+}
 
-    function populateInfoWindow(marker, infowindow){
-        if(infowindow.marker != marker){
-            infowindow.marker = marker;
-            infowindow.setContent('<div>' + marker.title + '</div>');
-            infowindow.open(map, marker);
-            infowindow.addListener('closeclick', function(){
-                infowindow.setMarker(null);
-            });
+function populateInfoWindow(marker, infowindow){
+    if(infowindow.marker != marker){
+        infowindow.marker = marker;
+        infowindow.setContent('<div>' + marker.title + '</div>');
+        infowindow.open(map, marker);
+        infowindow.addListener('closeclick', function(){
+            infowindow.setMarker(null);
+        });
+    }
+}
+function displayChef(marker){
+    console.log(marker);
+    for(var i = 0; i < chefs.length; i++){
+        if(chefs[i].chef.alias === marker.title){
+            theChef = chefs[i];
+            break;
         }
     }
-    function displayChef(marker){
-        console.log(marker);
-        for(var i = 0; i < chefs.length; i++){
-            if(chefs[i].chef.alias === marker.title){
-                theChef = chefs[i];
-                break;
-            }
-        }
-        var jumbotron = $('<div>', {
-            class: 'jumbotron'
-        });
-        var theChefKitchen = $('<h2>',{
-            text: theChef.chef.alias
-        });
-        var theChefBio = $('<p>', {
-            text: theChef.chef.bio
-        });
-        var theChefName = $('<h3>',{
-            text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
-        });
-        var icon = $('<button>', {
-            class: 'buyButton btn',
-            text: 'Full Menu'
-        }).click(showChef);
-        jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
-        $('.theChefBox').append(jumbotron);
-        displayFood(theChef);
-    }
-
+    var jumbotron = $('<div>', {
+        class: 'jumbotron'
+    });
+    var theChefKitchen = $('<h2>',{
+        text: theChef.chef.alias
+    });
+    var theChefBio = $('<p>', {
+        text: theChef.chef.bio
+    });
+    var theChefName = $('<h3>',{
+        text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
+    });
+    var icon = $('<button>', {
+        class: 'buyButton btn',
+        text: 'Full Menu'
+    }).click(showChef);
+    jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
+    $('.theChefBox').append(jumbotron);
+    displayFood(theChef);
 }
 /**
  * This function makes a call to our database requesting chefs based on location by city.
@@ -185,6 +186,7 @@ function getChefByCityInput(location){
  * @param location
  */
 function getAllChefs(){
+    resetMapAndData();
     $.ajax({
         dataType: "json",
         url: 'https://api.nxtdoorchef.com/api/chef',
@@ -197,17 +199,19 @@ function getAllChefs(){
     });
 }
 /**
- * This function makes a call to our database requesting chefs based on location by city and food type.
+ * This function makes a call to our database requesting menus based on location by food type.
  * @param location
  * @param foodtype
  */
-function getChefByCityAndFood(location, foodtype){
+
+function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: 'https://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
+        url: 'https://api.nxtdoorchef.com/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;
+            console.log(data);
             getMenu();
             populateChefs();
         }
@@ -250,9 +254,9 @@ function doSearch(){
     //     resetMapAndData();
     //     getAllChefs();
     if(food !== ""){
-        resetMapAndData();
-        getChefByCityAndFood(currentLocation, food);
-        $('.foodInput').val('');
+    resetMapAndData();
+    searchMenuByFood(food);
+    $('.foodInput').val('');
     // }else if(food === "" && city !== ""){
     //     resetMapAndData();
     //     getChefByCityInput(city);
@@ -263,6 +267,7 @@ function doSearch(){
     //     $('.locationInput').val('');
     //     $('.foodInput').val('');
     }else{
+        $('.foodInput').attr('placeholder', 'Please enter a type of food');
         return;
     }
 }
@@ -278,3 +283,7 @@ $(window).scroll(function(){
         $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
     }
 });
+
+function backToHome(){
+    $('.backToHome').hide();
+}
