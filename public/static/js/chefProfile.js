@@ -9,6 +9,7 @@ function showChef(){
     setTimeout(createChefStory, 300);
     createLocation();
     createPics();
+    $('.backToHome').show();
 }
 
 function getHours(){
@@ -78,12 +79,12 @@ function createMenu(){
 function createChefStory(){
     var chef = $('<h1 style="padding-top: 40px;">The Chef</h1>');
     // var table = $('<table class="table table-bordered table-striped"><tr><th><span class="glyphicon glyphicon-home"></span></th><th><span class="glyphicon glyphicon-user"></span></th><th><span class="glyphicon glyphicon-cutlery"></span></th></tr></table>');
-    var table = $('<table class="table table-bordered table-striped"><tr><th>Kitchen Name</th><th>Chef Name</th><th>Food Type</th></tr></table>');
+    var table = $('<table class="table table-bordered table-striped"><tr><th>Chef Name</th><th>Kitchen Name</th><th>Food Type</th></tr></table>');
     var tableData = $(`<tr></tr>`);
     var tableRestaurant = $(`<td>${theChef.chef.alias}</td>`);
     var tableName = $(`<td>${theChef.chef.firstName} ${theChef.chef.lastName}</td>`);
     var tableFoodType = $(`<td>${theChef.chef.foodType}</td>`);
-    tableData.append(tableRestaurant, tableName, tableFoodType);
+    tableData.append(tableName, tableRestaurant, tableFoodType);
     table.append(tableData);
 
     var chefStory = $('<h4>', {
@@ -207,4 +208,5 @@ function chefModalOrder(){
     $('#chefProfile').hide();
     placeOrder();
 }
+
 

@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('#chefProfile').hide();
     initMap();
     $('.submit').click(doSearch);
+    $('.searchAll').click(getAllChefs);
     $('div').on('click', '.food_item', function(){
         menuModal(this);
     });
@@ -283,13 +284,6 @@ $(window).scroll(function(){
     }
 });
 
-$(window).scroll(function(){
-    var button = $('.backToHome');
-    var isPositionFixed = (button.css('position') === 'fixed');
-    if ($(this).scrollTop() > 80 && !isPositionFixed){
-        $('.backToHome').css({'position': 'fixed', 'top': '0px'});
-    }
-    if ($(this).scrollTop() < 80 && isPositionFixed){
-        $('.backToHome').css({'position': 'static', 'top': '0px'});
-    }
-});
+function backToHome(){
+    $('.backToHome').hide();
+}
