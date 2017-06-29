@@ -28,6 +28,7 @@ function sendEmailConfirmation(userName, userEmail) {
 
 function previousPageFromCheckout(){
     $('#orderOf_container').empty();
+    $('#pickupInfo_container').empty();
     if(lastPage === 'landingPage'){
         $('#checkout').hide();
         $('#landingPage').show();

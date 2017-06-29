@@ -108,7 +108,7 @@ img {
     margin-bottom: 50px;
 }
 #orderBy_container, #orderOf_container, #pickupInfo_container {
-    margin-right: 50px;
+    margin: 0;
 }
 #orderBy_container {
     padding: 25px;
@@ -170,13 +170,6 @@ img {
 }
 .modal-header {
     border-bottom-color: #c8d842;
-}
-.nav-tabs {
-    width: 60vw;
-    z-index: 99999;
-}
-.nav-tabs li{
-    width: 25%;
 }
 #chefProfilePics{
     height: 50vh;
@@ -247,4 +240,7 @@ th .glyphicon{
 }
 .hours{
     padding: 0;
+}
+#checkout, #checkout .container-fluid, #checkout .row{
+    margin: 0 auto;
 }

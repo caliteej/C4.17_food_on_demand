@@ -140,11 +140,8 @@ function createPics(){
     $('#chefCarousel').append(rightControl);
 
     for(var i = 0; i < food.length; i++){
-
         $('<div class="item buyButton" data-name="'+food[i].item_name+'"><img src="'+food[i].photo+'"></div>').click(createModal).appendTo('.carousel-inner');
-
-        $('<div class="item"><img id="menuCarousel" src="'+food[i].photo+'"></div>').appendTo('.carousel-inner');
-
+        // $('<div class="item"><img id="menuCarousel" src="'+food[i].photo+'"></div>').appendTo('.carousel-inner');
         $('<li data-target="#chefCarousel" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
         if(i === 0){
             $('.item').addClass('active');
