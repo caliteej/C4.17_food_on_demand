@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Maps Prototype</title>
+    <title>NxtDoorChef</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
@@ -20,15 +20,19 @@
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
+        <span class="backButton backToHome glyphicon glyphicon-menu-left" onclick="backToHome()"></span>
         <div onclick="location.reload()" class="navbar-header col-md-5">
             <img class="navbar-brand" src="assets/nxtDoorChef.png">
         </div>
-        <div class="navbar-right col-md-7">
+        <div class="navbar-right col-md-5">
             <div class="input-group">
                 <input class="form-control foodInput" type="text" placeholder="Cuisine">
                 <span class="input-group-btn">
-                        <button class="submit btn glyphicon glyphicon-search" type="submit"></button>
-                    </span>
+                    <button class="submit btn glyphicon" type="submit">Search</button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="searchAll btn glyphicon glyphicon-search" type="submit"></button>
+                </span>
             </div>
         </div>
     </div>
@@ -139,7 +143,6 @@
 <!--***********Chef Profile Page***********-->
 <!--***************************************-->
 <section id="chefProfile">
-    <!--<span class="backButton backToHome glyphicon glyphicon-circle-arrow-left"></span>-->
     <main>
         <div class="container">
             <!--This is the picture section. Carousel of all the pictures associated with the chef profile. Portrait, food, etc..-->

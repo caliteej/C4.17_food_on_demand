@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('#confirmButton').click(confirmationButton);
     $('#backButtonCheckout').click(previousPageFromCheckout);
     $('.backButton').click(backToLandingPage);
+    $('.backToHome').hide();
 });
 
 //Gather order data from order object and send it via ajax network call to the backend, specifically to nodemailer module.
@@ -35,6 +36,7 @@ function previousPageFromCheckout(){
     }else{
         $('#checkout').hide();
         $('#chefProfile').show();
+        $('.backToHome').show();
     }
 }
 
