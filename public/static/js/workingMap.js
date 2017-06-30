@@ -145,6 +145,7 @@ function populateInfoWindow(marker, infowindow){
     }
 }
 function displayChef(marker){
+    $('.theChefBox').val();
     console.log(marker);
     for(var i = 0; i < chefs.length; i++){
         if(chefs[i].chef.alias === marker.title){
@@ -180,6 +181,7 @@ function displayChef(marker){
 
 
 function displayChefMobile(marker){
+    $('.mobileChefProfile').empty();
     console.log(marker);
     for(var i = 0; i < chefs.length; i++){
         if(chefs[i].chef.alias === marker.title){
