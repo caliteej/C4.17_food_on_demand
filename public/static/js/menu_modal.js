@@ -52,6 +52,14 @@ function placeOrder(){
     $('#landingPage').hide();
     $('#checkout').show();
 
+    var mealHeader = $('<h4>',{
+        text: 'Item:'
+    });
+
+    var chefInfo = $('<h4>',{
+        text: 'Chef/Pickup Information:'
+    });
+
     var mealName = $('<h4>',{
         text: current_meal.item_name
     });
@@ -89,8 +97,10 @@ function placeOrder(){
         target: "_blank"
     });
 
-    $('#orderOf_container').append(mealName, mealPhoto, mealDescription, mealCost);
-    $('#pickupInfo_container').append(chefNameLabel, chefName, chefAddressLabel, chefAddress);
+    var breakPoint = $('<br>');
+
+    $('#orderOf_container').append(mealHeader, breakPoint, mealName, mealPhoto, mealDescription, mealCost);
+    $('#pickupInfo_container').append(chefInfo, breakPoint, chefNameLabel, chefName, chefAddressLabel, chefAddress);
     $('.backToHome').hide();
     $('.right-nav').hide();
 }

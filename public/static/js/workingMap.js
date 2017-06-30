@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
     console.log("hey! There's an ajax error!");
     $(document).ajaxError(function (event, jqXHR, settings, error) {
@@ -17,11 +15,6 @@ $(document).ready(function(){
     $( ".foodInput" ).keydown(function(event) {
         enterKeySearch(event.which);
     });
-    setTimeout(function(){
-        $('#whole-navbar').css('opacity', 1);
-        $('#landingPage').css('opacity', 1);
-        $('body').css('background-image', 'none');
-    }, 4000);
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
 /**
@@ -132,6 +125,9 @@ function populateChefs(){
     }
     map.fitBounds(bounds);
     var listener = google.maps.event.addListener(map, "idle", function() {
+        $('#whole-navbar').css('opacity', 1);
+        $('#landingPage').css('opacity', 1);
+        $('body').css('background-image', 'none');
         if (map.getZoom() > 13){
             map.setZoom(13);
             google.maps.event.removeListener(listener);
@@ -218,6 +214,35 @@ function displayChefMobile(marker){
     $('.mobileChefProfile').append(jumbotron);
 }
 
+function displayStory(){
+    for(var i = 0; i < 2; i++){
+        var jumbotron = $('<div>', {
+            class: 'jumbotron'
+        });
+        var slogan = $('<h2>',{
+            text: 'A Taste of Home'
+        });
+        var story = $('<p>', {
+            text: "Looking for a ride, open up Uber. Need a vacation rental, hop on Airbnb. Hungry...there's a nxtDoorChef for that!"
+        });
+        var firstPara = $('<p>', {
+            text: "Simply enter the type of food you'd like to eat in the search bar, see who's cooking around you, pick the food that's gonna satisfy your craving, and order."
+        });
+        var secondPara = $('<p>', {
+            text: "So don't wait.  Take a trip to your city's largest neighborhood eatery today."
+        });
+        var thirdPara = $('<p>', {
+            text: "And the best part is...it's just right next door!"
+        });
+        jumbotron.append(slogan, story, firstPara, secondPara, thirdPara);
+        if(i === 0){
+            $('.theChefBox').append(jumbotron);
+        }else{
+            $('.mobileChefProfile').append(jumbotron);
+        }
+    }
+}
+
 /**
  * This function makes a call to our database requesting chefs based on location by city.
  * Same as getChefsFromDataBase but it uses the input value rather than users current location.
@@ -241,7 +266,10 @@ function getChefByCityInput(location){
  * @param location
  */
 function getAllChefs(){
+    $('.theChefBox').empty();
+    $('.mobileChefProfile').empty();
     resetMapAndData();
+    displayStory();
     $.ajax({
         dataType: "json",
         url: 'https://api.nxtdoorchef.com/api/chef',
@@ -271,26 +299,6 @@ function searchMenuByFood(food){
         }
     });
 }
-// function getChefByKitchen(kitchen){
-//     $.ajax({
-//         dataType: "json",
-//         url: 'http://api.nxtdoorchef.com/api/chef/city-foodtype/' + location + '/' + foodtype,
-//         method: 'get',
-//         success: function(response){
-//             data = response;
-//             getMenu();
-//             populateChefs();
-//         }
-//     });
-// }
-
-
-// function showChef(){
-//     console.log('showing chef');
-//     $('#landingPage').hide();
-//     $('#chefProfile').show();
-//     hideRightNav();
-// }
 
 function resetMapAndData(){
     chefs = [];
@@ -303,46 +311,15 @@ function resetMapAndData(){
  */
 function doSearch(){
     var food = $('.foodInput').val();
-    // var city = $('.locationInput').val();
-    // if(city === "" && food === ""){
-    //     console.log('maybe make a user page');
-    //     resetMapAndData();
-    //     getAllChefs();
     if(food !== ""){
-
         resetMapAndData();
         searchMenuByFood(food);
         $('.foodInput').val('');
-        // }else if(food === "" && city !== ""){
-        //     resetMapAndData();
-        //     getChefByCityInput(city);
-        //     $('.locationInput').val('');
-        // }else if(food !== "" && city !== ""){
-        //     resetMapAndData();
-        //     getChefByCityAndFood(city, food);
-        //     $('.locationInput').val('');
-        //     $('.foodInput').val('');
     }else{
         $('.foodInput').attr('placeholder','Please enter a type of cuisine');
         return;
     }
 }
-$(window).scroll(function(){
-    var nav = $('#chefProfileMenu');
-    var width = $('#chefProfileMenu').parent().width();
-    var isPositionFixed = (nav.css('position') === 'fixed');
-    if ($(this).scrollTop() > 430 && !isPositionFixed){
-        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': width});
-    }
-    if ($(this).scrollTop() < 430 && isPositionFixed){
-        $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
-    }
-});
-function backToHome(){
-    $('.backToHome').hide();
-    $('.right-nav').show();
-}
-
 
 function enterKeySearch(key){
     if(key == 13) {

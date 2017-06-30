@@ -269,3 +269,20 @@ function createReviews(){
         reviewsContainer.append(theReview);
     });
 }
+
+$(window).scroll(function(){
+    var nav = $('#chefProfileMenu');
+    var width = $('#chefProfileMenu').parent().width();
+    var isPositionFixed = (nav.css('position') === 'fixed');
+    if ($(this).scrollTop() > 430 && !isPositionFixed){
+        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': width});
+    }
+    if ($(this).scrollTop() < 430 && isPositionFixed){
+        $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
+    }
+});
+
+function backToHome(){
+    $('.backToHome').hide();
+    $('.right-nav').show();
+}
