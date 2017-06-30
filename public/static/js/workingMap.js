@@ -12,6 +12,11 @@ $(document).ready(function(){
     $( ".foodInput" ).keydown(function(event) {
         enterKeySearch(event.which);
     });
+    setTimeout(function(){
+        $('#whole-navbar').css('opacity', 1);
+        $('#landingPage').css('opacity', 1);
+        $('body').css('background-image', 'none');
+    }, 4000);
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
 /**
