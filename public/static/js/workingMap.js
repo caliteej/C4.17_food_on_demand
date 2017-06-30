@@ -1,11 +1,16 @@
+
+
 $(document).ready(function(){
     $('#checkout').hide();
     $('#chefProfile').hide();
     initMap();
-    $('.submit').click(doSearch);
+    $('#icon-search').click(doSearch);
     $('.searchAll').click(getAllChefs);
     $('div').on('click', '.food_item', function(){
         menuModal(this);
+    });
+    $( ".foodInput" ).keydown(function(event) {
+        enterKeySearch(event.which);
     });
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
@@ -66,7 +71,6 @@ function getChefsFromDataBase(){
             getMenu();
             populateChefs();
         }
-
     });
 }
 /**
@@ -105,7 +109,7 @@ function populateChefs(){
             position: position,
             title: title,
             id: i,
-            icon: "assets/fork_n_knife.png"
+            icon: "assets/fork_n_knife_orange.png"
         });
         markers.push(marker);
         bounds.extend(marker.position);
@@ -124,7 +128,6 @@ function populateChefs(){
     });
     setTimeout(displayFood, 700);
 }
-
 function populateInfoWindow(marker, infowindow){
     if(infowindow.marker != marker){
         infowindow.marker = marker;
@@ -156,8 +159,8 @@ function displayChef(marker){
         text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
     });
     var icon = $('<button>', {
-        class: 'buyButton btn',
-        text: 'Full Menu'
+        class: 'fullMenuButton btn',
+        text: 'Chef Menu'
     }).click(showChef);
     jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
     $('.theChefBox').append(jumbotron);
@@ -203,7 +206,6 @@ function getAllChefs(){
  * @param location
  * @param foodtype
  */
-
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
@@ -217,7 +219,6 @@ function searchMenuByFood(food){
         }
     });
 }
-
 // function getChefByKitchen(kitchen){
 //     $.ajax({
 //         dataType: "json",
@@ -231,10 +232,13 @@ function searchMenuByFood(food){
 //     });
 // }
 
-function showChef(){
-    $('#landingPage').hide();
-    $('#chefProfile').show();
-}
+
+// function showChef(){
+//     console.log('showing chef');
+//     $('#landingPage').hide();
+//     $('#chefProfile').show();
+//     hideRightNav();
+// }
 
 function resetMapAndData(){
     chefs = [];
@@ -242,7 +246,6 @@ function resetMapAndData(){
         zoom: 13
     });
 }
-
 /**
  * Queries the database based on the input fields.
  */
@@ -254,24 +257,24 @@ function doSearch(){
     //     resetMapAndData();
     //     getAllChefs();
     if(food !== ""){
-    resetMapAndData();
-    searchMenuByFood(food);
-    $('.foodInput').val('');
-    // }else if(food === "" && city !== ""){
-    //     resetMapAndData();
-    //     getChefByCityInput(city);
-    //     $('.locationInput').val('');
-    // }else if(food !== "" && city !== ""){
-    //     resetMapAndData();
-    //     getChefByCityAndFood(city, food);
-    //     $('.locationInput').val('');
-    //     $('.foodInput').val('');
+
+        resetMapAndData();
+        searchMenuByFood(food);
+        $('.foodInput').val('');
+        // }else if(food === "" && city !== ""){
+        //     resetMapAndData();
+        //     getChefByCityInput(city);
+        //     $('.locationInput').val('');
+        // }else if(food !== "" && city !== ""){
+        //     resetMapAndData();
+        //     getChefByCityAndFood(city, food);
+        //     $('.locationInput').val('');
+        //     $('.foodInput').val('');
     }else{
-        $('.foodInput').attr('placeholder', 'Please enter a type of food');
+        $('.foodInput').attr('placeholder','Please enter a type of cuisine');
         return;
     }
 }
-
 $(window).scroll(function(){
     var nav = $('#chefProfileMenu');
     var width = $('#chefProfileMenu').parent().width();
@@ -283,7 +286,14 @@ $(window).scroll(function(){
         $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
     }
 });
-
 function backToHome(){
     $('.backToHome').hide();
+    $('.right-nav').show();
+}
+
+
+function enterKeySearch(key){
+    if(key == 13) {
+        doSearch();
+    }
 }

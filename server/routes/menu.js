@@ -3,6 +3,7 @@ const express = require('express');
 
 const router = express.Router();
 const Menu = models.menus;
+const sequelize = models.sequelize;
 
 //Routes for all menu queries
 router.get('/id/:chef_id', getChefMenu);
@@ -25,28 +26,10 @@ function getChefMenu(req, res){
 //Get menu by search term
 function getMenuByFood (req, res) {
     let search_term = req.params.food;
-    Menu.findAll({
-        where: {
-            $or: [
-                {
-                    foodType: {
-                        $like: '%' + search_term + '%'
-                    }
-                },
-                {
-                    item_name: {
-                        $like: '%' + search_term + '%'
-                    }
-                },
-                {
-                    description: {
-                        $like: '%' + search_term + '%'
-                    }
-                }
-            ]
-        }
-    }).then(function(menu){
-        res.status(200).send({"success": true, "data": menu});
+    let query = "SELECT DISTINCT menus.chef_id, chefs.firstName, chefs.lastName, chefs.city, chefs.address, chefs.lat, chefs.lng, chefs.bio, chef.alias, chef.portrait, chef.foodType FROM menus JOIN chefs ON menus.chef_id = chefs.ID WHERE menus.description LIKE '%"+search_term+"%' OR menus.foodType LIKE '%"+search_term+"%' OR menus.item_name LIKE '%"+search_term+"%'";
+    sequelize.query(query).then(function(results){
+        console.log(results);
+        res.status(200).send({"success": true, "data": results});
     }).catch(function(error){
         res.status(404).send({"success": false, error});
     });

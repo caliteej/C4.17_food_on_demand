@@ -7,6 +7,7 @@ function showChef(){
     getReviews();
     $('#landingPage').hide();
     $('#chefProfile').show();
+    $('.right-nav').hide();
     createMenu();
     setTimeout(createChefStory, 300);
     createLocation();
@@ -80,7 +81,7 @@ function createMenu(){
     $('#chefProfileMenu').append($('<h1 style="padding-top: 40px;">Menu</h1>'));
     var container = $('<div class="list-group">');
     theChef.menu.data.forEach(function(item){
-        var icon = $(`<button class="buyButton btn pull-right" data-name="${item.item_name}">BUY</button>`).click(orderItem);
+        var icon = $(`<button class="buyButton btn btn-info pull-right" data-name="${item.item_name}">Buy</button>`).click(orderItem);
         var groupContainer = $(`<a class="list-group-item"></a>`);
         var heading = $(`<h4 class="list-group-item-heading">${item.item_name} | $${item.price}</h4>`).append(icon);
         var description = $(`<p class="list-group-item-text">${item.description}</p>`);
@@ -118,8 +119,11 @@ function createChefStory(){
  */
 function createLocation(){
     var location = $('<h1 style="padding-top: 40px;">Location</h1>');
-    var chefAddress = $('<p>', {
-        text: theChef.chef.address
+    var chefAddress = $('<a>', {
+        text: theChef.chef.address,
+        href: "https://www.google.com/maps/dir/Current+Location/" + theChef.chef.address,
+        target: "_blank"
+
     });
     var chefMap = $('<div>', {
         id: 'mapTwo'

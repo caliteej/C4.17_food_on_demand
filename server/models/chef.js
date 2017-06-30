@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
         bio: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        portrait: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
     return Chef
