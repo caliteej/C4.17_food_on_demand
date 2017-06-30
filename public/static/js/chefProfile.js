@@ -5,6 +5,7 @@ function showChef(){
     getHours();
     $('#landingPage').hide();
     $('#chefProfile').show();
+    $('.right-nav').hide();
     createMenu();
     setTimeout(createChefStory, 300);
     createLocation();
