@@ -259,7 +259,7 @@ function getAllChefs(){
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: 'localhost:3000/api/menu/search/' + food,
+        url: 'https:api.nxtdoorchef.com/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;
