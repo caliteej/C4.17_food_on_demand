@@ -4,10 +4,13 @@ $(document).ready(function(){
     $('#checkout').hide();
     $('#chefProfile').hide();
     initMap();
-    $('.submit').click(doSearch);
+    $('#icon-search').click(doSearch);
     $('.searchAll').click(getAllChefs);
     $('div').on('click', '.food_item', function(){
         menuModal(this);
+    });
+    $( ".foodInput" ).keydown(function(event) {
+        enterKeySearch(event.which);
     });
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
@@ -228,10 +231,15 @@ function searchMenuByFood(food){
 //         }
 //     });
 // }
-function showChef(){
-    $('#landingPage').hide();
-    $('#chefProfile').show();
-}
+
+
+// function showChef(){
+//     console.log('showing chef');
+//     $('#landingPage').hide();
+//     $('#chefProfile').show();
+//     hideRightNav();
+// }
+
 function resetMapAndData(){
     chefs = [];
     map = new google.maps.Map(document.getElementById('map'), {
@@ -249,6 +257,7 @@ function doSearch(){
     //     resetMapAndData();
     //     getAllChefs();
     if(food !== ""){
+
         resetMapAndData();
         searchMenuByFood(food);
         $('.foodInput').val('');
@@ -262,7 +271,7 @@ function doSearch(){
         //     $('.locationInput').val('');
         //     $('.foodInput').val('');
     }else{
-        $('.foodInput').attr('placeholder', 'Please enter a type of food');
+        $('.foodInput').attr('placeholder','Please enter a type of cuisine');
         return;
     }
 }
@@ -279,9 +288,12 @@ $(window).scroll(function(){
 });
 function backToHome(){
     $('.backToHome').hide();
+    $('.right-nav').show();
 }
 
 
-
-
-
+function enterKeySearch(key){
+    if(key == 13) {
+        doSearch();
+    }
+}
