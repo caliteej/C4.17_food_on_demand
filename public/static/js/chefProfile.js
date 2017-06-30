@@ -9,6 +9,7 @@ function showChef(){
     $('#chefProfile').show();
     $('.right-nav').hide();
     createMenu();
+    createMobileMenu()
     setTimeout(createChefStory, 300);
     createLocation();
     createPics();
@@ -88,6 +89,19 @@ function createMenu(){
         groupContainer.append(heading, description);
         container.append(groupContainer);
         $('#chefProfileMenu').append(container);
+    });
+}
+
+function createMobileMenu(){
+    //$('#mobileChefMenu').append($('<h1 style="padding-top: 40px;">Menu</h1>'));
+    var container = $('<div class="list-group">');
+    theChef.menu.data.forEach(function(item){
+        var icon = $(`<button class="buyButton btn btn-info pull-right" data-name="${item.item_name}">Buy</button>`).click(orderItem);
+        var groupContainer = $(`<a class="list-group-item"></a>`);
+        var heading = $(`<h4 class="list-group-item-heading">${item.item_name} | $${item.price}</h4>`).append(icon);
+        var description = $(`<p class="list-group-item-text">${item.description}</p>`);
+        groupContainer.append(heading, description);
+        container.append(groupContainer);
         $('#mobileChefMenu').append(container);
     });
 }
