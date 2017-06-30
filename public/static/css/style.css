@@ -355,7 +355,7 @@ th .glyphicon{
 .container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
     outline: none;
     opacity: 1;
-    margin-left: -50px;
+    margin-left: -60px;
 }
 .container-4:hover button.icon:hover{
     background: #FE4427;
