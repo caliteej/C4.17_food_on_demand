@@ -88,6 +88,7 @@ function createMenu(){
         groupContainer.append(heading, description);
         container.append(groupContainer);
         $('#chefProfileMenu').append(container);
+        $('#mobileChefMenu').append(container);
     });
 }
 

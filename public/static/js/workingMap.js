@@ -173,6 +173,7 @@ function displayChef(marker){
     }).click(showChef);
     jumbotron.append(theChefKitchen, theChefName, theChefPicture, theChefBio, icon);
     $('.theChefBox').append(jumbotron);
+    $('.mobileChefProfile').append(jumbotron);
     displayFood(theChef);
 }
 /**
