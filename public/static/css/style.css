@@ -367,6 +367,7 @@ th .glyphicon{
     margin-top:-10px;
     z-index: 1;
     margin-bottom: 0;
+    background-color: white;
 }
 .right-nav {
     margin-top: 12px;
@@ -391,11 +392,11 @@ th .glyphicon{
 }
 
 @media (max-width: 600px) {
-    /*#whole-navbar {*/
-        /*display: block;*/
-        /*margin-top: 5px;*/
-        /*background: white;*/
-    /*}*/
+    #whole-navbar {
+        display: block;
+        margin-top: 5px;
+        background: white;
+    }
     .theChefBox, #chefProfileMenu {
         display: none;
     }
@@ -410,9 +411,9 @@ th .glyphicon{
     .mapAndSearch {
         margin: 0 auto;
     }
-    /*.navbar-brand {*/
-        /*margin: 0*/
-    /*}*/
+    .navbar-brand {
+        margin: 0
+    }
     #map {
         width: 100%;
         margin: 0
