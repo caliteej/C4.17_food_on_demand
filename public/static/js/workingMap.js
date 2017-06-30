@@ -122,6 +122,7 @@ function populateChefs(){
             populateInfoWindow(this, largeInfowindow);
             $('.theChefBox').empty();
             displayChef(this);
+            displayChefMobile(this);
         });
     }
     map.fitBounds(bounds);
@@ -173,9 +174,43 @@ function displayChef(marker){
     }).click(showChef);
     jumbotron.append(theChefKitchen, theChefName, theChefPicture, theChefBio, icon);
     $('.theChefBox').append(jumbotron);
-    $('.mobileChefProfile').append(jumbotron);
+    //$('.mobileChefProfile').append(jumbotron);
     displayFood(theChef);
 }
+
+
+function displayChefMobile(marker){
+    console.log(marker);
+    for(var i = 0; i < chefs.length; i++){
+        if(chefs[i].chef.alias === marker.title){
+            theChef = chefs[i];
+            break;
+        }
+    }
+    var jumbotron = $('<div>', {
+        class: 'jumbotron'
+    });
+    var theChefKitchen = $('<h2>',{
+        text: theChef.chef.alias
+    });
+    var theChefBio = $('<p>', {
+        text: theChef.chef.bio
+    });
+    var theChefName = $('<h3>',{
+        text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
+    });
+    var theChefPicture = $('<img>',{
+        src: theChef.chef.portrait,
+        class: 'the_chef_picture'
+    });
+    var icon = $('<button>', {
+        class: 'fullMenuButton btn',
+        text: 'Chef Menu'
+    }).click(showChef);
+    jumbotron.append(theChefKitchen, theChefName, theChefPicture, theChefBio, icon);
+    $('.mobileChefProfile').append(jumbotron);
+}
+
 /**
  * This function makes a call to our database requesting chefs based on location by city.
  * Same as getChefsFromDataBase but it uses the input value rather than users current location.
