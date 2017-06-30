@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
     $('#checkout').hide();
     $('#chefProfile').hide();
@@ -69,7 +71,6 @@ function getChefsFromDataBase(){
             getMenu();
             populateChefs();
         }
-
     });
 }
 /**
@@ -127,7 +128,6 @@ function populateChefs(){
     });
     setTimeout(displayFood, 700);
 }
-
 function populateInfoWindow(marker, infowindow){
     if(infowindow.marker != marker){
         infowindow.marker = marker;
@@ -159,8 +159,8 @@ function displayChef(marker){
         text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
     });
     var icon = $('<button>', {
-        class: 'buyButton btn',
-        text: 'Full Menu'
+        class: 'fullMenuButton btn',
+        text: 'Chef Menu'
     }).click(showChef);
     jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
     $('.theChefBox').append(jumbotron);
@@ -206,7 +206,6 @@ function getAllChefs(){
  * @param location
  * @param foodtype
  */
-
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
@@ -220,7 +219,6 @@ function searchMenuByFood(food){
         }
     });
 }
-
 // function getChefByKitchen(kitchen){
 //     $.ajax({
 //         dataType: "json",
@@ -233,6 +231,7 @@ function searchMenuByFood(food){
 //         }
 //     });
 // }
+
 
 // function showChef(){
 //     console.log('showing chef');
@@ -247,7 +246,6 @@ function resetMapAndData(){
         zoom: 13
     });
 }
-
 /**
  * Queries the database based on the input fields.
  */
@@ -259,7 +257,7 @@ function doSearch(){
     //     resetMapAndData();
     //     getAllChefs();
     if(food !== ""){
-        console.log('food input', food);
+
         resetMapAndData();
         searchMenuByFood(food);
         $('.foodInput').val('');
@@ -277,7 +275,6 @@ function doSearch(){
         return;
     }
 }
-
 $(window).scroll(function(){
     var nav = $('#chefProfileMenu');
     var width = $('#chefProfileMenu').parent().width();
@@ -289,11 +286,11 @@ $(window).scroll(function(){
         $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
     }
 });
-
 function backToHome(){
     $('.backToHome').hide();
     $('.right-nav').show();
 }
+
 
 function enterKeySearch(key){
     if(key == 13) {
