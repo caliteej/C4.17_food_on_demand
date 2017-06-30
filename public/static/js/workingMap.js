@@ -40,6 +40,7 @@ function initMap(){
         }, function() {
             // handleLocationError(true, infoWindow, map.getCenter());
             console.log('Something went wrong');
+            alert('Allow location access');
         });
     } else {
         // handleLocationError(false, infoWindow, map.getCenter());
