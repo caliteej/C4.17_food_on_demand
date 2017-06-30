@@ -54,10 +54,11 @@ body{
     color: #c8d842;
 }
 #map {
-    width: 100%;
+    width: 90%;
+    height: 50vh;
     margin-right: 10%;
+    margin-left: 10%;
     display: inline-block;
-    padding-top: 75%;
 }
 #mapTwo{
     width: 40vw;
@@ -78,15 +79,19 @@ body{
 
 }
 #food_listing {
-    padding: 0 5px;
     overflow-x: hidden;
     overflow-y: scroll;
     height: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     /*border: 1px solid black;*/
 }
 .food_item {
     /*border: 1px solid #ECECEC;*/
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .food_caption {
     text-align: center;
@@ -290,6 +295,7 @@ th .glyphicon{
     float: left;
     color: black;
     padding-left: 17px;
+    margin-bottom: 5px;
     /*-webkit-border-radius: 5px;*/
     /*-moz-border-radius: 5px;*/
     /*border-radius: 5px;*/
@@ -350,4 +356,72 @@ th .glyphicon{
     justify-content: flex-end;
     align-items: baseline;
     border-radius: 5px;
+}
+
+.mobileChefProfile, #mobileChefMenu {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    #whole-navbar {
+        display: block;
+        margin-top: 5px;
+        background: white;
+    }
+    .theChefBox, #chefProfileMenu {
+        display: none;
+    }
+    .mobileChefProfile {
+        display: block;
+        margin-bottom: 10px;
+        margin-top: -20px;
+    }
+    .mobileChefProfile p {
+        font-size: 18px;
+    }
+    .mapAndSearch {
+        margin: 0 auto;
+    }
+    .navbar-brand {
+        margin: 0
+    }
+    #map {
+        width: 100%;
+        margin: 0
+    }
+    .backToHome {
+        margin-left: -20px;
+    }
+    span.glyphicon-menu-left {
+        font-size: 1.5em;
+    }
+    body {
+        display: block;
+    }
+    #chefProfilePics {
+        height: 30vh;
+        margin-top: 75px;
+    }
+    #chefCarousel {
+        height: 30vh;
+        overflow: hidden;
+    }
+    #mobileChefMenu {
+        display: block;
+    }
+    #orderBy_container, #orderOf_container {
+        padding: 0;
+    }
+    .checkoutForm {
+
+    }
+    #userFirstName, #userLastName, #userEmail {
+        margin-bottom: 0;
+    }
+    #orderBy_container > h4 {
+        margin-bottom: 0;
+    }
+    #checkout > h3 {
+        margin-bottom: 0;
+    }
 }
