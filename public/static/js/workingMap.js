@@ -158,11 +158,15 @@ function displayChef(marker){
     var theChefName = $('<h3>',{
         text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
     });
+    var theChefPicture = $('<img>',{
+        src: theChef.chef.portrait,
+        class: 'the_chef_picture'
+    });
     var icon = $('<button>', {
         class: 'fullMenuButton btn',
         text: 'Chef Menu'
     }).click(showChef);
-    jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
+    jumbotron.append(theChefKitchen, theChefName, theChefPicture, theChefBio, icon);
     $('.theChefBox').append(jumbotron);
     displayFood(theChef);
 }
