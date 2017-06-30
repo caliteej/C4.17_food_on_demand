@@ -109,7 +109,7 @@ function populateChefs(){
             position: position,
             title: title,
             id: i,
-            icon: "assets/fork_n_knife.png"
+            icon: "assets/fork_n_knife_orange.png"
         });
         markers.push(marker);
         bounds.extend(marker.position);
