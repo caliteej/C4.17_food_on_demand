@@ -85,7 +85,7 @@ function placeOrder(){
 
     var chefAddress = $('<a>',{
         text: current_chef.address,
-        href: "https://www.google.com/maps/dir/Current+Location/" + current_chef.address,
+        href: "https://www.google.com/maps?saddr=My+Location&daddr=" + current_chef.address,
         target: "_blank"
     });
 
