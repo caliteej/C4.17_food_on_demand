@@ -24,7 +24,40 @@ function sendConfirmationEmail(req, res){
         to: req.body.email, // list of receivers
         subject: 'Your nxtDoorChef has your order!', // Subject line
         html:
-   ``
+   `<!DOCTYPE html>
+    <html>
+    <head>
+    <meta name=“nxtDoorChef confirmation email” content=“customer order and promotions”>
+    <meta charset=“utf-8”>
+    <meta http-equiv=“X-UA-Compatible” content=“IE=edge”>
+    <meta name=“viewport” content=“width=device-width, initial-scale=1”>
+    <link rel=“stylesheet” href=“/style.css”>
+    </head>
+    <body>
+    <header>
+      <h1>
+        Thank you for ordering from nxtDoorChef.
+      </h1>
+      <h3>
+        Your order has been received and will be available soon, so get ready for something delicious!
+      </h3>
+    </header>
+    <main>
+      <div>
+          ${req.body.user}‘s order:<br>
+          ${req.body.purchase_name}<br>
+          <img src=‘${req.body.purchase_photo}’ style=“width: 175vw;height:275vh”><br>
+          Item Price: ${req.body.purchase_price} Credits
+      </div
+    </main>
+    <footer>
+      Total =  ${req.body.purchase_price} Credits
+      <br>
+      <br>
+      You can pick up your meal at a link that contains the address and chef name</a>
+    </footer>
+    </body>
+    </html>`
     };
 
 // send mail with defined transport object
