@@ -1,8 +1,10 @@
+var reviews;
 var hours;
 var operationHours;
 
 function showChef(){
     getHours();
+    getReviews();
     $('#landingPage').hide();
     $('#chefProfile').show();
     $('.right-nav').hide();
@@ -21,6 +23,18 @@ function getHours(){
         success: function(response){
             hours = response;
             displayHours();
+        }
+    });
+}
+
+function getReviews(){
+    $.ajax({
+        dataType: "json",
+        url: 'https://api.nxtdoorchef.com/api/reviews/retrieve/' + theChef.chef.id,
+        method: 'get',
+        success: function(response){
+            reviews = response;
+            createReviews();
         }
     });
 }
@@ -214,3 +228,26 @@ function chefModalOrder(){
 }
 
 
+function createReviews(){
+    var reviewsHeader = $('<h1>', {
+        text: 'Reviews'
+    });
+    var reviewsContainer = $('<div>', {
+        class: 'reviewsContainer'
+    });
+    $('#chefProfileReview').append(reviewsHeader,reviewsContainer);
+    reviews.data.forEach(function(item){
+        var theReview = $('<div>');
+        var reviewer = $('<h4>',{
+            text: item.user_name
+        });
+        var date = $('<h5>',{
+            text: item.createdAt.substring(0,10)
+        });
+        var description = $('<p>',{
+            text: item.body
+        });
+        theReview.append(reviewer, date, description);
+        reviewsContainer.append(theReview);
+    });
+}

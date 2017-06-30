@@ -54,6 +54,7 @@ function clearChefProfile(){
     $('#chefProfileChef').empty();
     $('#chefProfileMenu').empty();
     $('#chefProfileLocation').empty();
+    $('#chefProfileReview').empty();
 }
 function confirmationButton(){
     if (formValidation() === false) {
