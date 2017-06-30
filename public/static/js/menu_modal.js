@@ -92,4 +92,5 @@ function placeOrder(){
     $('#orderOf_container').append(mealName, mealPhoto, mealDescription, mealCost);
     $('#pickupInfo_container').append(chefNameLabel, chefName, chefAddressLabel, chefAddress);
     $('.backToHome').hide();
+    $('.right-nav').hide();
 }

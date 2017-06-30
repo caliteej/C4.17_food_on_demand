@@ -2,6 +2,9 @@ body{
     width: 90vw;
     margin: 0 auto;
     background-image: url("https://cdn.dribbble.com/users/887568/screenshots/3028813/kitchen_invitations.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     background-size: 100% 100%;
 }
 
