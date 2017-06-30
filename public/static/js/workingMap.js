@@ -12,6 +12,11 @@ $(document).ready(function(){
     $( ".foodInput" ).keydown(function(event) {
         enterKeySearch(event.which);
     });
+    setTimeout(function(){
+        $('#whole-navbar').css('opacity', 1);
+        $('#landingPage').css('opacity', 1);
+        $('body').css('background-image', 'none');
+    }, 4000);
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
 /**
@@ -158,11 +163,15 @@ function displayChef(marker){
     var theChefName = $('<h3>',{
         text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
     });
+    var theChefPicture = $('<img>',{
+        src: theChef.chef.portrait,
+        class: 'the_chef_picture'
+    });
     var icon = $('<button>', {
         class: 'fullMenuButton btn',
         text: 'Chef Menu'
     }).click(showChef);
-    jumbotron.append(theChefKitchen, theChefName, theChefBio, icon);
+    jumbotron.append(theChefKitchen, theChefName, theChefPicture, theChefBio, icon);
     $('.theChefBox').append(jumbotron);
     $('.mobileChefProfile').append(jumbotron);
     displayFood(theChef);

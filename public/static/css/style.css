@@ -1,6 +1,8 @@
 body{
     width: 90vw;
     margin: 0 auto;
+    background-image: url("https://cdn.dribbble.com/users/887568/screenshots/3028813/kitchen_invitations.gif");
+    background-size: 100% 100%;
 }
 
 
@@ -237,9 +239,15 @@ span.glyphicon-menu-left{
 .buyButton{
     color: white;
 }
+
+.the_chef_picture {
+    height: 315px;
+    width: 315px;
+}
 .fullMenuButton {
     background-color: #FE4427;
     color: white;
+    margin-bottom: 10px;
 }
 
 
@@ -276,7 +284,11 @@ th .glyphicon{
 #checkout, #checkout .container-fluid, #checkout .row{
     margin: 0 auto;
 }
-
+.reviewsContainer{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 50vh;
+}
 .container-4{
     overflow: hidden;
     width: 300px;
@@ -348,7 +360,6 @@ th .glyphicon{
     margin-left: 7px;
     margin-top:-10px;
 }
-
 .right-nav {
     margin-top: 12px;
     display: flex;
@@ -357,6 +368,7 @@ th .glyphicon{
     align-items: baseline;
     border-radius: 5px;
 }
+
 
 .mobileChefProfile, #mobileChefMenu {
     display: none;
@@ -425,3 +437,8 @@ th .glyphicon{
         margin-bottom: 0;
     }
 }
+
+#landingPage, #whole-navbar{
+    opacity: 0;
+}
+
