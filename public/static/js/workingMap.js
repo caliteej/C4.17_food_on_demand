@@ -2,10 +2,13 @@ $(document).ready(function(){
     $('#checkout').hide();
     $('#chefProfile').hide();
     initMap();
-    $('.submit').click(doSearch);
+    $('#icon-search').click(doSearch);
     $('.searchAll').click(getAllChefs);
     $('div').on('click', '.food_item', function(){
         menuModal(this);
+    });
+    $( ".foodInput" ).keydown(function(event) {
+        enterKeySearch(event.which);
     });
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
@@ -231,10 +234,12 @@ function searchMenuByFood(food){
 //     });
 // }
 
-function showChef(){
-    $('#landingPage').hide();
-    $('#chefProfile').show();
-}
+// function showChef(){
+//     console.log('showing chef');
+//     $('#landingPage').hide();
+//     $('#chefProfile').show();
+//     hideRightNav();
+// }
 
 function resetMapAndData(){
     chefs = [];
@@ -254,20 +259,21 @@ function doSearch(){
     //     resetMapAndData();
     //     getAllChefs();
     if(food !== ""){
-    resetMapAndData();
-    searchMenuByFood(food);
-    $('.foodInput').val('');
-    // }else if(food === "" && city !== ""){
-    //     resetMapAndData();
-    //     getChefByCityInput(city);
-    //     $('.locationInput').val('');
-    // }else if(food !== "" && city !== ""){
-    //     resetMapAndData();
-    //     getChefByCityAndFood(city, food);
-    //     $('.locationInput').val('');
-    //     $('.foodInput').val('');
+        console.log('food input', food);
+        resetMapAndData();
+        searchMenuByFood(food);
+        $('.foodInput').val('');
+        // }else if(food === "" && city !== ""){
+        //     resetMapAndData();
+        //     getChefByCityInput(city);
+        //     $('.locationInput').val('');
+        // }else if(food !== "" && city !== ""){
+        //     resetMapAndData();
+        //     getChefByCityAndFood(city, food);
+        //     $('.locationInput').val('');
+        //     $('.foodInput').val('');
     }else{
-        $('.foodInput').attr('placeholder', 'Please enter a type of food');
+        $('.foodInput').attr('placeholder','Please enter a type of cuisine');
         return;
     }
 }
@@ -286,4 +292,11 @@ $(window).scroll(function(){
 
 function backToHome(){
     $('.backToHome').hide();
+    $('.right-nav').show();
+}
+
+function enterKeySearch(key){
+    if(key == 13) {
+        doSearch();
+    }
 }
