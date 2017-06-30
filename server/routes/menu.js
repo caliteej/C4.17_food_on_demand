@@ -29,7 +29,7 @@ function getMenuByFood (req, res) {
     let query = "SELECT DISTINCT menus.chef_id, chefs.firstName, chefs.lastName, chefs.city, chefs.address, chefs.lat, chefs.lng, chefs.bio, chefs.alias, chefs.portrait, chefs.foodType FROM menus JOIN chefs ON menus.chef_id = chefs.ID WHERE menus.description LIKE '%"+search_term+"%' OR menus.foodType LIKE '%"+search_term+"%' OR menus.item_name LIKE '%"+search_term+"%'";
     sequelize.query(query).then(function(results){
         console.log(results);
-        res.status(200).send({"success": true, "data": results});
+        res.status(200).send({"success": true, "data": results[0]});
     }).catch(function(error){
         res.status(404).send({"success": false, error});
     });
