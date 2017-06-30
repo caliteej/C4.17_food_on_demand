@@ -1,6 +1,11 @@
 
 
 $(document).ready(function(){
+    console.log("hey! There's an ajax error!");
+    $(document).ajaxError(function (event, jqXHR, settings, error) {
+        alert("Sorry, We couldn't find what you were looking for. Please, double check your search and try again.")
+        // $('#ajaxErrorModal').modal("show");
+    });
     $('#checkout').hide();
     $('#chefProfile').hide();
     initMap();
@@ -256,7 +261,7 @@ function getAllChefs(){
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: 'https://api.nxtdoorchef.com/api/menu/search/' + food,
+        url: 'https:api.nxtdoorchef.com/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;

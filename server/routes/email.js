@@ -54,7 +54,7 @@ function sendConfirmationEmail(req, res){
       Total =  ${req.body.purchase_price} Credits
       <br>
       <br>
-      You can pick up your meal at a link that contains the address and chef name</a>
+      You can pick up your meal at ${req.body.chef_address}, or click <a href="https://www.google.com/maps?saddr=My+Location&daddr=” + ${req.body.chef_address}">HERE</a> for directions."
     </footer>
     </body>
     </html>`
