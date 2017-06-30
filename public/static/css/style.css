@@ -232,9 +232,15 @@ span.glyphicon-menu-left{
 .buyButton{
     color: white;
 }
+
+.the_chef_picture {
+    height: 315px;
+    width: 315px;
+}
 .fullMenuButton {
     background-color: #FE4427;
     color: white;
+    margin-bottom: 10px;
 }
 
 
