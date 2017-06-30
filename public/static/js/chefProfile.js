@@ -51,25 +51,25 @@ function displayHours(){
     hours.data.forEach(function(item){
         switch (item.day){
             case 0:
-                sunday = $(`<li>Sunday: ${item.open} - ${item.close - 1200}</li>`);
+                sunday = $(`<li>Sunday: ${item.open} - ${item.close - 1200} pm</li>`);
                 break;
             case 1:
-                monday = $(`<li>Monday: ${item.open} - ${item.close - 1200}</li>`);
+                monday = $(`<li>Monday: ${item.open} - ${item.close - 1200} pm</li>`);
                 break;
             case 2:
-                tuesday = $(`<li>Tuesday: ${item.open} - ${item.close - 1200}</li>`);
+                tuesday = $(`<li>Tuesday: ${item.open} - ${item.close - 1200} pm</li>`);
                 break;
             case 3:
-                wednesday = $(`<li>Wednesday: ${item.open} - ${item.close - 1200}</li>`);
+                wednesday = $(`<li>Wednesday: ${item.open} - ${item.close - 1200} pm</li>`);
                 break;
             case 4:
-                thursday = $(`<li>Thursday: ${item.open} - ${item.close - 1200}</li>`);
+                thursday = $(`<li>Thursday: ${item.open} - ${item.close - 1200} pm</li>`);
                 break;
             case 5:
-                friday = $(`<li>Friday: ${item.open} - ${item.close - 1200}</li>`);
+                friday = $(`<li>Friday: ${item.open} - ${item.close - 1200} pm</li>`);
                 break;
             case 6:
-                saturday = $(`<li>Saturday: ${item.open} - ${item.close - 1200}</li>`);
+                saturday = $(`<li>Saturday: ${item.open} - ${item.close - 1200} pm</li>`);
                 break;
         }
     });
@@ -256,8 +256,10 @@ function createReviews(){
         var reviewer = $('<h4>',{
             text: item.user_name
         });
+        var dateLong = item.createdAt.substring(0,10);
+        var year = dateLong.substring(2,4);
         var date = $('<h5>',{
-            text: item.createdAt.substring(0,10)
+            text: `${dateLong.substring(5,10)}-${year}`
         });
         var description = $('<p>',{
             text: item.body
