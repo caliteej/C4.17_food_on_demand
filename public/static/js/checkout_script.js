@@ -35,6 +35,7 @@ function previousPageFromCheckout(){
     if(lastPage === 'landingPage'){
         $('#checkout').hide();
         $('#landingPage').show();
+        $('.right-nav').show();
     }else{
         $('#checkout').hide();
         $('#chefProfile').show();
