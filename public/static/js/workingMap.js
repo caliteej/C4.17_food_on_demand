@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    console.log("hey! There's an ajax error!");
+    $(document).ajaxError(function (event, jqXHR, settings, error) {
+        alert("Sorry, We couldn't find what you were looking for. Please, double check your search and try again.")
+        // $('#ajaxErrorModal').modal("show");
+    });
     $('#checkout').hide();
     $('#chefProfile').hide();
     initMap();
@@ -141,6 +146,7 @@ function populateInfoWindow(marker, infowindow){
     }
 }
 function displayChef(marker){
+    $('.theChefBox').val();
     console.log(marker);
     for(var i = 0; i < chefs.length; i++){
         if(chefs[i].chef.alias === marker.title){
@@ -176,6 +182,7 @@ function displayChef(marker){
 
 
 function displayChefMobile(marker){
+    $('.mobileChefProfile').empty();
     console.log(marker);
     for(var i = 0; i < chefs.length; i++){
         if(chefs[i].chef.alias === marker.title){
@@ -282,7 +289,7 @@ function getAllChefs(){
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: 'https://api.nxtdoorchef.com/api/menu/search/' + food,
+        url: 'https:api.nxtdoorchef.com/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;

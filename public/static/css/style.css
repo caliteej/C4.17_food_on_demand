@@ -199,7 +199,6 @@ img {
 }
 #chefProfilePics{
     height: 50vh;
-    width: 100%;
     background-size: contain;
 }
 #chefCarousel{
@@ -369,7 +368,7 @@ th .glyphicon{
     margin-left: 7px;
     margin-top:-10px;
     z-index: 1;
-    margin-bottom: 0;
+    margin-bottom: 3vmin;
     background-color: white;
 }
 .right-nav {
@@ -386,19 +385,25 @@ th .glyphicon{
     display: none;
 }
 
-.carousel-inner>.item>img {
-    height: 44.5vh;
-}
-
 .profileDetails {
     z-index: 1;
 }
+
+.carousel-inner {
+    overflow: hidden
+}
+
+.carousel-inner>.item>img {
+    height: 50vh;
+}
+
 
 @media (max-width: 600px) {
     #whole-navbar {
         display: block;
         margin-top: 5px;
         background: white;
+        margin-bottom: 0;
     }
     .theChefBox, #chefProfileMenu {
         display: none;
@@ -430,22 +435,22 @@ th .glyphicon{
     body {
         display: block;
     }
-    /*#chefProfilePics {*/
-        /*height: 30vh;*/
-        /*margin-top: 75px;*/
-    /*}*/
-    /*#chefCarousel {*/
-        /*height: 30vh;*/
-        /*overflow: hidden;*/
-    /*}*/
+    #chefProfilePics {
+        height: 34vh;
+        margin-top: 1vh;
+        margin-bottom: 5vh;
+    }
+    #chefCarousel {
+        height: inherit;
+    }
     #mobileChefMenu {
         display: block;
     }
     #orderBy_container, #orderOf_container {
         padding: 0;
     }
-    .checkoutForm {
-
+    .carousel-inner>.item>img {
+        height: 27vh;
     }
     #userFirstName, #userLastName, #userEmail {
         margin-bottom: 0;
@@ -461,4 +466,8 @@ th .glyphicon{
 #landingPage, #whole-navbar{
     opacity: 0;
 }
+
+/*#ajaxErrorModal{*/
+    /**/
+/*}*/
 

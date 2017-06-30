@@ -9,7 +9,7 @@ function showChef(){
     $('#chefProfile').show();
     $('.right-nav').hide();
     createMenu();
-    createMobileMenu()
+    createMobileMenu();
     setTimeout(createChefStory, 300);
     createLocation();
     createPics();
@@ -93,6 +93,7 @@ function createMenu(){
 }
 
 function createMobileMenu(){
+    $('#mobileChefMenu').val();
     //$('#mobileChefMenu').append($('<h1 style="padding-top: 40px;">Menu</h1>'));
     var container = $('<div class="list-group">');
     theChef.menu.data.forEach(function(item){
@@ -174,7 +175,7 @@ function createPics(){
     $('#chefCarousel').append(rightControl);
 
     for(var i = 0; i < food.length; i++){
-        $('<div class="item buyButton" data-name="'+food[i].item_name+'"><img src="'+food[i].photo+'"></div>').click(createModal).appendTo('.carousel-inner');
+        $('<div class="item buyButton" data-name="'+food[i].item_name+'" ><img src="'+food[i].photo+'"></div>').click(createModal).appendTo('.carousel-inner');
         // $('<div class="item"><img id="menuCarousel" src="'+food[i].photo+'"></div>').appendTo('.carousel-inner');
         $('<li data-target="#chefCarousel" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
         if(i === 0){
