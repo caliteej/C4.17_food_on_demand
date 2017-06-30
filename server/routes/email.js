@@ -27,11 +27,11 @@ function sendConfirmationEmail(req, res){
    `<!DOCTYPE html>
     <html>
     <head>
-    <meta name="nxtDoorChef confirmation email" content="customer order and promotions">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
+    <meta name=“nxtDoorChef confirmation email” content=“customer order and promotions”>
+    <meta charset=“utf-8”>
+    <meta http-equiv=“X-UA-Compatible” content=“IE=edge”>
+    <meta name=“viewport” content=“width=device-width, initial-scale=1”>
+    <link rel=“stylesheet” href=“/style.css”>
     </head>
     <body>
     <header>
@@ -44,9 +44,9 @@ function sendConfirmationEmail(req, res){
     </header>
     <main>
       <div>
-          ${req.body.user}'s order:<br>
+          ${req.body.user}‘s order:<br>
           ${req.body.purchase_name}<br>
-          <img src='${req.body.purchase_photo}' style="width: 175vw;height:275vh"><br>
+          <img src=‘${req.body.purchase_photo}’ style=“width: 175vw;height:275vh”><br>
           Item Price: ${req.body.purchase_price} Credits
       </div
     </main>
@@ -57,7 +57,7 @@ function sendConfirmationEmail(req, res){
       You can pick up your meal at a link that contains the address and chef name</a>
     </footer>
     </body>
-    </html>` // html body
+    </html>`
     };
 
 // send mail with defined transport object

@@ -17,7 +17,9 @@ function sendEmailConfirmation(userName, userEmail) {
             user: userName,
             purchase_photo: current_meal.photo,
             purchase_price: current_meal.price,
-            purchase_name: current_meal.item_name
+            purchase_name: current_meal.item_name,
+            chef_address: current_chef.address,
+            chef_name: current_chef.firstName + " " + current_chef.lastName
         },
         method: 'POST',
         url: "https://api.nxtdoorchef.com/api/email/confirmation",
@@ -52,6 +54,7 @@ function clearChefProfile(){
     $('#chefProfileChef').empty();
     $('#chefProfileMenu').empty();
     $('#chefProfileLocation').empty();
+    $('#chefProfileReview').empty();
 }
 function confirmationButton(){
     if (formValidation() === false) {
