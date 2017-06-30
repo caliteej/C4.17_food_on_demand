@@ -244,3 +244,8 @@ th .glyphicon{
 #checkout, #checkout .container-fluid, #checkout .row{
     margin: 0 auto;
 }
+.reviewsContainer{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 50vh;
+}
