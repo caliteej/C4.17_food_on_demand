@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    console.log("hey! There's an ajax error!");
     $(document).ajaxError(function (event, jqXHR, settings, error) {
         alert("Sorry, We couldn't find what you were looking for. Please, double check your search and try again.")
         // $('#ajaxErrorModal').modal("show");
@@ -18,33 +17,38 @@ $(document).ready(function(){
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
 /**
- * Creates a map using the users current location.
+ * Creates a map using Irvine as the default location.
  */
 function initMap(){
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: pos.lat, lng: pos.lng},
-                zoom: 13
-            });
-            infoWindow = new google.maps.InfoWindow;
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Your Location.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-            reverseGeocoding(position);
-        }, function() {
-            // handleLocationError(true, infoWindow, map.getCenter());
-            console.log('Something went wrong');
-        });
-    } else {
-        // handleLocationError(false, infoWindow, map.getCenter());
-        alert('Allow location access');
-    }
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 33.6305423, lng: -117.7432015},
+        zoom: 13
+    });
+    getChefsFromDataBase();
+    // if (navigator.geolocation) {
+    //     navigator.geolocation.getCurrentPosition(function(position) {
+    //         var pos = {
+    //             lat: 33.6349741,
+    //             lng: -117.7403854
+    //         };
+    //         map = new google.maps.Map(document.getElementById('map'), {
+    //             center: {lat: pos.lat, lng: pos.lng},
+    //             zoom: 13
+    //         });
+    //         infoWindow = new google.maps.InfoWindow;
+    //         infoWindow.setPosition(pos);
+    //         infoWindow.setContent('Your Location.');
+    //         infoWindow.open(map);
+    //         map.setCenter(pos);
+    //         reverseGeocoding(position);
+    //     }, function() {
+    //         // handleLocationError(true, infoWindow, map.getCenter());
+    //         console.log('Something went wrong');
+    //     });
+    // } else {
+    //     // handleLocationError(false, infoWindow, map.getCenter());
+    //     alert('Allow location access');
+    // }
 }
 /**
  * This function gets the name of a city given the latitude and longitude.
@@ -67,7 +71,7 @@ function reverseGeocoding(position){
 function getChefsFromDataBase(){
     $.ajax({
         dataType: "json",
-        url: 'https://api.nxtdoorchef.com/api/chef/city/' + data.results[0].address_components[3].long_name,
+        url: 'https://api.nxtdoorchef.com/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
         method: 'get',
         success: function(response){
             data = response;
