@@ -49,6 +49,7 @@ function initMap(){
     //     // handleLocationError(false, infoWindow, map.getCenter());
     //     alert('Allow location access');
     // }
+
 }
 /**
  * This function gets the name of a city given the latitude and longitude.
