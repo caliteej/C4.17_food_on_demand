@@ -40,27 +40,27 @@ should all these basic functionality tests result in success then your site is a
 ## Built With
 ___
 
-Bootstrap - The visual framework
-JavaScript - The programming language
-jQuery - JavaScript library
-Node.js - Web-server
-MySQL - Database
+- Bootstrap - The visual framework
+- JavaScript - The programming language
+- jQuery - JavaScript library
+- Node.js - Web-server
+- MySQL - Database
 
 ## Versioning
 ___
 
-I store all of my versions and changes on the [GitHub](https://github.com/caliteej/C4.17_food_on_demand) page
+All versions and changes are stored on the [GitHub](https://github.com/caliteej/C4.17_food_on_demand) page
 
 ## Authors
 ___
 
-Johnny Limtiaco - Product owner, fullstack developer.
-Steven G. Frankenfield - back-end developer.
-Jammy Yang - front-end developer.
-Paul Villanueva - front-end developer, business development.
-TJ Kinion - front-end developer, business development.
-John Ko - front-end developer, design.
-Adam Luong - front-end developer. 
+- Johnny Limtiaco - Product owner, fullstack developer.
+- Steven G. Frankenfield - back-end developer.
+- Jammy Yang - front-end developer.
+- Paul Villanueva - front-end developer, business development.
+- TJ Kinion - front-end developer, business development.
+- John Ko - front-end developer, design.
+- Adam Luong - front-end developer. 
 
 ## License
 ___
@@ -83,5 +83,5 @@ ___
 #### Project Manager
 - Tim Horist
 
-copyright 2017
+### Copyright 2017 
 
