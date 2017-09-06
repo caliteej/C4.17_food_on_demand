@@ -1,0 +1,156 @@
+
+
+/* Map Back Images*/
+
+.map_back_01 {
+    background : url(img/map06_outspoken.png) no-repeat;
+    background-position: left center;
+    background-size: cover;
+}
+
+.map_back_02 {
+    background : url(img/map06_outspoken.png) no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.map_chef_container {
+    display: block;
+    width: 3vmin;
+    height: 3vmin;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10 !important;
+    margin-left: 1vmin;
+    margin-top: 2vmin;
+    /*box-shadow: 3px 3px 5px rgba(0,0,0,0.5);*/
+    padding: 0.8vmin;
+    opacity: 0.8;
+}
+
+.map-chef {
+    width: 50%;
+    position: absolute;
+}
+
+.map_chef_container:hover, .map_chef_container:focus{
+    background-color: #edba1f;
+}
+
+
+.map_location, .map_address {
+    position: absolute;
+}
+
+.map_address {
+    bottom: 0;
+}
+
+
+
+#map_chef_1 {
+    top: 10%;
+    left: 10%;
+}
+
+#map_chef_1_loc {
+    top: 30%;
+    left: 50%;
+}
+
+#map_chef_2 {
+    top: 5%;
+    left: 5%;
+}
+
+#map_chef_3 {
+    top: 15%;
+    left: 15%;
+}
+
+#map_chef_4 {
+    top: 20%;
+    left: 15%;
+}
+
+#map_chef_5 {
+    top: 30%;
+    left: 10%;
+}
+
+#map_chef_6 {
+    top: 30%;
+    left: 15%;
+}
+
+#map_chef_7 {
+    top: 35%;
+    left: 30%;
+}
+
+#map_chef_8 {
+    top: 40%;
+    left: 40%;
+}
+
+#map_chef_9 {
+    top: 55%;
+    left: 50%;
+}
+
+#map_chef_9_loc {
+    top: 55%;
+    left: 50%;
+}
+
+#map_chef_10 {
+    top: 60%;
+    left: 60%;
+}
+
+
+/* Map button */
+
+
+.tooltip {
+    position: absolute;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #ed9421;
+    color: #ffffff;
+    /*text-align: center;*/
+    border-radius: 0;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -12px;
+    border-width: 12px;
+    border-style: solid;
+    border-color: #ed9421 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/*.map_see {*/
+    /*background: #000;*/
+    /*width: 30px;*/
+    /*height: 30px;*/
+    /*border-radius: 50%;*/
+/*}*/

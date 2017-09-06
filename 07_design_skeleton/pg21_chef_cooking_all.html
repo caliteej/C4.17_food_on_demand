@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <title>NxtDoorChef-draft</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="stylesheet" type="text/css" href="chef_img.css">
+    <link rel="stylesheet" type="text/css" href="cooking_basic.css">
+    <link rel="stylesheet" type="text/css" href="cooking_img.css">
+    <link rel="stylesheet" type="text/css" href="map_basic.css">
+    <link rel="stylesheet" type="text/css" href="checkout_basic.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+    <script src="static/js/workingMap.js"></script>
+    <script src="static/js/menu_modal.js"></script>
+    <script src="static/js/food_results.js"></script>
+    <script src="static/js/checkout_script.js"></script>
+    <script src="static/js/chefProfile.js"></script>
+
+    <script src="basic.js"></script>
+
+</head>
+<body>
+
+
+<!--Nav Bar -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3">
+                <img src="img/nxtDoorChef-revised.png" id="logo-symbol">
+            </div>
+            <div class="col-xs-9">
+                <a href="pg1_landing_1.html" target="_self">
+                    <div class="nav_home_container burgundy-bg">
+                        <img src="img/section_title_home.png" id="nav-home" class="img-responsive">
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="nav_cooking_container green-bg">
+                        <img src="img/section_title_cooking.png" id="nav-cooking" class="img-responsive">
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="nav_chef_container orange-bg">
+                        <img src="img/section_title_chefs.png" id="nav-chef" class="img-responsive">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+
+<!-- 'Chefs Near You' begins -->
+
+<div class="container-fluid">
+
+    <div class="row" id="container_row">
+
+        <!--'Chefs Near You' ___ Section Title -->
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+
+            <div class="inner orangeLight-bg">
+                <div class="section_triangle_chef"></div>
+                <div class="content_container_chef orange-bg">
+                    <img src="img/section_title_chefs.png" class="img-responsive">
+                    <p class="sectiontitle">CHEFS NEAR YOU</p>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+
+
+        <!-- Google Map search -->
+
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg map_back_01">
+                <a href="#">
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_1">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">The Green Door</span>
+                </div>
+                </a>
+
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_2">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">Undercover Burger Spot</span>
+                </div>
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_3">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">The Kingsmen</span>
+                </div>
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_4">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">The Taco Cart</span>
+                </div>
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_5">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">Shokugeki no Soma de Alvarez</span>
+                </div>
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_6">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">Portions Unknown</span>
+                </div>
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_7">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">French Connection</span>
+                </div>
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_8">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">Parma Chameleon</span>
+                </div>
+
+                <a href="#">
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_9">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">Experienced UK Chef</span>
+                </div>
+                </a>
+                <div class="tooltip map_chef_container orange-bg" id="map_chef_10">
+                    <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                    <span class="tooltiptext subsubtitle">That Sweet and Sour Life</span>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+
+        <!--'Chefs Near You' ___ Chef Information -->
+
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg">
+                <div class="content_container orange-bg">
+                    <p class="subtitle orangeLight-bg">CHEF INFORMATION</p>
+                    <div class="info_container">
+                        <p>
+                            <span class="subsubtitle">Chef Name</span><br>
+                            <span class="nametitle">Jordan Ramsey</span>
+                        </p>
+                        <p>
+                            <span class="subsubtitle">Kitchen Name</span><br>
+                            <span class="maintext">Experienced UK chef</span>
+                        </p>
+                        <p>
+                            <span class="subsubtitle">Food Type</span><br>
+                            <span class="maintext">British</span>
+                        </p>
+                    </div>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <!--'Chefs Near You' ___ Chef Story -->
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg">
+                <div class="content_container orange-bg">
+                    <p class="subtitle orangeLight-bg">CHEF STORY</p>
+                    <div class="info_container maintext">
+                        <p>
+                            Experienced chef from the UK. Attended culinary school for years. Currently teaching culinary class. Specialized in British cuisine. Experienced chef from the UK. Currently teaching culinary class.
+                            Specialized in British cuisine.
+                        </p>
+                        <p>
+                            Experienced chef from the UK.
+                            He was no silverware included which threw me off but otherwise a great dish and experience.
+                        </p>
+                    </div>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <!--'Chefs Near You' ___ Chef Hours -->
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg">
+                <div class="content_container orange-bg">
+                    <p class="subtitle orangeLight-bg">CHEF HOURS</p>
+                    <div class="info_container">
+                        <span class="subsubtitle">SUNDAY:</span> <span class="maintext"> 12:00-10:00 pm</span> <br>
+                        <span class="subsubtitle">MONDAY:</span> <span class="maintext"> 12:00-10:00 pm</span> <br>
+                        <span class="subsubtitle">TUESDAY:</span> <span class="maintext"> 12:00-10:00 pm</span> <br>
+                        <span class="subsubtitle">WEDNESDAY:</span> <span class="maintext"> 12:00-10:00 pm</span> <br>
+                        <span class="subsubtitle">THURSDAY:</span> <span class="maintext"> 12:00-10:00 pm</span> <br>
+                        <span class="subsubtitle">FRIDAY:</span> <span class="maintext"> 12:00-10:00 pm</span> <br>
+                        <span class="subsubtitle">SATURDAY:</span> <span class="maintext"> 12:00-10:00 pm</span>
+                    </div>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <!--'Chefs Near You' ___ Reviews -->
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg">
+                <div class="content_container orange-bg">
+                    <p class="subtitle orangeLight-bg">REVIEWS</p>
+                    <div class="info_container">
+                        <p>
+                            <span class="subsubtitle">Kimura 06-26-17</span><br>
+                            <span class="maintext">Bloody brilliant Beef Wellington. There was no silverware included which threw me off but otherwise a great dish and experience.</span>
+                        </p>
+                        <p>
+                            <span class="subsubtitle">Marko 07-26-17</span><br>
+                            <span class="maintext">The Croque is quite tasty, though the bechemel is a bit thicker than I prefer it. The egg was also a little browned on the bottom.</span>
+                        </p>
+                        <p>
+                            <span class="subsubtitle">Tina Marisa 06-26-17</span><br>
+                            <span class="maintext">I love the bright flvaors in the Orange chicken! I’m totally coming back again!</span>
+                        </p>
+                        <p>
+                            <span class="subsubtitle">Kimura 06-26-17</span><br>
+                            <span class="maintext">Bloody brilliant Beef Wellington. There was no silverware included which threw me off but otherwise a great dish and experience.</span>
+                        </p>
+                        <p>
+                            <span class="subsubtitle">Marko 07-26-17</span><br>
+                            <span class="maintext">The Croque is quite tasty, though the bechemel is a bit thicker than I prefer it. The egg was also a little browned on the bottom.</span>
+                        </p>
+                        <p>
+                            <span class="subsubtitle">Tina Marisa 06-26-17</span><br>
+                            <span class="maintext">I love the bright flvaors in the Orange chicken! I’m totally coming back again!</span>
+                        </p>
+                    </div>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <!--'Chefs Near You' ___ Menu Pics -->
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg" id="chef_food_46">
+                <a href="pg2_chef_2.html" target="'_self"><div class="see_chef_btn_container orange-bg"><span class="buttontitle">SEE</span></div></a>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+<!-- 'Chefs Near You' ___ Menu selected -->
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner orangeLight-bg">
+                <div class="content_container orange-bg">
+                    <div class="orangeLight-bg">
+                        <img src="img/46meGJ5Cv.png" class="menu_pic">
+                        <span class="priceNum pull-right orange-font">$4</span>
+                    </div>
+                    <span class="buy_chef_btn_container orange-bg"><span class="buttontitle">BUY</span></span>
+                    <span class="close_chef_btn_container orange-bg"><span class="buttontitle">CLOSE</span></span>
+                    <p class="nametitle white-font orangeLight-bg">Beef Wellington</p>
+                    <div class="info_container">
+                        <p>
+                            <span class="maintext">Fileted beef, coated with pate and wrapped with a pastry.
+                                Fileted beef, coated with pate and wrapped with a pastry.</span>
+                        </p>
+                    </div>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+
+<!-- Checkout sample begins -->
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner burgundyLight-bg">
+                <div class="content_container">
+                    <span class="subtitle">CHECKOUT</span>
+                    <span class="order_chef_btn_container burgundy-bg pull-right"><span class="buttontitle">ORDER</span></span>
+
+                </div>
+                <div class="content_container_checkout burgundy-bg" id="user_firstName">
+                    <input class="form-control burgundy-bg inputwords" type="text" id="userFirstName" placeholder="Your Name">
+                </div>
+                <div class="content_container_checkout burgundy-bg" id="user_email">
+                    <input class="form-control burgundy-bg inputwords" type="text" id="userEmail" placeholder="Your Email Address">
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner burgundyLight-bg map_back_01">
+                <div class="content_container checkout_pickup_bg">
+                    <span class="subtitle burgundy-font">PICKUP INFORMATION</span>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner burgundyLight-bg">
+                <div class="content_container checkout_confirm_bg">
+                    <span class="subtitle">CHECKOUT CONFIRM</span>
+                    <br><br>
+                    <p class="maintext" style="font-size: 1.5em;">
+                        Your nxtDoorChef thanks you for your purchase!</p>
+                    <p class="maintext" style="font-size: 1.5em;">
+                        A confirmation has been sent to your email address.</p>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+<!-- Checkout sample ends -->
+
+
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg" id="chef_food_47">
+                <div class="see_chef_btn_container orange-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg" id="chef_food_48">
+                <div class="see_chef_btn_container orange-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg" id="chef_food_49">
+                <div class="see_chef_btn_container orange-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg" id="chef_food_50">
+                <div class="see_chef_btn_container orange-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+            <div class="inner orangeLight-bg">
+                <div class="content_container_chef">
+                    <img src="img/section_title_chefs.png" class="img-responsive">
+                    <!--<p class="sectiontitle">SEE MORE</p>-->
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+
+
+<!-- 'Cooking Near You' begins -->
+
+        <!--'Cooking Near You' ___ Section Title -->
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg">
+                <div class="section_triangle_cooking"></div>
+                <div class="content_container_cooking green-bg">
+                    <img src="img/section_title_cooking.png" class="img-responsive">
+                    <p class="sectiontitle">COOKIN' NEAR YOU</p>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+
+        <!--'Cooking Near You' ___ Search Input -->
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg">
+                <div class="content_container_search green-bg inputwords" id="post_location">You are in Irvine, CA <div class="see_search_btn_container greenLight-bg"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></div></div>
+                <div class="content_container_search green-bg inputwords" id="cuisines_btn">View all cuisines <div class="see_search_btn_container greenLight-bg"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></div></div>
+
+                <div class="content_container_search green-bg" id="search_cuisine">
+                    <!--Search cuisine button-->
+                    <div class="see_search_btn_container greenLight-bg" id="icon-search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></div>
+                    <input class="form-control foodInput green-bg inputwords" type="search" id="search" placeholder="Search by cuisine">
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <!--'Cooking Near You' ___ Menu Pics -->
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_01">
+                <a href="pg2_chef_2.html" target="_self"><div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div></a>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_02">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_03">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_04">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_05">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_06">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_07">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_08">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_09">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_10">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_11">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_12">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_13">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_14">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_15">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_16">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_17">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_18">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_19">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_20">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_21">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_22">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_25">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_26">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_27">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_28">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_29">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_30">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_31">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_32">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_33">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_34">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_35">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_36">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_37">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_38">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_39">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_40">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_41">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_42">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_43">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_44">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_45">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_46">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_47">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_48">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_49">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_50">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_51">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_52">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_53">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_54">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_55">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_56">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_57">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_58">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_59">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_60">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_61">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_62">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_63">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_64">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg" id="cooking_food_65">
+                <div class="see_cooking_btn_container green-bg"><span class="buttontitle">SEE</span></div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 outer">
+            <div class="inner greenLight-bg">
+                <div class="content_container_cooking">
+                    <img src="img/section_title_cooking.png" class="img-responsive">
+                    <p class="sectiontitle">SEE MORE</p>
+                </div>
+                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

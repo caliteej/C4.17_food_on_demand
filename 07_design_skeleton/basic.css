@@ -1,0 +1,563 @@
+
+body{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8vmin;
+    font-size: 1em;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+
+/*hr{*/
+    /*margin-top: 1vmin;*/
+    /*margin-bottom: 1vmin;*/
+/*}*/
+
+/******* Basic layout *********/
+
+#container_row {
+    padding:0;
+}
+
+.modal_row {
+    padding: 0;
+}
+
+
+.outer {
+    padding: 1%;
+}
+
+@media (min-width: 56.25em) { /* = 900px */
+    .outer {
+        padding: 0.5%;
+    }
+}
+
+
+.inner {
+    position: relative;
+    padding: 5%;
+    /*border: 0.1px solid #594a49;*/
+    /*box-shadow: 2px 2px 5px rgba(0,0,0,0.5);*/
+}
+
+.content_container{
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+}
+
+.info_container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0 5% 30% 5%;
+    overflow: auto;
+}
+
+.fr-blank{
+    height: 100%;
+    width: 100%;
+}
+
+
+.margin_top_10 {
+    margin-top: 10px;
+}
+
+.margin_bottom_10 {
+    margin-bottom: 10px;
+}
+
+
+/******** Typography *********/
+
+.sectionTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    /*font-size: 1.75em;*/
+    font-size: 3.5vmin;
+    letter-spacing: 0.02em;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+}
+
+.subTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    /*font-size: 1.75em;*/
+    font-size: 2.7vmin;
+    letter-spacing: 0.02em;
+    color: #fff;
+    padding-bottom: 1em;
+}
+
+.subSubTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    /*font-size: 1.25em;*/
+    font-size: 1.8vmin;
+    /*line-height: 1em;*/
+    letter-spacing: 0.02em;
+    color: #fff;
+}
+
+.nameTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    /*font-size: 2.2em;*/
+    font-size: 3.2vmin;
+    line-height: 3.5vmin;
+    letter-spacing: 0.02em;
+}
+
+.kitchenTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    /*font-size: 1.75em;*/
+    font-size: 2.7vmin;
+    /*line-height: 1em;*/
+    letter-spacing: 0.02em;
+    color: #fff;
+}
+
+/*.foodTitle {*/
+    /*font-family: 'Roboto Condensed', sans-serif;*/
+    /*font-weight: 600;*/
+    /*!*font-size: 1.75em;*!*/
+    /*font-size: 3.5vmin;*/
+    /*line-height: 3.7vmin;*/
+    /*letter-spacing: 0.02em;*/
+    /*color: #fff;*/
+    /*!*text-align: center;*!*/
+/*}*/
+
+.mainText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    /*font-size: 1.5em;*/
+    font-size: 2.2vmin;
+    /*line-height: 1.4em;*/
+    letter-spacing: 0.01em;
+}
+
+
+.inputWords {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 2.2vmin;
+    /*line-height: 1em;*/
+    letter-spacing: 0.02em;
+    color: #ffffff;
+}
+
+
+.priceNum {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 3.5vmin;
+    /*line-height: 3.9vmin;*/
+    letter-spacing: 0.02em;
+}
+
+
+
+/********* Nav bar *********/
+
+
+.navbar {
+    border: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #ffffff;
+    background: rgba(255,255,255,0);
+    /*box-shadow: 1px 1px 3px rgba(0,0,0,0.5);*/
+    position: absolute;
+}
+
+
+#logo-symbol {
+    width: 30vmin;
+    margin-top: 2vmin;
+    margin-bottom: 1vmin;
+}
+
+.logo_symbol_big {
+    width: 50vmin;
+    margin-top: 10vmin;
+    margin-bottom: 10vmin;
+}
+
+
+/******** Nav Buttons *******/
+
+.nav_home_container, .nav_chef_container,
+.nav_cooking_container {
+    float: right;
+    display: inline;
+    width: 7vmin;
+    height: 7vmin;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 2vmin;
+    margin-top: 1vmin;
+    /*box-shadow: 3px 3px 5px rgba(0,0,0,0.5);*/
+    padding: 0.8vmin;
+}
+
+.nav_home_container:hover, .nav_home_container:focus {
+    background-color: #f69068;
+}
+
+.nav_chef_container:hover, .nav_chef_container:focus {
+    background-color: #edba1f;
+}
+
+.nav_cooking_container:hover, .nav_cooking_container:focus {
+    background-color: #99cccc;
+}
+
+#nav-home, #nav-chef, #nav-cooking {
+    width: 70%;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+}
+
+
+/********** Section Title for Both Sections *********/
+
+.content_container_chef, .content_container_cooking {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+}
+
+
+.chef_icon, .cooking_icon {
+    width: 5.5vmin;
+}
+
+.cooking_icon {
+    position: absolute;
+}
+
+.chef_icon_small {
+    width: 3.5vmin;
+    display: inline-block;
+}
+
+.chef_icon_section,
+.cooking_icon_section {
+    margin-top: 30%;
+    margin-left: 40%;
+    position: relative;
+}
+
+
+.section_triangle_chef, .section_triangle_cooking,
+.section_triangle_checkout {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    /*vertical-align: middle;*/
+    margin-top: 35%;
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid #ed9421;
+}
+
+.section_triangle_cooking {
+    border-left: 30px solid #009999;
+}
+
+.section_triangle_checkout {
+    border-left: 30px solid #d85856;
+}
+
+
+/************ Buttons for Both Sections *************/
+
+.buttonTitle {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    /*font-size: 1em;*/
+    font-size: 1.6vmin;
+    letter-spacing: 0.02em;
+    color: #fff;
+}
+
+/*.buttonTitle_big {*/
+    /*display: table-cell;*/
+    /*text-align: center;*/
+    /*vertical-align: middle;*/
+    /*font-family: 'Roboto Condensed', sans-serif;*/
+    /*font-weight: 300;*/
+    /*!*font-size: 1em;*!*/
+    /*font-size: 3.5vmin;*/
+    /*letter-spacing: 0.02em;*/
+    /*color: #fff;*/
+/*}*/
+
+
+.see_search_btn_container, .buy_chef_btn_container,
+.close_chef_btn_container, .close_cooking_btn_container,
+.order_cooking_btn_container {
+    width: 7vmin;
+    height: 7vmin;
+    border-radius: 50%;
+    /*position: absolute;*/
+    display: table;
+    right: 5%;
+    margin-left: 2vmin;
+    margin-top: 1vmin;
+}
+
+.see_search_btn_container {
+    position: absolute;
+    top: 12%;
+}
+
+
+.fa-map-marker, .fa-cutlery, .fa-search {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3.5vmin;
+    color: #009999;
+}
+
+
+
+.buy_chef_big_btn_container,
+.order_cooking_big_btn_container {
+    width: 10vmin;
+    height: 10vmin;
+    border-radius: 50%;
+    display: table;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.order_cooking_big_btn_container:hover,
+.close_cooking_btn_container:hover {
+    background-color: #ed9421;
+}
+
+.see_chef_btn_container, .see_cooking_btn_container,
+.see_cooking_chef_btn_container,
+.see_menus_btn_container, .menus_chef_btn_container {
+    width: 5vmin;
+    height: 5vmin;
+    border-radius: 50%;
+    display: table;
+    right: 5%;
+    /*box-shadow: 3px 3px 5px rgba(0,0,0,0.5);*/
+}
+
+.see_chef_btn_container, .see_cooking_btn_container {
+    bottom: 5%;
+    position: absolute;
+}
+
+.see_cooking_chef_btn_container {
+    bottom: 5%;
+    /*position: absolute;*/
+    /*z-index: 20000;*/
+}
+
+
+.order_chef_btn_container {
+    top: 0;
+    right: 0;
+}
+
+.menus_chef_btn_container {
+    position: absolute;
+    /*z-index: 5000 !important;*/
+    top: 47%;
+    display: table;
+    /*margin-right: 30%;*/
+    /*margin-left: 90%;*/
+}
+
+.glyphicon-triangle-left,
+.glyphicon-triangle-right {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    /*width: 2vmin;*/
+    /*height: 1vmin;*/
+    /*font-stretch: ultra-expanded;*/
+}
+
+.see_chef_btn_container:hover,
+.see_cooking_btn_container:hover,
+.see_cooking_chef_btn_container:hover,
+.see_menus_btn_container:hover,
+.buy_chef_btn_container:hover,
+.buy_chef_big_btn_container:hover,
+.close_chef_btn_container:hover,
+.menus_chef_btn_container:hover {
+    background-color: #d85856;
+}
+
+
+/******** Colors ********/
+
+.burgundy-bg {
+    background-color: #d85856; /* RGB (217, 88, 86) */
+}
+
+.burgundyLight-bg {
+    background-color: #f69068; /* RGB (246, 144, 104) */
+}
+
+.orange-bg{
+    background-color: #ed9421; /* RGB (237, 148, 33) */
+}
+
+.orangeLight-bg {
+    background-color: #edba1f;  /* RGB (237, 186, 31) */
+}
+
+.green-bg {
+    background-color: #009999; /* RGB (0, 153, 153) */
+}
+
+.greenLight-bg {
+    background-color: #99cccc; /* RGB (153, 204, 204) */
+}
+
+.white-bg {
+    background-color: #ffffff;
+}
+
+
+
+
+
+.orange-font{
+    color: #ed9421; /* RGB (237, 148, 33) */
+}
+
+.white-font {
+    color: #ffffff;
+}
+
+.burgundy-font {
+    color: #d85856; /* RGB (217, 88, 86) */
+}
+
+.green-font {
+    color: #009999; /* RGB (0, 153, 153) */
+}
+
+.tooDarkGray-font {
+    color: #3e3e3e; /* RGB (105,105,105) */
+}
+
+/*.dimGray-font {*/
+    /*color: #696969; !* RGB (105,105,105) *!*/
+/*}*/
+
+.gray-font {
+    color: #808080; /* RGB (128,128,128) */
+}
+
+/*.darkGray-font {*/
+    /*color: #A9A9A9;	!* rgb(169,169,169) *!*/
+/*}*/
+
+/*.gainsboro-font {*/
+    /*color: #DCDCDC;	!* rgb(220,220,220) *!*/
+/*}*/
+
+/*.lightGray-font {*/
+    /*color: #D3D3D3;	!* rgb(211,211,211) *!*/
+/*}*/
+
+
+
+
+/* refine later */
+
+/*@media (min-width: 320px) { !* = 320px *!*/
+/*.subtitle {*/
+/*font-size: 1em;*/
+/*}*/
+/*}*/
+
+/*@media (min-width: 375px) { !* = 375px *!*/
+/*.subtitle {*/
+/*font-size: 1em;*/
+/*}*/
+/*}*/
+
+/*@media (min-width: 25em) { !* = 400px *!*/
+/*.subtitle {*/
+/*font-size: 1.25em;*/
+/*}*/
+/*}*/
+
+/*@media (min-width: 31.25em) { !* = 500px *!*/
+/*.subtitle {*/
+/*font-size: 1.5em;*/
+/*}*/
+/*}*/
+
+/*@media (min-width: 37.5em) { !* = 600px *!*/
+/*.subtitle {*/
+/*font-size: 1.5em;*/
+/*}*/
+/*}*/
+
+/*@media (min-width: 43.75em) { !* = 700px *!*/
+/*.subtitle {*/
+/*font-size: 1.25em;*/
+/*}*/
+/*}*/
+
+/*@media (min-width: 56.25em) { !* = 900px *!*/
+/*.subtitle {*/
+/*font-size: 1.5em;*/
+/*}*/
+/*}*/
+
+
+/*.maintext {*/
+/*font-family: 'Roboto Condensed', sans-serif;*/
+/*font-size: 1em;*/
+/*line-height: 1.5;*/
+/*letter-spacing: 0.02em;*/
+/*}*/
+
+/*.explain {*/
+/*font-size: 1.5em;*/
+/*color: #ff5520;*/
+/*}*/

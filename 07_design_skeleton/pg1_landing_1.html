@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <title>pg1_landing_1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <link rel="stylesheet" type="text/css" href="chef_basic.css">
+    <link rel="stylesheet" type="text/css" href="chef_img.css">
+    <link rel="stylesheet" type="text/css" href="cooking_basic.css">
+    <link rel="stylesheet" type="text/css" href="cooking_img.css">
+    <link rel="stylesheet" type="text/css" href="map_basic.css">
+    <link rel="stylesheet" type="text/css" href="checkout_basic.css">
+    <link rel="stylesheet" type="text/css" href="pg1_landing_1.css">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+    <script src="static/js/workingMap.js"></script>
+    <script src="static/js/menu_modal.js"></script>
+    <script src="static/js/food_results.js"></script>
+    <script src="static/js/checkout_script.js"></script>
+    <script src="static/js/chefProfile.js"></script>
+
+    <script src="basic.js"></script>
+
+</head>
+
+<body class="landing_1_body">
+
+
+<!--Nav Bar -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3">
+                <img src="img/nxtDoorChef-revised.png" id="logo-symbol">
+            </div>
+            <div class="col-xs-9">
+                <a href="pg1_landing_1.html" target="_self">
+                    <div class="nav_home_container burgundy-bg">
+                        <img src="img/section_title_home.png" id="nav-home" class="img-responsive">
+                    </div>
+                </a>
+                <a href="pg2_chef_1.html" target="_self">
+                    <div class="nav_chef_container orange-bg">
+                        <img src="img/section_title_chefs.png" id="nav-chef" class="img-responsive">
+                    </div>
+                </a>
+                <a href="pg2_cooking_1.html" target="_self">
+                    <div class="nav_cooking_container green-bg">
+                        <img src="img/section_title_cooking.png" id="nav-cooking" class="img-responsive">
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+
+<!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+            <!--<img src="img/nxtDoorChef-revised.png" class="logo_symbol_big">-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<div class="container_all">
+
+    <!-- 'Chefs Near You' begins -->
+
+    <div class="container-fluid">
+
+        <div class="row" id="container_row">
+
+            <!--'Chefs Near You' ___ Section Title -->
+            <div class="col-xs-6 col-sm-4 col-md-3 outer">
+
+                <div class="inner orangeLight-bg">
+                    <div class="section_triangle_chef"></div>
+                    <div class="content_container_chef orange-bg">
+                        <img src="img/section_title_chefs.png" class="img-responsive chef_icon margin_bottom_10 chef_icon_section">
+                        <p class="sectionTitle">CHEFS NEAR YOU</p>
+                    </div>
+                    <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                </div>
+            </div>
+
+
+
+            <!-- Google Map search -->
+
+            <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                <div class="inner orangeLight-bg map_back_01">
+                    <a data-toggle="modal" data-target="#modal_chef_1">
+                        <div class="tooltip map_chef_container orange-bg" id="map_chef_2">
+                            <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                            <span class="tooltiptext subSubTitle">Undercover Burger Spot</span>
+                        </div>
+                    </a>
+                    <div class="tooltip map_chef_container orange-bg" id="map_chef_1">
+                        <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                        <span class="tooltiptext subSubTitle">The Green Door</span>
+                    </div>
+                    <div class="tooltip map_chef_container orange-bg" id="map_chef_3">
+                        <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                        <span class="tooltiptext subSubTitle">The Kingsmen</span>
+                    </div>
+                    <div class="tooltip map_chef_container orange-bg" id="map_chef_4">
+                        <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                        <span class="tooltiptext subSubTitle">The Taco Cart</span>
+                    </div>
+                    <div class="tooltip map_chef_container orange-bg" id="map_chef_5">
+                        <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                        <span class="tooltiptext subSubTitle">Shokugeki no Soma de Alvarez</span>
+                    </div>
+                    <div class="tooltip map_chef_container orange-bg" id="map_chef_6">
+                        <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                        <span class="tooltiptext subSubTitle">Portions Unknown</span>
+                    </div>
+                    <div class="tooltip map_chef_container orange-bg" id="map_chef_7">
+                        <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                        <span class="tooltiptext subSubTitle">French Connection</span>
+                    </div>
+                    <div class="tooltip map_chef_container orange-bg" id="map_chef_8">
+                        <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                        <span class="tooltiptext subSubTitle">Parma Parma Parma Chameleon</span>
+                    </div>
+
+                    <a href="#">
+                        <div class="tooltip map_chef_container orange-bg" id="map_chef_9">
+                            <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                            <span class="tooltiptext subSubTitle">Experienced UK Chef</span>
+                        </div>
+                    </a>
+                    <div class="tooltip map_chef_container orange-bg" id="map_chef_10">
+                        <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                        <span class="tooltiptext subSubTitle">That Sweet and Sour Life</span>
+                    </div>
+                    <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                </div>
+            </div>
+
+            <!--'Chefs Near You' ___ Section Title -->
+            <div class="col-xs-6 col-sm-4 col-md-3 outer">
+
+                <div class="inner greenLight-bg">
+                    <div class="section_triangle_cooking"></div>
+                    <div class="content_container_cooking green-bg">
+                        <img src="img/section_title_cooking.png" class="img-responsive cooking_icon margin_bottom_10 cooking_icon_section">
+                        <p class="sectionTitle">COOKIN' NEAR YOU</p>
+                    </div>
+                    <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                </div>
+            </div>
+
+
+
+            <!--'Cooking Near You' ___ Search Input -->
+
+            <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                <div class="inner greenLight-bg">
+                    <div class="content_container_search green-bg inputWords" id="post_location">You are in Irvine, CA <div class="see_search_btn_container greenLight-bg"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></div></div>
+                    <div class="content_container_search green-bg inputWords" id="cuisines_btn">View all cuisines <div class="see_search_btn_container greenLight-bg"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></div></div>
+
+                    <div class="content_container_search green-bg" id="search_cuisine">
+                        <!--Search cuisine button-->
+                        <a href="pg2_cooking_2.html" target="_self"><div class="see_search_btn_container greenLight-bg" id="icon-search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></div></a>
+                        <input class="form-control foodInput green-bg inputWords" type="search" id="search" placeholder="Search by cuisine">
+                    </div>
+                    <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- ======= Modal Chef 1 ========-->
+<!--<div id="modal_chef_1" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">-->
+<div id="modal_chef_1" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body modal-body-chef">
+
+                <!-- Closing button -->
+                <!--<div class="container-fluid">-->
+                <!--<div class="row">-->
+                <!--<div class="col-sm-12 margin_bottom_10">-->
+                <!--<button type="button" class="close close-button pull-right" data-dismiss="modal" aria-hidden="true">&times;  </button>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!-- Closing button -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a role="button" data-dismiss="modal" aria-hidden="true"><span class="close_chef_btn_container orange-bg pull-right"><span class="buttonTitle">CLOSE</span></span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal body part -->
+                <div class="container-fluid">
+                    <div class="row modal_row">
+
+                        <!-- Chef Photo -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner orangeLight-bg">
+                                <div class="content_container orange-bg" id="chef_chef_01">
+
+                                    <p class="subTitle orangeLight-bg"><img src="img/section_title_chefs.png" class="img-responsive chef_icon_small"> CHEF PHOTO</p>
+                                    <div class="info_container">
+
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+
+                        <!-- Chef Information -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner orangeLight-bg">
+                                <div class="content_container orange-bg">
+
+                                    <p class="subTitle orangeLight-bg"><img src="img/section_title_chefs.png" class="img-responsive chef_icon_small"> CHEF INFORMATION</p>
+                                    <div class="info_container">
+                                        <p>
+                                            <span class="subSubTitle">CHEF NAME</span><br>
+                                            <span class="nameTitle tooDarkGray-font">Immogene Von Svesterkrank</span>
+                                        </p>
+                                        <p>
+                                            <span class="subSubTitle">KITCHEN NAME</span><br>
+                                            <span class="mainText tooDarkGray-font">Undercover Burger Spot</span>
+                                        </p>
+                                        <p>
+                                            <span class="subSubTitle">FOOD TYPE</span><br>
+                                            <span class="mainText tooDarkGray-font">Eclectic</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!--Menus Photos -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 carousel_container" >
+                            <div class="carousel slide" id="chefCarousel" data-ride="carousel">
+                                <!--<p class="subTitle subTitle_position orange-font"><img src="img/section_title_chefs.png" class="img-responsive chef_icon_small"> MENUS</p>-->
+
+                                <ol class="carousel-indicators">
+                                    <li data-target="#chefCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#chefCarousel" data-slide-to="1"></li>
+                                    <li data-target="#chefCarousel" data-slide-to="2"></li>
+                                    <li data-target="#chefCarousel" data-slide-to="3"></li>
+                                    <li data-target="#chefCarousel" data-slide-to="4"></li>
+                                </ol>
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item buyButton active" data-name="Ultimate Spam Sandwich">
+                                        <a data-toggle="modal" data-target="#modal_cooking_1" data-dismiss="modal" aria-hidden="true"><img src="https://munchies-images.vice.com/wp_upload/eggslut-breakfast-sandwich3.jpg?crop=1xw:0.84375xh;center,center&resize=1050:*" alt="First slide"></a>
+                                        <!--<a data-toggle="modal" data-target="#modal_cooking_1" data-dismiss="modal" aria-hidden="true"><img src="https://munchies-images.vice.com/wp_upload/eggslut-breakfast-sandwich3.jpg?crop=1xw:0.84375xh;center,center&resize=1050:*" alt="First slide"></a>-->
+                                    </div>
+                                    <div class="item buyButton" data-name="Whole Pan -O- Nachos">
+                                        <img src="http://southernbite.com/wp-content/uploads/2016/04/Southern-Sheet-Pan-nachos-3.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="item buyButton" data-name="Not your Dad's Tuna Melt">
+                                        <img src="https://i.ytimg.com/vi/F_6RRtOOCCk/maxresdefault.jpg" alt="Third slide">
+                                    </div>
+                                    <div class="item buyButton" data-name="Spicy Pork Larb">
+                                        <img src="http://4.bp.blogspot.com/-WjniHhO48mU/U-fSvZuQsuI/AAAAAAAAE_4/IVA29nTHzKs/s1600/Chiang+Khan+17-JAN+-+Bangkok+18-JAN+071.JPG" alt="Fourth slide">
+                                    </div>
+                                    <div class="item buyButton" data-name="Cornbread Bibinka">
+                                        <img src="http://salu-salo.com/wp-content/uploads/2015/02/Cornbread-Bibingka-4.jpg" alt="Fifth slide">
+                                    </div>
+                                </div>
+                                <a class="left carousel-control" href="#chefCarousel" role="button" data-slide="prev">
+                                    <span class="menus_chef_btn_container orange-bg"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#chefCarousel" role="button" data-slide="next">
+                                    <span class="menus_chef_btn_container orange-bg"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Menus List -->
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner orangeLight-bg">
+                                <div class="content_container orange-bg">
+                                    <p class="subTitle orangeLight-bg"><img src="img/section_title_chefs.png" class="img-responsive chef_icon_small"> MENUS</p>
+                                    <div class="info_container">
+                                        <span class="subSubTitle">Ultimate Spam Sandwich</span>
+                                        <span class="priceNum">$2</span>
+                                        <a data-toggle="modal" data-target="#modal_cooking_1" data-dismiss="modal" aria-hidden="true"><div class="see_menus_btn_container orangeLight-bg pull-right">
+                                            <span class="buttonTitle">SEE</span>
+                                        </div></a>
+                                        <hr>
+                                        <span class="subSubTitle">Whole Pan -O- Nachos</span>
+                                        <span class="priceNum">$3</span>
+                                        <div class="see_menus_btn_container orangeLight-bg pull-right">
+                                            <span class="buttonTitle">SEE</span>
+                                        </div>
+                                        <hr>
+                                        <span class="subSubTitle">Not your Dad's Tuna Melt</span>
+                                        <span class="priceNum">$2</span>
+                                        <div class="see_menus_btn_container orangeLight-bg pull-right">
+                                            <span class="buttonTitle">SEE</span>
+                                        </div>
+                                        <hr>
+                                        <span class="subSubTitle">Spicy Pork Larb</span>
+                                        <span class="priceNum">$4</span>
+                                        <div class="see_menus_btn_container orangeLight-bg pull-right">
+                                            <span class="buttonTitle">SEE</span>
+                                        </div>
+                                        <hr>
+                                        <span class="subSubTitle">Cornbread Bibinka</span>
+                                        <span class="priceNum">$1</span>
+                                        <div class="see_menus_btn_container orangeLight-bg pull-right">
+                                            <span class="buttonTitle">SEE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Chef Story -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner orangeLight-bg">
+                                <div class="content_container orange-bg">
+
+                                    <p class="subTitle orangeLight-bg"><img src="img/section_title_chefs.png" class="img-responsive chef_icon_small"> CHEF STORY</p>
+                                    <div class="info_container">
+
+                                        <!--<span class="subSubTitle">CHEF STORY</span><br>-->
+                                        <span class="mainText tooDarkGray-font">Federal Special Agent in the FBI's BAU pursuing the world's most dangerous serial killers. I write romance novels and DBZ fan fic in my spare time. My Larb Salad is to die for.</span>
+
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Reviews -->
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner orangeLight-bg">
+                                <div class="content_container orange-bg">
+                                    <p class="subTitle orangeLight-bg"><img src="img/section_title_chefs.png" class="img-responsive chef_icon_small"> REVIEWS</p>
+                                    <div class="info_container">
+                                        <p>
+                                            <span class="subSubTitle"><strong>Steven</strong> <i>06-26-17</i></span><br>
+                                            <span class="mainText tooDarkGray-font">The spam sandwich is a masterpiece. It's obviously made with love, and lots of spicy mayo - those pickled onions take the whole thing to another level! Would order again.</span>
+                                        </p>
+                                        <hr>
+                                        <p>
+                                            <span class="subSubTitle"><strong>Joel</strong> <i>06-26-17</i></span><br>
+                                            <span class="mainText tooDarkGray-font">I had a a great takeout pork katsu that was still hot and crispy after I got it home, which was only a block away so I guess I shouldn't be surprised. John was such a great host too, I liked him so much we are getting drinks later this week! making friends and getting super tasty katsu!</span>
+                                        </p>
+                                        <hr>
+                                        <p>
+                                            <span class="subSubTitle"><strong>Kimura</strong> <i>06-26-17</i></span><br>
+                                            <span class="mainText tooDarkGray-font">Bloody brilliant Beef Wellington. There was no silverware included which threw me off but otherwise a great dish and experience.</span>
+                                        </p>
+                                        <hr>
+                                        <p>
+                                            <span class="subSubTitle"><strong>Jason</strong> <i>07-26-17</i></span><br>
+                                            <span class="mainText tooDarkGray-font">The Spaghetti was amazing. It was the best.</span>
+                                        </p>
+                                        <hr>
+                                        <p>
+                                            <span class="subSubTitle"><strong>(>-00-)></strong> <i>07-26-17</i></span><br>
+                                            <span class="mainText tooDarkGray-font">Beef and Broccoli? More like catfood on rice.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Chef Open Hours -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner orangeLight-bg">
+                                <div class="content_container orange-bg">
+
+                                    <p class="subTitle orangeLight-bg"><img src="img/section_title_chefs.png" class="img-responsive chef_icon_small"> CHEF HOURS</p>
+                                    <div class="info_container">
+                                        <span class="subSubTitle">SUNDAY:</span> <span class="mainText tooDarkGray-font"> 9:00am - 8:00pm</span> <hr>
+                                        <span class="subSubTitle">MONDAY:</span> <span class="mainText tooDarkGray-font"> 9:00am - 8:00pm</span> <hr>
+                                        <span class="subSubTitle">TUESDAY:</span> <span class="mainText tooDarkGray-font"> 9:00am - 8:00pm</span> <hr>
+                                        <span class="subSubTitle">WEDNESDAY:</span> <span class="mainText tooDarkGray-font"> 9:00am - 8:00pm</span> <hr>
+                                        <span class="subSubTitle">THURSDAY:</span> <span class="mainText tooDarkGray-font"> 9:00am - 8:00pm</span> <hr>
+                                        <span class="subSubTitle">FRIDAY:</span> <span class="mainText tooDarkGray-font"> 9:00am - 8:00pm</span> <hr>
+                                        <span class="subSubTitle">SATURDAY:</span> <span class="mainText tooDarkGray-font"> 9:00am - 8:00pm</span>
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Chef Location -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner orangeLight-bg">
+                                <div class="content_container orange-bg map_back_02">
+                                    <p class="subTitle orangeLight-bg"><img src="img/section_title_chefs.png" class="img-responsive chef_icon_small"> CHEF LOCATION</p>
+                                    <div class="info_container">
+                                        <p class="mainText"> 2302 Martin, Irvine, CA 92612</p>
+                                        <div class="map_chef_container orange-bg" id="map_chef_1_loc">
+                                            <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+                    </div> <!-- row ends -->
+                </div> <!-- container-fluid ends -->
+
+            </div> <!--  modal-body ends -->
+        </div>  <!-- modal-content ends -->
+    </div>  <!-- modal-dialog ends -->
+</div>
+<!-- ======= Modal Chef 1 ends ========-->
+
+
+<!-- ======= Modal Cooking 1 ========-->
+<!--<div id="modal_cooking_1" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">-->
+<div id="modal_cooking_1" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body modal-body-cooking">
+
+                <!-- Closing button -->
+                <!--<div class="container-fluid">-->
+                <!--<div class="row">-->
+                <!--<div class="col-sm-12 margin_bottom_10">-->
+                <!--<button type="button" class="close close-button pull-right" data-dismiss="modal" aria-hidden="true">&times;  </button>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!-- Closing button -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a role="button" data-dismiss="modal" aria-hidden="true"><span class="close_chef_btn_container green-bg pull-right"><span class="buttonTitle">CLOSE</span></span></a>
+                            <!--<a data-toggle="modal" data-target="#modal_checkout_1" aria-hidden="true"><span class="buy_chef_btn_container green-bg pull-right"><span class="buttonTitle">BUY</span></span></a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal body part -->
+                <div class="container-fluid">
+                    <div class="row modal_row">
+
+                        <!-- Cooking Information 1 -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner greenLight-bg">
+                                <div class="content_container green-bg">
+
+                                    <p class="subTitle greenLight-bg"><img src="img/section_title_cooking.png" class="img-responsive chef_icon_small"> COOKIN' BRIEF</p>
+                                    <div class="info_container">
+                                        <p>
+                                            <span class="subSubTitle">COOKIN' NAME</span><br>
+                                            <span class="nameTitle tooDarkGray-font">Ultimate Spam Sandwich</span>
+                                        </p>
+
+                                        <img src="https://munchies-images.vice.com/wp_upload/eggslut-breakfast-sandwich3.jpg?crop=1xw:0.84375xh;center,center&resize=1050:*" class="img-responsive margin_bottom_10" alt="First slide">
+
+                                        <p>
+                                            <span class="subSubTitle">COST</span><br>
+                                            <span class="priceNum tooDarkGray-font">$2</span>
+                                        </p>
+
+
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Cooking Information 2 -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner greenLight-bg">
+                                <div class="content_container green-bg">
+
+                                    <p class="subTitle greenLight-bg"><img src="img/section_title_cooking.png" class="img-responsive chef_icon_small"> DESCRIPTION</p>
+                                    <div class="info_container">
+
+                                        <p>
+                                            <!--<span class="subSubTitle">DESCRIPTION</span><br>-->
+                                            <span class="mainText tooDarkGray-font">A spicy, crispy slice of spam, covered in spicy mayo, topped with a chive coevered marbelized egg, and pickled shiso onions all on a toasted hawaiian roll.</span>
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Cooking Information 3 -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner greenLight-bg">
+                                <div class="content_container green-bg">
+
+                                    <p class="subTitle greenLight-bg"><img src="img/section_title_cooking.png" class="img-responsive chef_icon_small"> CHEF INFO</p>
+                                    <div class="info_container">
+                                        <span class="subSubTitle">CHEF NAME</span><br>
+                                        <p class="nameTitle tooDarkGray-font">Immogene Von Svesterkrank</p>
+                                        <span class="subSubTitle">CHEF STORY</span><br>
+                                        <p class="mainText tooDarkGray-font">
+                                            Federal Special Agent in the FBI's BAU pursuing the world's most dangerous serial killers. I write romance novels ... <!-- Shorten after 18 characters -->
+                                        </p>
+                                        <a data-toggle="modal" data-target="#modal_chef_1" data-dismiss="modal" aria-hidden="true"><span class="see_cooking_chef_btn_container greenLight-bg pull-right"><span class="buttonTitle">SEE</span></span></a>
+
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Cooking Information 4 -->
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner greenLight-bg">
+                                <div class="content_container">
+
+                                    <p class="subTitle greenLight-bg"><img src="img/section_title_cooking.png" class="img-responsive chef_icon_small"> CHECKOUT</p>
+
+                                    <p class="mainText">Your nxtDoorChef will thank you for your purchase!
+                                        A confirmation will be sent to your email address.</p>
+
+                                    <a data-toggle="modal" data-target="#modal_checkout_1" aria-hidden="true"><span class="buy_chef_big_btn_container green-bg pull-right"><span class="buttonTitle">BUY</span></span></a>
+
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                    </div> <!-- row ends -->
+                </div> <!-- container-fluid ends -->
+
+
+
+            </div> <!--  modal-body ends -->
+        </div>  <!-- modal-content ends -->
+    </div>  <!-- modal-dialog ends -->
+</div>
+<!-- ======= Modal Cooking 1 ends ========-->
+
+
+<!-- ======= Modal Checkout 1 ========-->
+<!--<div id="modal_checkout_1" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">-->
+<div id="modal_checkout_1" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog checkout_dialog">
+        <div class="modal-content checkout_content burgundy-bg">
+            <div class="modal-body">
+
+                <!-- Closing button -->
+                <!--<div class="container-fluid">-->
+                <!--<div class="row">-->
+                <!--<div class="col-sm-12 margin_bottom_10">-->
+                <!--<button type="button" class="close close-button pull-right" data-dismiss="modal" aria-hidden="true">&times;  </button>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!-- Closing button -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a role="button" data-dismiss="modal" aria-hidden="true"><span class="close_cooking_btn_container green-bg pull-right"><span class="buttonTitle">CLOSE</span></span></a>
+                            <!--<span class="order_cooking_btn_container green-bg pull-right"><span class="buttonTitle">ORDER</span></span>-->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal body part -->
+                <div class="container-fluid">
+                    <div class="row modal_row">
+
+                        <!--'Checkout' ___ Section Title -->
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+
+                            <div class="inner burgundyLight-bg">
+                                <div class="section_triangle_checkout"></div>
+                                <div class="content_container_chef burgundy-bg">
+                                    <img src="img/section_title_checkout.png" class="img-responsive chef_icon margin_bottom_10 chef_icon_section">
+                                    <p class="sectionTitle">CHECKOUT</p>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+
+                        </div>
+
+
+                        <!-- Checkout sample begins -->
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner burgundyLight-bg">
+                                <div class="content_container">
+                                    <span class="subTitle"><img src="img/section_title_checkout.png" class="img-responsive chef_icon_small"> CUSTOMER</span>
+                                </div>
+                                <div class="content_container_checkout burgundy-bg" id="user_firstName">
+                                    <input class="form-control burgundy-bg inputWords" type="text" id="userFirstName" placeholder="Your First Name">
+                                </div>
+                                <div class="content_container_checkout burgundy-bg" id="user_lastName">
+                                    <input class="form-control burgundy-bg inputWords" type="text" id="userLastName" placeholder="Your Last Name">
+                                </div>
+                                <div class="content_container_checkout burgundy-bg" id="user_email">
+                                    <input class="form-control burgundy-bg inputWords" type="text" id="userEmail" placeholder="Your Email Address">
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!-- Pickup Information -->
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner burgundyLight-bg">
+                                <div class="content_container burgundy-bg map_back_02">
+                                    <p class="subTitle burgundyLight-bg"><img src="img/section_title_checkout.png" class="img-responsive chef_icon_small"> PICKUP INFORMATION</p>
+                                    <div class="info_container">
+                                        <p class="mainText"> 2302 Martin, Irvine, CA 92612</p>
+                                        <div class="map_chef_container burgundy-bg" id="map_chef_1_loc">
+                                            <img src="img/section_title_chefs.png" class="img-responsive map-chef">
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                        <!--<div class="col-xs-6 col-sm-4 col-md-3 outer">-->
+                        <!--<div class="inner burgundyLight-bg map_back_01">-->
+                        <!--<div class="content_container checkout_pickup_bg">-->
+                        <!--<span class="subTitle burgundy-font">PICKUP INFORMATION</span>-->
+                        <!--</div>-->
+                        <!--<img src="img/frame-blank.png" class="img-responsive fr-blank">-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                        <!-- Checkout sample begins -->
+                        <div class="col-xs-6 col-sm-4 col-md-3 outer">
+                            <div class="inner burgundyLight-bg">
+                                <div class="content_container">
+
+                                    <p class="subTitle burgundyLight-bg"><img src="img/section_title_checkout.png" class="img-responsive chef_icon_small"> ORDERING</p>
+                                    <!--<div class="info_container">-->
+                                    <p class="mainText">Your nxtDoorChef will thank you for your purchase!
+                                        A confirmation will be sent to your email address.</p>
+                                    <!--</div>-->
+                                    <a data-toggle="modal" data-target="#modal_checkout_1" aria-hidden="true"><span class="order_cooking_big_btn_container green-bg pull-right"><span class="buttonTitle">ORDER</span></span></a>
+
+                                </div>
+                                <img src="img/frame-blank.png" class="img-responsive fr-blank">
+                            </div>
+                        </div>
+
+                    </div> <!-- row ends -->
+                </div> <!-- container-fluid ends -->
+
+            </div> <!--  modal-body ends -->
+        </div>  <!-- modal-content ends -->
+    </div>  <!-- modal-dialog ends -->
+</div>
+<!-- ======= Modal Checkout 1 ends ========-->
+
+
+
+
+</body>
+</html>

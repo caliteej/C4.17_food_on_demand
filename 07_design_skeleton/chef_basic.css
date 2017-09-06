@@ -1,0 +1,132 @@
+
+
+
+
+/*************** modal ***************/
+
+
+.modal {
+    position: fixed;
+    z-index: 100000 !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.modal-dialog {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-content{
+    height: auto;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: 0;
+    border-radius: 0;
+    background-image: url(img/pattern_chef_2.png);
+    background-repeat: repeat;
+    background-size: 4vmin;
+}
+
+.modal-body{
+    margin: 0;
+    padding-top: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    /*max-width: 992px;*/
+}
+
+.close-button {
+    top: 15px;
+    right: 15px;
+    font-size: 8vmin;
+    font-weight: 400;
+}
+
+
+
+/* Carousel */
+
+.carousel_container{
+    padding: 1%;
+    margin: 0;
+}
+
+@media (min-width: 56.25em) { /* = 900px */
+    .carousel_container {
+        padding: 0.5%;
+    }
+}
+
+.carousel {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.item {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: auto;
+    object-fit: cover;
+    overflow: hidden;
+
+}
+
+.subtitle_position {
+    position: absolute;
+    z-index: 300;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+.carousel-control {
+    text-shadow: none;
+    opacity: 1;
+    filter: alpha(opacity=100)
+}
+
+.carousel-control:hover, .carousel-control:focus {
+    opacity: 1;
+    filter: alpha(opacity=100)
+}
+
+ol.carousel-indicators li,
+ol.carousel-indicators li.active {
+    border: 0;
+    width: 2vmin;
+    height: 2vmin;
+    background: #ffffff;
+    margin: 2px;
+}
+
+ol.carousel-indicators li.active {
+    background: #ed9421;
+}
