@@ -6,6 +6,7 @@ const Menu = models.menus;
 const sequelize = models.sequelize;
 
 //Routes for all menu queries
+router.get('/', getAllMenus);
 router.get('/id/:chef_id', getChefMenu);
 router.get('/search/:food', getMenuByFood);
 router.post('/register', createNewMenu);
@@ -51,5 +52,15 @@ function createNewMenu(req, res){
             res.status(404).send({"success": false, error});
     });
 }
+
+function getAllMenus(req, res){
+    Menu.findAll()
+        .then(function (menus){
+            res.status(200).send({"success": true, "data": menus});
+        }).catch(function (error) {
+            res.status(404).send({"success": false, error});
+    });
+ }
+ 
 
 module.exports = router;
