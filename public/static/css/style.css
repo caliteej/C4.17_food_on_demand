@@ -29,6 +29,7 @@ body{
 
 .container-fluid {
     background-color: white;
+    margin-bottom: 13px;
 }
 .navbar-brand {
     position: relative;
@@ -409,7 +410,7 @@ th .glyphicon{
         display: block;
         margin-top: 5px;
         background: white;
-        margin-bottom: 0;
+        margin-bottom: 18px;
     }
     .theChefBox, #chefProfileMenu {
         display: none;
