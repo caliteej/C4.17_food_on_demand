@@ -17,7 +17,9 @@ body{
     /*font-family: "Playfair Display";*/
     /*!*letter-spacing: 3px;*!*/
 /*}*/
-
+.modal-open {
+    padding-right: 0px !important;
+}
 
 .container-fluid {
     background-color: white;
