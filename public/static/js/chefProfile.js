@@ -24,6 +24,9 @@ function getHours(){
         success: function(response){
             hours = response;
             displayHours();
+        },
+        error: function(response){
+            console.log("The hours have failed to load.", response);
         }
     });
 }
@@ -36,6 +39,9 @@ function getReviews(){
         success: function(response){
             reviews = response;
             createReviews();
+        },
+        error: function(response){
+            console.log("The reviews have failed to load", response);
         }
     });
 }

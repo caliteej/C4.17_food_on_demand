@@ -1,8 +1,4 @@
 $(document).ready(function(){
-    $(document).ajaxError(function (event, jqXHR, settings, error) {
-        alert("Sorry, We couldn't find what you were looking for. Please, double check your search and try again.")
-        // $('#ajaxErrorModal').modal("show");
-    });
     $('#checkout').hide();
     $('#chefProfile').hide();
     initMap();
@@ -262,6 +258,9 @@ function getChefByCityInput(location){
             data = response;
             getMenu();
             populateChefs();
+        },
+        error: function(response){
+            console.log("Could not retrieve the chefs by their city.", response);
         }
     });
 }
@@ -283,6 +282,9 @@ function getAllChefs(){
             data = response;
             getMenu();
             populateChefs();
+        },
+        error: function(response){
+            console.log("Could not get all chefs from the database.", response);
         }
     });
 }
@@ -301,6 +303,9 @@ function searchMenuByFood(food){
             console.log(data);
             getMenu();
             populateChefs();
+        },
+        error: function(response){
+            console.log("Could not get all menus by the desired item.", response);
         }
     });
 }
