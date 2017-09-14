@@ -25,6 +25,9 @@ function sendEmailConfirmation(userName, userEmail) {
         url: "https://api.nxtdoorchef.com/api/email/confirmation",
         success: function(response){
             console.log('success');
+        },
+        failure: function(response){
+            alert("We're sorry, the confirmation email was unable to send.");
         }
     });
 }
@@ -59,7 +62,7 @@ function clearChefProfile(){
 }
 function confirmationButton(){
     if (formValidation() === false) {
-        alert("Please fill in all required fields");
+        return;
     } else {
         $('#confirmModal').modal("show");
         userName = ($("#userFirstName").val() + " " + $("#userLastName").val());
@@ -73,6 +76,7 @@ function formValidation(){
         if(input_fields[i].val() === null || input_fields[i].val() === ""){
             let input_container = input_fields[i].closest("div");
             input_container.addClass("has-error has-feedback");
+            $("#"+[i]).text("your "+ input_fields[i].attr("placeholder") + " is required");
             return false;
         } else {
             let input_container = input_fields[i].closest("div");

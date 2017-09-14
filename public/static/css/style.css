@@ -17,6 +17,12 @@ body{
     /*font-family: "Playfair Display";*/
     /*!*letter-spacing: 3px;*!*/
 /*}*/
+.feedback {
+    background-color: white;
+    border: 1px solid white;
+    color: red;
+}
+
 .modal-open {
     padding-right: 0px !important;
 }
@@ -162,7 +168,7 @@ img {
 }
 
 #userFirstName, #userLastName, #userEmail {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 .checkout_buttons {
     float: right;
