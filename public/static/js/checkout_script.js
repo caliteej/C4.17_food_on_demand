@@ -22,7 +22,7 @@ function sendEmailConfirmation(userName, userEmail) {
             chef_name: current_chef.firstName + " " + current_chef.lastName
         },
         method: 'POST',
-        url: "https://api.nxtdoorchef.com/api/email/confirmation",
+        url: "/api/email/confirmation",
         success: function(response){
             console.log('success');
         },
