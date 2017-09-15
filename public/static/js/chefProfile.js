@@ -288,6 +288,11 @@ $(window).scroll(function(){
     }
 });
 
+function confirmModalClose(){
+    $("#confirmModal").modal("toggle");
+    location.reload();
+}
+
 function backToHome(){
     $('.backToHome').hide();
     $('.right-nav').show();
