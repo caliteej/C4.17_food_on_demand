@@ -2,9 +2,9 @@ var lastPage = 'landingPage';
 
 //Confirmation modal and calls sendEmail function
 $(document).ready(function() {
-    $('#confirmButton').click(confirmationButton);
-    $('#backButtonCheckout').click(previousPageFromCheckout);
-    $('.backButton').click(backToLandingPage);
+    $('#confirmButton').click(confirmationButton).css("cursor", "pointer");
+    $('#backButtonCheckout').click(previousPageFromCheckout).css("cursor", "pointer");
+    $('.backButton').click(backToLandingPage).css("cursor", "pointer");
     $('.backToHome').hide();
 });
 
