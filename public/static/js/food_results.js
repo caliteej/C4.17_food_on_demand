@@ -40,9 +40,12 @@ function displayFood(selected_chef = null) {
 
         //console.log('this is the chosen one:', selected_chef);
         for (var e = 0; e < selected_chef.menu.data.length; e++) {
-            var dish_card = $('<div>').addClass('food_item col-sm-3');
+            var dish_card = $('<div>').addClass('food_item, col-sm-3');
             var dish_caption = $('<div>').addClass('food_caption');
-            var dish_photo = $('<img>').attr("src", selected_chef.menu.data[e].photo);
+            var dish_photo = $('<img>').attr({
+                src: selected_chef.menu.data[e].photo,
+                onerror: 'imgError(this);'
+            });
             var dish_name = $('<h4>').addClass('food_name').text(selected_chef.menu.data[e].item_name);
 
             dish_caption.append(dish_name);

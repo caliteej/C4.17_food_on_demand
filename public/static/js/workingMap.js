@@ -59,6 +59,9 @@ function reverseGeocoding(position){
             data = response;
             currentLocation = data.results[0].address_components[3].long_name;
             getChefsFromDataBase();
+        },
+        error: (response)=>{
+            console.log("Could not achieve GeoCoding.", response);
         }
     });
 }
@@ -74,6 +77,9 @@ function getChefsFromDataBase(){
             data = response;
             getMenu();
             populateChefs();
+        },
+        error: (response)=>{
+            console.log("There was a problem getting chef's from the database.", response);
         }
     });
 }
@@ -89,6 +95,9 @@ function getMenu(){
             success: function(response){
                 menu = response;
                 chefs.push({chef: item, menu: menu});
+            },
+            error: (response)=>{
+                console.log("there was a problem getting the menu from the database", response);
             }
         });
     });
@@ -156,7 +165,7 @@ function displayChef(marker){
         }
     }
     var jumbotron = $('<div>', {
-        class: 'jumbotron'
+        class: 'jumbotron text-center'
     });
     var theChefKitchen = $('<h2>',{
         text: theChef.chef.alias
@@ -168,16 +177,11 @@ function displayChef(marker){
         text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
     });
     var theChefPicture = $('<img>',{
-        src: theChef.chef.portrait,
+        src: "./assets/default_chef.png",
         class: 'the_chef_picture'
-    });
-    var icon = $('<button>', {
-        class: 'fullMenuButton btn',
-        text: 'Chef Menu'
-    }).click(showChef);
-    jumbotron.append(theChefKitchen, theChefName, theChefPicture, theChefBio, icon);
+    }).click(showChef).css("cursor", "pointer");
+    jumbotron.append(theChefKitchen, theChefPicture, theChefName);
     $('.theChefBox').append(jumbotron);
-    //$('.mobileChefProfile').append(jumbotron);
     displayFood(theChef);
 }
 
@@ -204,14 +208,10 @@ function displayChefMobile(marker){
         text: 'Chef ' + theChef.chef.firstName + ' ' + theChef.chef.lastName
     });
     var theChefPicture = $('<img>',{
-        src: theChef.chef.portrait,
+        src: "./assets/default_chef.png",
         class: 'the_chef_picture'
-    });
-    var icon = $('<button>', {
-        class: 'fullMenuButton btn',
-        text: 'Chef Menu'
-    }).click(showChef);
-    jumbotron.append(theChefKitchen, theChefName, theChefPicture, theChefBio, icon);
+    }).click(showChef).css("cursor", "pointer");
+    jumbotron.append(theChefKitchen, theChefPicture, theChefName);
     $('.mobileChefProfile').append(jumbotron);
 }
 
