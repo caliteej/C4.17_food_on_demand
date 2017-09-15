@@ -54,14 +54,15 @@ function createNewMenu(req, res){
 }
 
 //retrieve all menus from the database.
-function getAllMenus(req, res){
-    Menu.findAll()
-        .then(function (menus){
-            res.status(200).send({"success": true, "data": menus});
-        }).catch(function (error) {
-            res.status(404).send({"success": false, "data": error});
+function getAllMenus (req, res) {
+    let query = "SELECT * FROM `menus`";
+    sequelize.query(query).then(function(results){
+        console.log(results);
+        res.status(200).send({"success": true, "data": results});
+    }).catch(function(error){
+        res.status(404).send({"success": false, error});
     });
- }
+}
  
 
 module.exports = router;
