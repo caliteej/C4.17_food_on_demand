@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require('path');
 
 // Starting off our Express application
 const app = express();
@@ -20,6 +21,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use(cors());
+
+app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 // app.use(function (req, res, next) {
 //     res.setHeader('Access-Control-Allow-Origin', '*');
