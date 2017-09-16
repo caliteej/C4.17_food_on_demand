@@ -22,6 +22,9 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+const public = path.resolve(__dirname, '..', 'public');
+console.log("This is the path for public", public);
+
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 // app.use(function (req, res, next) {
