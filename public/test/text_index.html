@@ -1,0 +1,32 @@
+<!doctype>
+<html>
+    <head>
+            <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+            
+        <script>
+            $(document).ready(function(){
+                $("button").click(addHistory);
+                window.onpopstate = handleHistoryChange;
+                window.onbeforeunload = handleBeforeUnload;
+                window.onpushstate = handleHistoryAdd;
+            })
+
+            function addHistory(){
+                console.log('history called');
+                history.pushState({'hello':'yomomma'},"some page","happyStuff.html");
+            }
+            function handleHistoryChange(event){
+                console.log('the new history is ',event)
+            }
+            function handleBeforeUnload(){
+                console.log('unload happened');
+            }
+            function handleHistoryAdd(){
+                console.log('history was added');
+            }
+        </script>
+    </head>
+    <body>
+        <button>change url</button>
+    </body>
+</html>

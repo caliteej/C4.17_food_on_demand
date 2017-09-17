@@ -48,6 +48,7 @@ function menuModal(meal){
 }
 
 function placeOrder(){
+    changeHistory(current_meal.item_name, "#what");
     console.log('Order Placed', current_meal);
     $('#landingPage').hide();
     $('#checkout').show();
