@@ -10,7 +10,7 @@ $(document).ready(function(){
     $( ".foodInput" ).keydown(function(event) {
         enterKeySearch(event.which);
     });
-    window.onpushsatate = 
+    handleHistoryChange();
     window.onpopstate = handleHistoryChange;
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
@@ -189,6 +189,10 @@ function displayChef(marker){
     displayFood(theChef);
 }
 
+function landing_order(){
+    changeHistory(current_meal.item_name, "#what");
+    placeOrder();
+}
 
 function displayChefMobile(marker){
     $('.mobileChefProfile').empty();
@@ -342,12 +346,19 @@ function enterKeySearch(key){
         doSearch();
     }
 }
-function changeHistory(data, route, object){
+function changeHistory(data, route){
     console.log("User navigated to another page");
     console.log(data);
     history.pushState( null, null, route + "/" + data);
 }
-function handleHistoryChange(){
+
+function content_clear(){
+    $("#checkout").hide();
+    $("#chefProfile").hide();
+    clearChefProfile();
+}
+
+function shandleHistoryChange(){
     console.log("forward or back was clicked");
     let url = window.location.href;
     let path = url.substr(url.lastIndexOf("#")+1, url.lastIndexOf("/") - url.lastIndexOf("#")-1);
@@ -356,12 +367,20 @@ function handleHistoryChange(){
     switch(path){
         case "who":
         console.log("this is the path for a chef page");
-        showChef;
+        content_clear();
+        showChef();
         break;
 
         case "http://localhost/C4.17_food_on_demand/public":
         console.log("this is the path for the landing page");
+        content_clear();
         backToLandingPage();
+        break;
+
+        case "what":
+        console.log("this is the path for an order");
+        content_clear();
+        placeOrder();
         break;
 
         default:

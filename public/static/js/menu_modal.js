@@ -48,7 +48,6 @@ function menuModal(meal){
 }
 
 function placeOrder(){
-    changeHistory(current_meal.item_name, "#what");
     console.log('Order Placed', current_meal);
     $('#landingPage').hide();
     $('#checkout').show();
@@ -99,9 +98,9 @@ function placeOrder(){
     });
 
     var breakPoint = $('<br>');
-
-    $('#orderOf_container').append(mealHeader, breakPoint, mealName, mealPhoto, mealDescription, mealCost);
-    $('#pickupInfo_container').append(chefInfo, breakPoint, chefNameLabel, chefName, chefAddressLabel, chefAddress);
+    
+    $('#orderOf_container').empty().append(mealHeader, breakPoint, mealName, mealPhoto, mealDescription, mealCost);
+    $('#pickupInfo_container').empty().append(chefInfo, breakPoint, chefNameLabel, chefName, chefAddressLabel, chefAddress);
     $('.backToHome').hide();
     $('.right-nav').hide();
 }
