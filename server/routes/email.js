@@ -9,12 +9,12 @@ function sendConfirmationEmail(req, res){
     console.log(req.body);
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        service: "gmail",
+        service: "outlook",
         port: 25,
         secure: false,
         auth: {
-            user: "nxtDoorChef@gmail.com",
-            pass: "V0ltronLegendaryDefender"
+            user: "xntDoorChef@outlook.com",
+            pass: "SeptimusH0dge"
         },
         tls: {
             rejectUnauthorized: false
@@ -23,10 +23,10 @@ function sendConfirmationEmail(req, res){
 
 // setup email data with unicode symbols
     let mailOptions = {
-        from: '"nxtDoorChef" <nxtDoorChef@gmail.com>', // sender address
+        from: '"nxtDoorChef" <nxtDoorChef@outlook.com>', // sender address
         to: req.body.email, // list of receivers
         subject: 'Hello ✔', // Subject line
-        html: `<h3>Thanks ${req.body.user} for ordering from one of your local nxtDoorChefs!<h3><img src="https://munchies-images.vice.com/wp_upload/eggslut-breakfast-sandwich3.jpg?crop=1xw:0.84375xh;center,center&resize=1050:*" height="42" width="42">` // html body
+        html: `<h3>Thanks ${req.body.user} for ordering from one of your local nxtDoorChefs!<h3><img src="${req.body.purchase_photo}" height="100" width="100">` // html body
     };
 
 // send mail with defined transport object

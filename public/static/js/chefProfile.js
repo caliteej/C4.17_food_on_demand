@@ -19,7 +19,7 @@ function showChef(){
 function getHours(){
     $.ajax({
         dataType: "json",
-        url: '/api/hours/chef/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/hours/chef/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             hours = response;
@@ -34,7 +34,7 @@ function getHours(){
 function getReviews(){
     $.ajax({
         dataType: "json",
-        url: '/api/reviews/retrieve/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/reviews/retrieve/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             reviews = response;
@@ -200,6 +200,7 @@ function orderItem(){
         if(menu[i].item_name === element){
             current_meal = menu[i];
             current_chef = theChef.chef;
+            changeHistory(current_meal.item_name, "#what");
             placeOrder();
         }
     }

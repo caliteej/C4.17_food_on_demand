@@ -10,6 +10,8 @@ $(document).ready(function(){
     $( ".foodInput" ).keydown(function(event) {
         enterKeySearch(event.which);
     });
+    handleHistoryChange();
+    window.onpopstate = handleHistoryChange;
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
 /**
@@ -53,7 +55,7 @@ function initMap(){
 function reverseGeocoding(position){
     $.ajax({
         dataType: "json",
-        url: '/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
+        url: 'https://nxtdoorchef.com/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
         method: 'get',
         success: function(response){
             data = response;
@@ -71,7 +73,7 @@ function reverseGeocoding(position){
 function getChefsFromDataBase(){
     $.ajax({
         dataType: "json",
-        url: '/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
+        url: 'https://nxtdoorchef.com/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
         method: 'get',
         success: function(response){
             data = response;
@@ -90,7 +92,7 @@ function getMenu(){
     data.data.forEach(function(item){
         $.ajax({
             dataType: "json",
-            url: '/api/menu/id/' + item.id,
+            url: 'https://nxtdoorchef.com/api/menu/id/' + item.id,
             method: 'get',
             success: function(response){
                 menu = response;
@@ -157,7 +159,6 @@ function populateInfoWindow(marker, infowindow){
 }
 function displayChef(marker){
     $('.theChefBox').val();
-    console.log(marker);
     for(var i = 0; i < chefs.length; i++){
         if(chefs[i].chef.alias === marker.title){
             theChef = chefs[i];
@@ -179,16 +180,22 @@ function displayChef(marker){
     var theChefPicture = $('<img>',{
         src: "./assets/default_chef.png",
         class: 'the_chef_picture'
-    }).click(showChef).css("cursor", "pointer");
+    }).click(function(){
+        changeHistory(theChef.chef.alias, "#who");
+        showChef();
+    }).css("cursor", "pointer");
     jumbotron.append(theChefKitchen, theChefPicture, theChefName);
     $('.theChefBox').append(jumbotron);
     displayFood(theChef);
 }
 
+function landing_order(){
+    changeHistory(current_meal.item_name, "#what");
+    placeOrder();
+}
 
 function displayChefMobile(marker){
     $('.mobileChefProfile').empty();
-    console.log(marker);
     for(var i = 0; i < chefs.length; i++){
         if(chefs[i].chef.alias === marker.title){
             theChef = chefs[i];
@@ -210,7 +217,10 @@ function displayChefMobile(marker){
     var theChefPicture = $('<img>',{
         src: "./assets/default_chef.png",
         class: 'the_chef_picture'
-    }).click(showChef).css("cursor", "pointer");
+    }).click(function(){
+        changeHistory(theChef.chef.alias, "#who");
+        showChef;
+    }).css("cursor", "pointer");
     jumbotron.append(theChefKitchen, theChefPicture, theChefName);
     $('.mobileChefProfile').append(jumbotron);
 }
@@ -252,7 +262,7 @@ function displayStory(){
 function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
-        url: '/api/chef/city/' + location,
+        url: 'https://nxtdoorchef.com/api/chef/city/' + location,
         method: 'get',
         success: function(response){
             data = response;
@@ -276,7 +286,7 @@ function getAllChefs(){
     displayStory();
     $.ajax({
         dataType: "json",
-        url: '/api/chef',
+        url: 'https://nxtdoorchef.com/api/chef',
         method: 'get',
         success: function(response){
             data = response;
@@ -296,7 +306,7 @@ function getAllChefs(){
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: '/api/menu/search/' + food,
+        url: 'https://nxtdoorchef.com/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;
@@ -336,3 +346,49 @@ function enterKeySearch(key){
         doSearch();
     }
 }
+function changeHistory(data, route){
+    console.log("User navigated to another page");
+    console.log(data);
+    history.pushState( null, null, route + "/" + data);
+}
+
+function content_clear(){
+    $("#checkout").hide();
+    $("#chefProfile").hide();
+    clearChefProfile();
+}
+
+function shandleHistoryChange(){
+    console.log("forward or back was clicked");
+    let url = window.location.href;
+    let path = url.substr(url.lastIndexOf("#")+1, url.lastIndexOf("/") - url.lastIndexOf("#")-1);
+    console.log(path);
+
+    switch(path){
+        case "who":
+        console.log("this is the path for a chef page");
+        content_clear();
+        showChef();
+        break;
+
+        case "http://localhost/C4.17_food_on_demand/public":
+        console.log("this is the path for the landing page");
+        content_clear();
+        backToLandingPage();
+        break;
+
+        case "what":
+        console.log("this is the path for an order");
+        content_clear();
+        placeOrder();
+        break;
+
+        default:
+        console.log("there is no way to handle this route.");
+        break;
+    };
+};
+
+function handlePushState(){
+    console.log("some state was pushed");
+};
