@@ -10,7 +10,6 @@ $(document).ready(function(){
     $( ".foodInput" ).keydown(function(event) {
         enterKeySearch(event.which);
     });
-    handleHistoryChange();
     window.onpopstate = handleHistoryChange;
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
@@ -55,7 +54,7 @@ function initMap(){
 function reverseGeocoding(position){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
+        url: '/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
         method: 'get',
         success: function(response){
             data = response;
@@ -73,7 +72,7 @@ function reverseGeocoding(position){
 function getChefsFromDataBase(){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
+        url: '/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
         method: 'get',
         success: function(response){
             data = response;
@@ -92,7 +91,7 @@ function getMenu(){
     data.data.forEach(function(item){
         $.ajax({
             dataType: "json",
-            url: 'https://nxtdoorchef.com/api/menu/id/' + item.id,
+            url: '/api/menu/id/' + item.id,
             method: 'get',
             success: function(response){
                 menu = response;
@@ -262,7 +261,7 @@ function displayStory(){
 function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/chef/city/' + location,
+        url: '/api/chef/city/' + location,
         method: 'get',
         success: function(response){
             data = response;
@@ -286,7 +285,7 @@ function getAllChefs(){
     displayStory();
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/chef',
+        url: '/api/chef',
         method: 'get',
         success: function(response){
             data = response;
@@ -306,7 +305,7 @@ function getAllChefs(){
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/menu/search/' + food,
+        url: '/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;
