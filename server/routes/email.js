@@ -26,7 +26,7 @@ function sendConfirmationEmail(req, res){
         from: '"nxtDoorChef" <nxtDoorChef@outlook.com>', // sender address
         to: req.body.email, // list of receivers
         subject: 'Hello ✔', // Subject line
-        html: `<h3>Thanks ${req.body.user} for ordering from one of your local nxtDoorChefs!<h3><img src="${req.body.purchase_photo}" height="42" width="42">` // html body
+        html: `<h3>Thanks ${req.body.user} for ordering from one of your local nxtDoorChefs!<h3><img src="${req.body.purchase_photo}" height="100" width="100">` // html body
     };
 
 // send mail with defined transport object

@@ -6,6 +6,9 @@ $(document).ready(function() {
     $('#backButtonCheckout').click(previousPageFromCheckout).css("cursor", "pointer");
     $('.backButton').click(backToLandingPage).css("cursor", "pointer");
     $('.backToHome').hide();
+    window.onpopstate=(e)=>{
+        console.log(e);
+    }
 });
 
 //Gather order data from order object and send it via ajax network call to the backend, specifically to nodemailer module.
@@ -22,7 +25,7 @@ function sendEmailConfirmation(userName, userEmail) {
             chef_name: current_chef.firstName + " " + current_chef.lastName
         },
         method: 'POST',
-        url: "/api/email/confirmation",
+        url: "https://nxtdoorchef.com/api/email/confirmation",
         success: function(response){
             console.log('success');
         },

@@ -200,6 +200,7 @@ function orderItem(){
         if(menu[i].item_name === element){
             current_meal = menu[i];
             current_chef = theChef.chef;
+            changeHistory(current_meal.item_name, "#what");
             placeOrder();
         }
     }
