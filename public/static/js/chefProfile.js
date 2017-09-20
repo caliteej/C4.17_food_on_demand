@@ -13,13 +13,23 @@ function showChef(){
     setTimeout(createChefStory, 300);
     createLocation();
     createPics();
-    $('.backToHome').show();
+}
+function getChefByName(name){
+    const chefs = data.data; //why...why?
+    for(var i=0; i<chefs.length;i++){
+        if(chefs[i].alias===name){
+            theChef= {chef:chefs[i]}; //gritting teeth
+        }
+    }
+    //TODO: question why some people make poor programming choices
 }
 
-function getHours(){
+function getHours(chefID){
+    debugger;
+    chefID = chefID || theChef.chef.id;
     $.ajax({
         dataType: "json",
-        url: '/api/hours/chef/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/hours/chef/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             hours = response;
@@ -34,7 +44,7 @@ function getHours(){
 function getReviews(){
     $.ajax({
         dataType: "json",
-        url: '/api/reviews/retrieve/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/reviews/retrieve/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             reviews = response;
@@ -278,23 +288,18 @@ function createReviews(){
 }
 
 $(window).scroll(function(){
+    let offset = $("#chefProfileMenu").offset().top;
     var nav = $('#chefProfileMenu');
     var width = $('#chefProfileMenu').parent().width();
     var isPositionFixed = (nav.css('position') === 'fixed');
-    if ($(this).scrollTop() > 430 && !isPositionFixed){
+    if ($(this).scrollTop() > offset-10 && !isPositionFixed){
         $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': width});
     }
-    if ($(this).scrollTop() < 430 && isPositionFixed){
+    if ($(this).scrollTop() < 575 && isPositionFixed){
         $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
     }
 });
 
 function confirmModalClose(){
     $("#confirmModal").modal("toggle");
-    location.reload();
-}
-
-function backToHome(){
-    $('.backToHome').hide();
-    $('.right-nav').show();
 }
