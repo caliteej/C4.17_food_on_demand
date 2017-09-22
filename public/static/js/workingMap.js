@@ -357,7 +357,7 @@ function content_clear(){
     clearChefProfile();
 }
 
-function shandleHistoryChange(){
+function handleHistoryChange(){
     console.log("forward or back was clicked");
     let url = window.location.href;
     let path = url.substr(url.lastIndexOf("#")+1, url.lastIndexOf("/") - url.lastIndexOf("#")-1);
@@ -370,7 +370,7 @@ function shandleHistoryChange(){
         showChef();
         break;
 
-        case "http://localhost/C4.17_food_on_demand/public":
+        case "https://nxtdoorchef.com":
         console.log("this is the path for the landing page");
         content_clear();
         backToLandingPage();
