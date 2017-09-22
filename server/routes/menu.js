@@ -10,6 +10,7 @@ router.get('/', getAllMenus);
 router.get('/id/:chef_id', getChefMenu);
 router.get('/search/:food', getMenuByFood);
 router.post('/register', createNewMenu);
+router.get("/alias/:alias", getMenuByAlias);
 
 
 //Get menu of chef by chef_id
