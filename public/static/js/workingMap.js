@@ -386,7 +386,7 @@ function content_clear(){
 };
 
 function handleHistoryChange(){
-    console.log("mmoooooooooooooooooooo");
+    console.log("A change in history has occurred.");
     let url = window.location.href;
     let poundLocation = url.lastIndexOf("#");
     let lastSlashLocation =  url.lastIndexOf("/")

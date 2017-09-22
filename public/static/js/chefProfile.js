@@ -14,14 +14,30 @@ function showChef(){
     createLocation();
     createPics();
 }
+
+//this function will find the chef and menu based on the path
 function getChefByName(name){
+    getMenu();
     const chefs = data.data; //why...why?
     for(var i=0; i<chefs.length;i++){
         if(chefs[i].alias===name){
             theChef= {chef:chefs[i]}; //gritting teeth
         }
     }
-    //TODO: question why some people make poor programming choices
+};
+
+function getMenuOfChefByAlias(alias){
+    $.ajax({
+        dataType: "json",
+        url: "https://nxtdoorchef.com/api/menu/",
+        method: "get",
+        success: (res)=>{
+            console.log(res);
+        },
+        error: (res)=>{
+            console.log("Could not find the menu based on the supplied alias.", res);
+        }
+    })
 }
 
 function getHours(chefID){
