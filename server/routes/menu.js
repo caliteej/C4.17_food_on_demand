@@ -63,6 +63,17 @@ function getAllMenus (req, res) {
         res.status(404).send({"success": false, error});
     });
 }
+
+//retrieve menu of a single restaurant based on alias provided.
+function getMenuByAlias(req, res){
+    let alias = req.params.alias;
+    let query = "SELECT * FROM `menus` WHERE chef_id IN (SELECT `id` FROM `chefs` WHERE `alias`= '%"+alias+"%')";
+    sequelize.query(query).then(function(results){
+        res.status(200).send({"success": true, "data": results});
+    }).catch(function(error){
+        res.status(404).send({"success": false, error});
+    });
+}
  
 
 module.exports = router;

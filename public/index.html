@@ -24,8 +24,8 @@
 <body>
 <nav class="navbar navbar-default col-xs-12" id="whole-navbar">
     <div class="container-fluid">
-        <span class="backButton backToHome glyphicon glyphicon-menu-left col-sm-1 col-xs-1" onclick="backToHome()"></span>
-        <div onclick="location.reload()" class="navbar-header col-sm-5 col-xs-12">
+        <!-- <span class="backButton backToHome glyphicon glyphicon-menu-left col-sm-1 col-xs-1" onclick="backToHome()"></span> -->
+        <div onclick="backToLandingPage()" class="navbar-header col-sm-5 col-xs-12">
             <img class="navbar-brand" src="assets/nxtDoorChef.png">
         </div>
         <div class="col-sm-6 col-xs-12 right-nav navbar-right">
@@ -169,21 +169,23 @@
             </section>
             <div id="mobileChefMenu"></div>
             <div class="row profileDetails">
-                <div class="col-md-6">
-                    <!--Information about the chef. His/her story and hours-->
-                    <section id="chefProfileChef">
-                    </section>
-                    <!--Pages of user reviews about chef or items-->
-                    <section id="chefProfileReview">
-                    </section>
-                    <!--Location of the chef with a map-->
-                    <section id="chefProfileLocation">
-                    </section>
-                </div>
-                <div class="col-md-6">
-                    <!--Menu section with all of Chefs' items-->
-                    <section id="chefProfileMenu">
-                    </section>
+                <div id="profileContentContainer">
+                    <div class="col-md-6">
+                        <!--Information about the chef. His/her story and hours-->
+                        <section id="chefProfileChef">
+                        </section>
+                        <!--Pages of user reviews about chef or items-->
+                        <section id="chefProfileReview">
+                        </section>
+                        <!--Location of the chef with a map-->
+                        <section id="chefProfileLocation">
+                        </section>
+                    </div>
+                    <div class="col-md-6">
+                        <!--Menu section with all of Chefs' items-->
+                        <section id="chefProfileMenu">
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>

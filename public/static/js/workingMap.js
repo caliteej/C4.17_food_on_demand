@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    handleHistoryChange();
     $('#checkout').hide();
     $('#chefProfile').hide();
     initMap();
@@ -10,6 +11,9 @@ $(document).ready(function(){
     $( ".foodInput" ).keydown(function(event) {
         enterKeySearch(event.which);
     });
+    // window.onbeforeunload = function(){
+    //     alert("unload detected")
+    // }; 
     window.onpopstate = handleHistoryChange;
 });
 var map, infoWindow, chefs = [], currentLocation, theChef;
@@ -21,7 +25,7 @@ function initMap(){
         center: {lat: 33.6305423, lng: -117.7432015},
         zoom: 13
     });
-    getChefsFromDataBase();
+    getChefsFromDataBase([getMenu,populateChefs]);
     // if (navigator.geolocation) {
     //     navigator.geolocation.getCurrentPosition(function(position) {
     //         var pos = {
@@ -54,12 +58,12 @@ function initMap(){
 function reverseGeocoding(position){
     $.ajax({
         dataType: "json",
-        url: '/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
+        url: 'https://nxtdoorchef.com/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
         method: 'get',
         success: function(response){
             data = response;
             currentLocation = data.results[0].address_components[3].long_name;
-            getChefsFromDataBase();
+            getChefsFromDataBase([getMenu,populateChefs]);
         },
         error: (response)=>{
             console.log("Could not achieve GeoCoding.", response);
@@ -69,15 +73,16 @@ function reverseGeocoding(position){
 /**
  * This function makes a call to our database requesting chefs based on location by city.
  */
-function getChefsFromDataBase(){
+function getChefsFromDataBase(additionalCallbacks){
     $.ajax({
         dataType: "json",
-        url: '/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
+        url: 'https://nxtdoorchef.com/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
         method: 'get',
         success: function(response){
             data = response;
-            getMenu();
-            populateChefs();
+            additionalCallbacks.forEach(function(callBack){
+                callBack.call(null);
+            })
         },
         error: (response)=>{
             console.log("There was a problem getting chef's from the database.", response);
@@ -91,7 +96,7 @@ function getMenu(){
     data.data.forEach(function(item){
         $.ajax({
             dataType: "json",
-            url: '/api/menu/id/' + item.id,
+            url: 'https://nxtdoorchef.com/api/menu/id/' + item.id,
             method: 'get',
             success: function(response){
                 menu = response;
@@ -261,7 +266,7 @@ function displayStory(){
 function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
-        url: '/api/chef/city/' + location,
+        url: 'https://nxtdoorchef.com/api/chef/city/' + location,
         method: 'get',
         success: function(response){
             data = response;
@@ -285,7 +290,7 @@ function getAllChefs(){
     displayStory();
     $.ajax({
         dataType: "json",
-        url: '/api/chef',
+        url: 'https://nxtdoorchef.com/api/chef',
         method: 'get',
         success: function(response){
             data = response;
@@ -305,11 +310,10 @@ function getAllChefs(){
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: '/api/menu/search/' + food,
+        url: 'https://nxtdoorchef.com/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;
-            console.log(data);
             getMenu();
             populateChefs();
         },
@@ -317,7 +321,18 @@ function searchMenuByFood(food){
             console.log("Could not get all menus by the desired item.", response);
         }
     });
-}
+};
+
+// searchMenuByPath(path){
+//     $.ajax({
+//         dataType: "json",
+//         url: "" + path,
+//         method: "GET",
+//         success: (res)=>{
+//             console.log("response successfully returned", res);
+//         }
+//     })
+// };
 
 function resetMapAndData(){
     chefs = [];
@@ -337,47 +352,58 @@ function doSearch(){
     }else{
         $('.foodInput').attr('placeholder','Please enter a type of cuisine');
         return;
-    }
-}
+    };
+};
+
+// function urlNavigation(path){
+//     if(path !== ""){
+//         content_clear();
+//         searchMenuByPath(path);
+//     } else {
+//         console.log("There is a problem reading the url you've provided. Redirecting to the home page.");
+//         backToLandingPage();
+//     };
+// };
 
 function enterKeySearch(key){
     if(key == 13) {
         doSearch();
     }
-}
+};
+
 function changeHistory(data, route){
-    console.log("User navigated to another page");
-    console.log(data);
     history.pushState( null, null, route + "/" + data);
+};
+
+function navigateHome(){
+    history.pushState(null, null, " ");
 }
 
 function content_clear(){
     $("#checkout").hide();
     $("#chefProfile").hide();
     clearChefProfile();
-}
+};
 
-function shandleHistoryChange(){
-    console.log("forward or back was clicked");
+function handleHistoryChange(){
+    console.log("A change in history has occurred.");
     let url = window.location.href;
-    let path = url.substr(url.lastIndexOf("#")+1, url.lastIndexOf("/") - url.lastIndexOf("#")-1);
-    console.log(path);
+    let poundLocation = url.lastIndexOf("#");
+    let lastSlashLocation =  url.lastIndexOf("/")
+    let path = url.substr(poundLocation+1, lastSlashLocation - poundLocation-1);
 
     switch(path){
         case "who":
-        console.log("this is the path for a chef page");
-        content_clear();
-        showChef();
+        let chefName = url.slice(lastSlashLocation+1);
+        getChefsFromDataBase([content_clear, getMenu, getChefByName.bind(null,chefName),showChef]);
         break;
 
         case "http://localhost/C4.17_food_on_demand/public":
-        console.log("this is the path for the landing page");
         content_clear();
         backToLandingPage();
         break;
 
         case "what":
-        console.log("this is the path for an order");
         content_clear();
         placeOrder();
         break;
@@ -386,8 +412,4 @@ function shandleHistoryChange(){
         console.log("there is no way to handle this route.");
         break;
     };
-};
-
-function handlePushState(){
-    console.log("some state was pushed");
 };

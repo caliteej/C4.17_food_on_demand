@@ -5,7 +5,6 @@ $(document).ready(function() {
     $('#confirmButton').click(confirmationButton).css("cursor", "pointer");
     $('#backButtonCheckout').click(previousPageFromCheckout).css("cursor", "pointer");
     $('.backButton').click(backToLandingPage).css("cursor", "pointer");
-    $('.backToHome').hide();
     window.onpopstate=(e)=>{
         console.log(e);
     }
@@ -45,11 +44,11 @@ function previousPageFromCheckout(){
     }else{
         $('#checkout').hide();
         $('#chefProfile').show();
-        $('.backToHome').show();
     }
 }
 
 function backToLandingPage(){
+    navigateHome();
     lastPage = 'landingPage';
     $('#chefProfile').hide();
     $('#landingPage').show();

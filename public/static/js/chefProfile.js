@@ -13,13 +13,39 @@ function showChef(){
     setTimeout(createChefStory, 300);
     createLocation();
     createPics();
-    $('.backToHome').show();
 }
 
-function getHours(){
+//this function will find the chef and menu based on the path
+function getChefByName(name){
+    getMenu();
+    const chefs = data.data; //why...why?
+    for(var i=0; i<chefs.length;i++){
+        if(chefs[i].alias===name){
+            theChef= {chef:chefs[i]}; //gritting teeth
+        }
+    }
+};
+
+function getMenuOfChefByAlias(alias){
     $.ajax({
         dataType: "json",
-        url: '/api/hours/chef/' + theChef.chef.id,
+        url: "https://nxtdoorchef.com/api/menu/",
+        method: "get",
+        success: (res)=>{
+            console.log(res);
+        },
+        error: (res)=>{
+            console.log("Could not find the menu based on the supplied alias.", res);
+        }
+    })
+}
+
+function getHours(chefID){
+    debugger;
+    chefID = chefID || theChef.chef.id;
+    $.ajax({
+        dataType: "json",
+        url: 'https://nxtdoorchef.com/api/hours/chef/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             hours = response;
@@ -34,7 +60,7 @@ function getHours(){
 function getReviews(){
     $.ajax({
         dataType: "json",
-        url: '/api/reviews/retrieve/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/reviews/retrieve/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             reviews = response;
@@ -278,23 +304,18 @@ function createReviews(){
 }
 
 $(window).scroll(function(){
+    let offset = $("#chefProfileMenu").offset().top;
     var nav = $('#chefProfileMenu');
     var width = $('#chefProfileMenu').parent().width();
     var isPositionFixed = (nav.css('position') === 'fixed');
-    if ($(this).scrollTop() > 430 && !isPositionFixed){
+    if ($(this).scrollTop() > offset-10 && !isPositionFixed){
         $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': width});
     }
-    if ($(this).scrollTop() < 430 && isPositionFixed){
+    if ($(this).scrollTop() < 575 && isPositionFixed){
         $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
     }
 });
 
 function confirmModalClose(){
     $("#confirmModal").modal("toggle");
-    location.reload();
-}
-
-function backToHome(){
-    $('.backToHome').hide();
-    $('.right-nav').show();
 }

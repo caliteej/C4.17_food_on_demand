@@ -48,7 +48,6 @@ function menuModal(meal){
 }
 
 function placeOrder(){
-    console.log('Order Placed', current_meal);
     $('#landingPage').hide();
     $('#checkout').show();
 
@@ -101,6 +100,5 @@ function placeOrder(){
     
     $('#orderOf_container').empty().append(mealHeader, breakPoint, mealName, mealPhoto, mealDescription, mealCost);
     $('#pickupInfo_container').empty().append(chefInfo, breakPoint, chefNameLabel, chefName, chefAddressLabel, chefAddress);
-    $('.backToHome').hide();
     $('.right-nav').hide();
 }

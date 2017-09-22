@@ -120,6 +120,7 @@ body{
     cursor: pointer;
 }
 .food_caption {
+    word-wrap: break-word;
     text-align: center;
 }
 .food_name {
@@ -237,9 +238,11 @@ img {
 /*.carousel-inner {*/
     /*z-index: -1;*/
 /*}*/
-
+#chefProfileMenu {
+    position: relative;
+}
 #menuCarousel {
-    height: 60vh;
+    height: 62vh;
 }
 
 .carousel-inner img{
@@ -317,9 +320,7 @@ th .glyphicon{
     margin: 0 auto;
 }
 .reviewsContainer{
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 50vh;
+    height: 60vh;
 }
 .container-4{
     overflow: hidden;
