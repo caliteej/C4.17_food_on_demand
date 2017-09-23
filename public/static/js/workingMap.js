@@ -58,7 +58,7 @@ function initMap(){
 function reverseGeocoding(position){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
+        url: '/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
         method: 'get',
         success: function(response){
             data = response;
@@ -76,7 +76,7 @@ function reverseGeocoding(position){
 function getChefsFromDataBase(additionalCallbacks){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
+        url: '/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
         method: 'get',
         success: function(response){
             data = response;
@@ -96,7 +96,7 @@ function getMenu(){
     data.data.forEach(function(item){
         $.ajax({
             dataType: "json",
-            url: 'https://nxtdoorchef.com/api/menu/id/' + item.id,
+            url: '/api/menu/id/' + item.id,
             method: 'get',
             success: function(response){
                 menu = response;
@@ -266,7 +266,7 @@ function displayStory(){
 function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/chef/city/' + location,
+        url: '/api/chef/city/' + location,
         method: 'get',
         success: function(response){
             data = response;
@@ -290,7 +290,7 @@ function getAllChefs(){
     displayStory();
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/chef',
+        url: '/api/chef',
         method: 'get',
         success: function(response){
             data = response;
@@ -310,7 +310,7 @@ function getAllChefs(){
 function searchMenuByFood(food){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/menu/search/' + food,
+        url: '/api/menu/search/' + food,
         method: 'get',
         success: function(response){
             data = response;
@@ -367,16 +367,17 @@ function content_clear(){
 function searchForItemByName(name){
     $.ajax({
         dataType: "json",
-        url: "https://nxtdoorchef.com/api/menu/item/" + name,
+        url: "/api/menu/item/" + name,
         method: "get",
         success: (res)=>{
             const chefs = data.data;
-            // for(var i=0; i<chefs.length;i++){
-            //     if(chefs[i].res.===alias){
-            //         theChef= {chef:chefs[i], menu: res}; //gritting teeth
-            //     }
-            // }
-            console.log(chefs, res);
+            for(var i=0; i<chefs.length;i++){
+                if(chefs[i].id===res.data[0].chef_id){
+                    current_meal = res.data[0]
+                    current_chef = chefs[i];
+                }
+            }
+            placeOrder();
         },
         error: (res)=>{
             console.log("Could not find the item based on the supplied name.", res);

@@ -19,7 +19,7 @@ function showChef(){
 function getMenuOfChefByAlias(alias){
     $.ajax({
         dataType: "json",
-        url: "https://nxtdoorchef.com/api/menu/alias/" + alias,
+        url: "/api/menu/alias/" + alias,
         method: "get",
         success: (res)=>{
             const chefs = data.data;
@@ -41,7 +41,7 @@ function getHours(chefID){
     chefID = chefID || theChef.chef.id;
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/hours/chef/' + theChef.chef.id,
+        url: '/api/hours/chef/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             hours = response;
@@ -56,7 +56,7 @@ function getHours(chefID){
 function getReviews(){
     $.ajax({
         dataType: "json",
-        url: 'https://nxtdoorchef.com/api/reviews/retrieve/' + theChef.chef.id,
+        url: '/api/reviews/retrieve/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             reviews = response;
