@@ -323,17 +323,6 @@ function searchMenuByFood(food){
     });
 };
 
-// searchMenuByPath(path){
-//     $.ajax({
-//         dataType: "json",
-//         url: "" + path,
-//         method: "GET",
-//         success: (res)=>{
-//             console.log("response successfully returned", res);
-//         }
-//     })
-// };
-
 function resetMapAndData(){
     chefs = [];
     map = new google.maps.Map(document.getElementById('map'), {
@@ -355,16 +344,6 @@ function doSearch(){
     };
 };
 
-// function urlNavigation(path){
-//     if(path !== ""){
-//         content_clear();
-//         searchMenuByPath(path);
-//     } else {
-//         console.log("There is a problem reading the url you've provided. Redirecting to the home page.");
-//         backToLandingPage();
-//     };
-// };
-
 function enterKeySearch(key){
     if(key == 13) {
         doSearch();
@@ -385,6 +364,26 @@ function content_clear(){
     clearChefProfile();
 };
 
+function searchForItemByName(name){
+    $.ajax({
+        dataType: "json",
+        url: "https://nxtdoorchef.com/api/menu/item/" + name,
+        method: "get",
+        success: (res)=>{
+            const chefs = data.data;
+            // for(var i=0; i<chefs.length;i++){
+            //     if(chefs[i].res.===alias){
+            //         theChef= {chef:chefs[i], menu: res}; //gritting teeth
+            //     }
+            // }
+            console.log(chefs, res);
+        },
+        error: (res)=>{
+            console.log("Could not find the item based on the supplied name.", res);
+        }
+    })
+}
+
 function handleHistoryChange(){
     console.log("A change in history has occurred.");
     let url = window.location.href;
@@ -395,7 +394,7 @@ function handleHistoryChange(){
     switch(path){
         case "who":
         let chefName = url.slice(lastSlashLocation+1);
-        getChefsFromDataBase([content_clear, getMenu, getChefByName.bind(null,chefName),showChef]);
+        getChefsFromDataBase([content_clear,getMenuOfChefByAlias.bind(null,chefName)]);
         break;
 
         case "http://localhost/C4.17_food_on_demand/public":
@@ -404,8 +403,8 @@ function handleHistoryChange(){
         break;
 
         case "what":
-        content_clear();
-        placeOrder();
+        let itemName = url.slice(lastSlashLocation+1);
+        getChefsFromDataBase([content_clear, searchForItemByName.bind(null, itemName)]);        
         break;
 
         default:

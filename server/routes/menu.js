@@ -11,6 +11,7 @@ router.get('/id/:chef_id', getChefMenu);
 router.get('/search/:food', getMenuByFood);
 router.post('/register', createNewMenu);
 router.get("/alias/:alias", getMenuByAlias);
+router.get("/item/:item", getInfoForCheckout);
 
 
 //Get menu of chef by chef_id
@@ -63,18 +64,31 @@ function getAllMenus (req, res) {
     }).catch(function(error){
         res.status(404).send({"success": false, error});
     });
-}
+};
 
 //retrieve menu of a single restaurant based on alias provided.
 function getMenuByAlias(req, res){
     let alias = req.params.alias;
-    let query = "SELECT * FROM `menus` WHERE chef_id IN (SELECT `id` FROM `chefs` WHERE `alias`= '%"+alias+"%')";
+    let query = "SELECT * FROM `menus` WHERE chef_id IN (SELECT `id` FROM `chefs` WHERE `alias`= '"+alias+"')";
     sequelize.query(query).then(function(results){
-        res.status(200).send({"success": true, "data": results});
+        console.log(results);
+        res.status(200).send({"success": true, "data": results[0]});
     }).catch(function(error){
         res.status(404).send({"success": false, error});
     });
-}
+};
+
+//retrieve a single item for the purposes of generating a checkout page.
+function getInfoForCheckout(req, res){
+    let item = req.params.item;
+    let query = "SELECT * FROM `menus` WHERE `item_name` = '"+item+"')";
+    sequelize.query(query).then((results)=>{
+        console.log(results);
+        res.status(200).send({"success":true, "data":results[0]});
+    }).catch((err)=>{
+        res.status(404).send({"success":false, err});
+    });
+};
  
 
 module.exports = router;
