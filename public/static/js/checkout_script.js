@@ -3,12 +3,15 @@ var lastPage = 'landingPage';
 //Confirmation modal and calls sendEmail function
 $(document).ready(function() {
     $('#confirmButton').click(confirmationButton).css("cursor", "pointer");
-    $('#backButtonCheckout').click(previousPageFromCheckout).css("cursor", "pointer");
-    $('.backButton').click(backToLandingPage).css("cursor", "pointer");
-    window.onpopstate=(e)=>{
-        console.log(e);
-    }
+    $('#backButtonCheckout').click(function() {
+        window.history.back();
+    }).css("cursor", "pointer");
+    // $('.backButton').click(backToLandingPage).css("cursor", "pointer");
 });
+
+// function cancelHistoryChange(){
+//     changeHistory()
+// }
 
 //Gather order data from order object and send it via ajax network call to the backend, specifically to nodemailer module.
 function sendEmailConfirmation(userName, userEmail) {
@@ -48,7 +51,7 @@ function previousPageFromCheckout(){
 }
 
 function backToLandingPage(){
-    navigateHome();
+    // navigateHome();
     lastPage = 'landingPage';
     $('#chefProfile').hide();
     $('#landingPage').show();

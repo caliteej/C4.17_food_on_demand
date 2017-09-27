@@ -19,7 +19,7 @@ function showChef(){
 function getMenuOfChefByAlias(alias){
     $.ajax({
         dataType: "json",
-        url: "/api/menu/alias/" + alias,
+        url: "https://nxtdoorchef.com/api/menu/alias/" + alias,
         method: "get",
         success: (res)=>{
             const chefs = data.data;
@@ -41,7 +41,7 @@ function getHours(chefID){
     chefID = chefID || theChef.chef.id;
     $.ajax({
         dataType: "json",
-        url: '/api/hours/chef/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/hours/chef/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             hours = response;
@@ -56,7 +56,7 @@ function getHours(chefID){
 function getReviews(){
     $.ajax({
         dataType: "json",
-        url: '/api/reviews/retrieve/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/reviews/retrieve/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             reviews = response;
@@ -302,10 +302,9 @@ function createReviews(){
 $(window).scroll(function(){
     let offset = $("#chefProfileMenu").offset().top;
     var nav = $('#chefProfileMenu');
-    var width = $('#chefProfileMenu').parent().width();
     var isPositionFixed = (nav.css('position') === 'fixed');
     if ($(this).scrollTop() > offset && !isPositionFixed){
-        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': width});
+        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': '555 px'});
         return;
     }
     if ($(this).scrollTop() < 575 && isPositionFixed){
