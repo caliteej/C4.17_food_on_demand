@@ -107,7 +107,7 @@ function displayHours(){
 }
 
 function createMenu(){
-    $('#chefProfileMenu').append($('<h1 style="padding-top: 40px;">Menu</h1>'));
+    $('#chefProfileMenu').append($('<h1>Menu</h1>'));
     var container = $('<div class="list-group">');
     theChef.menu.data.forEach(function(item){
         var icon = $(`<button class="buyButton btn btn-info pull-right" data-name="${item.item_name}">Buy</button>`).click(orderItem);
@@ -304,10 +304,10 @@ $(window).scroll(function(){
     var nav = $('#chefProfileMenu');
     var isPositionFixed = (nav.css('position') === 'fixed');
     if ($(this).scrollTop() > offset && !isPositionFixed){
-        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': '555 px'});
+        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px'});
         return;
     }
-    if ($(this).scrollTop() < 575 && isPositionFixed){
+    if ($(this).scrollTop() < 200 && isPositionFixed){
         $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
         return;
     }

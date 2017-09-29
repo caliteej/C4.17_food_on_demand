@@ -58,7 +58,7 @@ body{
 }
 
 .container-fluid .jumbotron {
-    width: 700px;
+    width: 100%;
 }
 
 .jumbotron {
@@ -239,7 +239,8 @@ img {
     /*z-index: -1;*/
 /*}*/
 #chefProfileMenu {
-    position: relative;
+    width: 555px;
+    padding-top: 39px;
 }
 #menuCarousel {
     height: 62vh;
@@ -255,6 +256,9 @@ img {
     left: 50%;
     margin-right: -50%;
     object-fit: cover;
+}
+#chefProfileReview {
+    height: 87vh;
 }
 /*#chefProfileChef, #chefProfileLocation, #chefProfileMenu, #chefProfileReview{*/
 /*width: 60vw;*/
@@ -274,7 +278,6 @@ span.glyphicon-menu-left{
 .buyButton{
     color: white;
 }
-
 .the_chef_picture {
     height: 315px;
     width: 315px;
@@ -284,9 +287,6 @@ span.glyphicon-menu-left{
     color: white;
     margin-bottom: 10px;
 }
-
-
-
 th{
     width: 25%;
     text-align: center;
@@ -423,7 +423,7 @@ th .glyphicon{
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 992px) {
     #whole-navbar {
         display: block;
         margin-top: 5px;
@@ -475,7 +475,7 @@ th .glyphicon{
         padding: 0;
     }
     .carousel-inner>.item>img {
-        height: 27vh;
+        height: 34vh;
     }
     #userFirstName, #userLastName, #userEmail {
         margin-bottom: 0;

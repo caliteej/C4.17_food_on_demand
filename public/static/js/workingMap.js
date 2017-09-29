@@ -356,6 +356,7 @@ function changeHistory(data, route){
 
 function navigateHome(){
     history.pushState(null, null, " ");
+    handleHistoryChange();
 }
 
 function content_clear(){
