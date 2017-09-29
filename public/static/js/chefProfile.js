@@ -19,7 +19,7 @@ function showChef(){
 function getMenuOfChefByAlias(alias){
     $.ajax({
         dataType: "json",
-        url: "/api/menu/alias/" + alias,
+        url: "https://nxtdoorchef.com/api/menu/alias/" + alias,
         method: "get",
         success: (res)=>{
             const chefs = data.data;
@@ -41,7 +41,7 @@ function getHours(chefID){
     chefID = chefID || theChef.chef.id;
     $.ajax({
         dataType: "json",
-        url: '/api/hours/chef/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/hours/chef/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             hours = response;
@@ -56,7 +56,7 @@ function getHours(chefID){
 function getReviews(){
     $.ajax({
         dataType: "json",
-        url: '/api/reviews/retrieve/' + theChef.chef.id,
+        url: 'https://nxtdoorchef.com/api/reviews/retrieve/' + theChef.chef.id,
         method: 'get',
         success: function(response){
             reviews = response;
@@ -107,7 +107,7 @@ function displayHours(){
 }
 
 function createMenu(){
-    $('#chefProfileMenu').append($('<h1 style="padding-top: 40px;">Menu</h1>'));
+    $('#chefProfileMenu').append($('<h1>Menu</h1>'));
     var container = $('<div class="list-group">');
     theChef.menu.data.forEach(function(item){
         var icon = $(`<button class="buyButton btn btn-info pull-right" data-name="${item.item_name}">Buy</button>`).click(orderItem);
@@ -302,13 +302,12 @@ function createReviews(){
 $(window).scroll(function(){
     let offset = $("#chefProfileMenu").offset().top;
     var nav = $('#chefProfileMenu');
-    var width = $('#chefProfileMenu').parent().width();
     var isPositionFixed = (nav.css('position') === 'fixed');
     if ($(this).scrollTop() > offset && !isPositionFixed){
-        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px', 'width': width});
+        $('#chefProfileMenu').css({'position': 'fixed', 'top': '0px'});
         return;
     }
-    if ($(this).scrollTop() < 575 && isPositionFixed){
+    if ($(this).scrollTop() < 200 && isPositionFixed){
         $('#chefProfileMenu').css({'position': 'static', 'top': '0px'});
         return;
     }

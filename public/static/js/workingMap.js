@@ -58,7 +58,7 @@ function initMap(){
 function reverseGeocoding(position){
     $.ajax({
         dataType: "json",
-        url: '/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
+        url: 'https://nxtdoorchef.com/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude,
         method: 'get',
         success: function(response){
             data = response;
@@ -76,7 +76,7 @@ function reverseGeocoding(position){
 function getChefsFromDataBase(additionalCallbacks){
     $.ajax({
         dataType: "json",
-        url: '/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
+        url: 'https://nxtdoorchef.com/api/chef/city/Irvine' /*+ data.results[0].address_components[3].long_name*/,
         method: 'get',
         success: function(response){
             data = response;
@@ -96,7 +96,7 @@ function getMenu(){
     data.data.forEach(function(item){
         $.ajax({
             dataType: "json",
-            url: '/api/menu/id/' + item.id,
+            url: 'https://nxtdoorchef.com/api/menu/id/' + item.id,
             method: 'get',
             success: function(response){
                 menu = response;
@@ -266,7 +266,7 @@ function displayStory(){
 function getChefByCityInput(location){
     $.ajax({
         dataType: "json",
-        url: '/api/chef/city/' + location,
+        url: 'https://nxtdoorchef.com/api/chef/city/' + location,
         method: 'get',
         success: function(response){
             data = response;
@@ -290,7 +290,7 @@ function getAllChefs(){
     displayStory();
     $.ajax({
         dataType: "json",
-        url: '/api/chef',
+        url: 'https://nxtdoorchef.com/api/chef',
         method: 'get',
         success: function(response){
             data = response;
@@ -356,6 +356,7 @@ function changeHistory(data, route){
 
 function navigateHome(){
     history.pushState(null, null, " ");
+    handleHistoryChange();
 }
 
 function content_clear(){
@@ -367,7 +368,7 @@ function content_clear(){
 function searchForItemByName(name){
     $.ajax({
         dataType: "json",
-        url: "/api/menu/item/" + name,
+        url: "https://nxtdoorchef.com/api/menu/item/" + name,
         method: "get",
         success: (res)=>{
             const chefs = data.data;

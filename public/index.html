@@ -25,7 +25,7 @@
 <nav class="navbar navbar-default col-xs-12" id="whole-navbar">
     <div class="container-fluid">
         <!-- <span class="backButton backToHome glyphicon glyphicon-menu-left col-sm-1 col-xs-1" onclick="backToHome()"></span> -->
-        <div onclick="backToLandingPage()" class="navbar-header col-sm-5 col-xs-12">
+        <div onclick="navigateHome()" class="navbar-header col-sm-5 col-xs-12">
             <img class="navbar-brand" src="assets/nxtDoorChef.png">
         </div>
         <div class="col-sm-6 col-xs-12 right-nav navbar-right">
@@ -103,7 +103,7 @@
     <div class="container-fluid">
         <div class="row">
             <!--User info section-->
-            <div class="col-sm-3 col-xs-12" id="orderBy_container">
+            <div class="col-lg-3 col-md-12" id="orderBy_container">
                 <h4>Customer:</h4>
                 <div>
                     <form class="userInfo">
@@ -123,9 +123,9 @@
                 </div>
             </div>
             <!--Chef info section-->
-            <div class="col-sm-3 col-xs-12" id="orderOf_container">
+            <div class="col-lg-3 col-md-12" id="orderOf_container">
             </div>
-            <div class="col-sm-3 col-xs-12" id="pickupInfo_container">
+            <div class="col-lg-3 col-md-12" id="pickupInfo_container">
             </div>
             <!-- Modal -->
             <div id="confirmModal" class="modal fade" role="dialog">
@@ -165,8 +165,10 @@
     <main>
         <div class="container">
             <!--This is the picture section. Carousel of all the pictures associated with the chef profile. Portrait, food, etc..-->
-            <section class="col-sm-8 col-sm-offset-2"  id="chefProfilePics">
-            </section>
+            <div class="row">
+                <section class="col-sm-8 col-sm-offset-2"  id="chefProfilePics">
+                </section>
+            </div>
             <div id="mobileChefMenu"></div>
             <div class="row profileDetails">
                 <div id="profileContentContainer">
